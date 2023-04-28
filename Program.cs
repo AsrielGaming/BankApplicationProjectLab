@@ -13,7 +13,7 @@ namespace BankApplicationProjectLab
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
 
-            
+            // dit is een test om te kijken of ik in github kan aanpassen en zo kan pullen naar visual studio.
         }
     }
 }
