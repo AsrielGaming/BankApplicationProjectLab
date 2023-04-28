@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_InspirationLab_2023.Classes
+namespace BankApplicationProjectLab.Classes
 {
     internal class Account
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_InspirationLab_2023.Classes
+namespace BankApplicationProjectLab.Classes
 {
     internal class CurrentAccount
     {

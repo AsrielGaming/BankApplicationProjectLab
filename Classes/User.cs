@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_InspirationLab_2023.Classes
+namespace BankApplicationProjectLab.Classes
 {
-    internal class Admin
+    internal class User
     {
-        public Admin()
+        public User()
         {
 
         }
 
-        public void giveUserAccountOverview()
+        public void createUserAccount()
         {
 
         }
 
-        public void createAdminAccount()
+        public void editProfilePic()
         {
 
         }
