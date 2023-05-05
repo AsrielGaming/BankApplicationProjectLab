@@ -22,17 +22,17 @@ namespace BankApplicationProjectLab.Classes
             IsFree = isfree;
         }
 
-        public void newTransaction()
+        public void NewTransaction()
         {
 
         }
 
-        public void overViewHistory()
+        public void OverViewHistory()
         {
 
         }
 
-        public void checkAccountBalance()
+        public void CheckAccountBalance()
         {
 
         }

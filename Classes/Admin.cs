@@ -13,12 +13,12 @@ namespace BankApplicationProjectLab.Classes
 
         }
 
-        public void giveUserAccountOverview()
+        public void GiveUserAccountOverview()
         {
 
         }
 
-        public void createAdminAccount()
+        public void CreateAdminAccount()
         {
 
         }

@@ -1,3 +1,7 @@
+using BankApplicationProjectLab.Classes;
+using System.Windows.Forms;
+using System.Xml;
+
 namespace BankApplicationProjectLab
 {
     internal static class Program
@@ -13,7 +17,17 @@ namespace BankApplicationProjectLab
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
 
-            // dit is een test om te kijken of ik in github kan aanpassen en zo kan pullen naar visual studio.
+
+            // eigen deel: NIET VERGETEN OUTPUT TYPE TERUG TE ZETTEN NAAR WINDOWS APPLICATION
+            // WANT NU NAAR CONSOLE APPLICATION GEZET OM PRINTEN TE KUNNEN DOEN NAAR GEWONE CONSOLE OM CODE TE TESTEN
+
+
+            User user = new User();
+
+            user.createUserAccount("Pieter", "Beelen", "pieter", 1234, 1234);
+            user.editProfilePic();
+
+           
         }
     }
 }

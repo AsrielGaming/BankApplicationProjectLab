@@ -16,33 +16,33 @@ namespace Project_InspirationLab_2023.Classes
 
         public People(string firstName, string lastName, string email, int pin)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            Pin = pin;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Email = email;
+            this.Pin = pin;
         }
 
-        public void login()
+        public void Login()
         {
 
         }
 
-        public void editFirstName()
+        public void EditFirstName()
         {
 
         }
 
-        public void editLastName()
+        public void EditLastName()
         {
 
         }
 
-        public void editPIN()
+        public void EditPIN()
         {
 
         }
 
-        public void deleteUserAccount()
+        public void DeleteUserAccount()
         {
 
         }

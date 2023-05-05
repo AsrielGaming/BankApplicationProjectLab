@@ -28,18 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label = new Label();
             SuspendLayout();
+            // 
+            // label
+            // 
+            label.AutoSize = true;
+            label.Location = new Point(271, 81);
+            label.Name = "label";
+            label.Size = new Size(50, 20);
+            label.TabIndex = 0;
+            label.Text = "label1";
+            label.Click += label1_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label;
     }
 }

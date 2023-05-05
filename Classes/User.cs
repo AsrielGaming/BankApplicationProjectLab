@@ -13,14 +13,14 @@ namespace BankApplicationProjectLab.Classes
 
         }
 
-        public void createUserAccount()
+        public void createUserAccount(string Firstname, string Lastname, string Email, int Pin, int PinCheck)
         {
-
+            Console.WriteLine("CreateUserAccount werkt");
         }
 
         public void editProfilePic()
         {
-
+            Console.WriteLine("editProfilePic werkt");
         }
 
     }

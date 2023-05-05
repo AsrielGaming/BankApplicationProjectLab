@@ -13,7 +13,7 @@ namespace Project_InspirationLab_2023.Classes
 
         }
 
-        public void overviewSavingsAccount()
+        public void OverviewSavingsAccount()
         {
 
         }

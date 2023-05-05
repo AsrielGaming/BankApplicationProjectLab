@@ -13,7 +13,7 @@ namespace BankApplicationProjectLab.Classes
 
         }
 
-        public void overviewCurrentAccount()
+        public void OverviewCurrentAccount()
         {
 
         }
