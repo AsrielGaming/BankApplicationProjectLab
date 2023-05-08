@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BankApplicationProjectLab.Classes
 {
-    internal class User: People
+    class User: People
     {
 
         private int PinCheck { get; set; }

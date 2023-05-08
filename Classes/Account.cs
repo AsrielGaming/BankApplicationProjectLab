@@ -24,16 +24,17 @@ namespace BankApplicationProjectLab.Classes
 
         public void NewTransaction()
         {
-
+            Console.WriteLine("new transaction werkt");
         }
 
         public void OverViewHistory()
         {
-
+            Console.WriteLine("overviewhistory werkt");
         }
 
         public void CheckAccountBalance()
         {
+            Console.WriteLine("check accountBalance werkt");
 
         }
 

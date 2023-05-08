@@ -1,4 +1,5 @@
 using BankApplicationProjectLab.Classes;
+using Project_InspirationLab_2023.Classes;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -24,8 +25,30 @@ namespace BankApplicationProjectLab
 
             User user = new User("Pieter","Beelen","pieter",1234,1234);
 
+            Account account = new Account("Pieter", 500, 1, true);
+
+            People people = new People("Pieter", "Beelen", "pieter@", 1234);
+
+            Admin admin = new Admin();
+
+            CurrentAccount currentAccount = new CurrentAccount();
+
+            SavingsAccount savingsAccount = new SavingsAccount();
+
             user.CreateUserAccount();
             user.EditProfilePic();
+
+            account.NewTransaction();
+            account.OverViewHistory();
+            account.CheckAccountBalance();
+
+            admin.GiveUserAccountOverview();
+
+            currentAccount.OverviewCurrentAccount();
+
+            savingsAccount.OverviewSavingsAccount();
+
+            
             
             
 

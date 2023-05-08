@@ -15,13 +15,10 @@ namespace BankApplicationProjectLab.Classes
 
         public void GiveUserAccountOverview()
         {
-
+            Console.WriteLine("giveuseraccountoverview werkt");
         }
 
-        public void CreateAdminAccount()
-        {
-
-        }
+        
 
     }
 }
