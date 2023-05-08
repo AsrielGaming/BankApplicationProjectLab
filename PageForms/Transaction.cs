@@ -10,25 +10,36 @@ using System.Windows.Forms;
 
 namespace BankApplicationProjectLab.PageForms
 {
-    public partial class UserAccountPage : Form
+    public partial class Transaction : Form
     {
-        public UserAccountPage()
+        public Transaction()
         {
             InitializeComponent();
         }
 
-        private void UserAccountPage_FormClosed(object sender, FormClosedEventArgs e)
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Transaction_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.ExitThread();
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+
 
 
             //ga naar homepage
@@ -37,8 +48,9 @@ namespace BankApplicationProjectLab.PageForms
             homepage.Show();
         }
 
-        private void label18_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+
 
 
             //ga naar homepage

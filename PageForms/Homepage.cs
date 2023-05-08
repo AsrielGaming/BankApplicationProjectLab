@@ -58,5 +58,26 @@ namespace BankApplicationProjectLab.PageForms
 
             //Environment.Exit();
         }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+
+
+            //ga naar transaction pagina
+            this.Hide();
+            Transaction transaction = new Transaction();
+            transaction.Show();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+
+            //ga naar user account pagina
+            this.Hide();
+            UserAccountPage userAccount = new UserAccountPage();
+            userAccount.Show();
+        }
     }
 }

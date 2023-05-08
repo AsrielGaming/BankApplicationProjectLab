@@ -110,6 +110,7 @@
             label19.TabIndex = 2;
             label19.Text = "New transaction";
             label19.TextAlign = ContentAlignment.MiddleCenter;
+            label19.Click += label19_Click;
             // 
             // tableLayoutPanel3
             // 
@@ -189,6 +190,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 4;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // tableLayoutPanel4
             // 

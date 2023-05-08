@@ -1,3 +1,5 @@
+using BankApplicationProjectLab.PageForms;
+
 namespace BankApplicationProjectLab
 {
     public partial class LoginForm : Form
@@ -71,6 +73,9 @@ namespace BankApplicationProjectLab
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
+
+            //ga naar signup page
             this.Hide();
             SignUpForm signupPage = new SignUpForm();
             signupPage.Show();
@@ -89,6 +94,25 @@ namespace BankApplicationProjectLab
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.ExitThread();
+        }
+
+        private void loginButton_Click_1(object sender, EventArgs e)
+        {
+
+
+            //ga naar homepage
+            this.Hide();
+            Homepage homepage = new Homepage();
+            homepage.Show();
+        }
+
+        // temporary
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //ga naar admin pagina
+            this.Hide();
+            AdminControls adminControls = new AdminControls();
+            adminControls.Show();
         }
     }
 }

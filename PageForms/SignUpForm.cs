@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankApplicationProjectLab.PageForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -85,10 +86,19 @@ namespace BankApplicationProjectLab
         private void button1_Click(object sender, EventArgs e)
         {
 
+
+
+            //ga naar login pagina
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
+
+            //ga naar login pagina
             this.Hide();
             LoginForm loginPage = new LoginForm();
             loginPage.Show();

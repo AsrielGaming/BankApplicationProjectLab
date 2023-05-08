@@ -16,5 +16,30 @@ namespace BankApplicationProjectLab.PageForms
         {
             InitializeComponent();
         }
+
+        private void AdminControls_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.ExitThread();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+
+            //ga naar homepage
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+
+            //ga naar homepage
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }

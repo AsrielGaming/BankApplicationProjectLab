@@ -30,6 +30,7 @@
             emailTextBox = new TextBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -61,6 +62,7 @@
             tableLayoutPanel1.Controls.Add(pinLabel, 0, 3);
             tableLayoutPanel1.Controls.Add(loginButton, 1, 4);
             tableLayoutPanel1.Controls.Add(linkLabel1, 1, 5);
+            tableLayoutPanel1.Controls.Add(button1, 1, 6);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(408, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -137,6 +139,7 @@
             loginButton.TabIndex = 11;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += loginButton_Click_1;
             // 
             // linkLabel1
             // 
@@ -189,6 +192,16 @@
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            button1.Location = new Point(101, 365);
+            button1.Name = "button1";
+            button1.Size = new Size(211, 29);
+            button1.TabIndex = 14;
+            button1.Text = "admin controls";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -219,5 +232,6 @@
         private TextBox textBox2;
         private TableLayoutPanel tableLayoutPanel2;
         private PictureBox pictureBox1;
+        private Button button1;
     }
 }
