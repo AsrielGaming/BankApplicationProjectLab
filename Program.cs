@@ -22,10 +22,12 @@ namespace BankApplicationProjectLab
             // WANT NU NAAR CONSOLE APPLICATION GEZET OM PRINTEN TE KUNNEN DOEN NAAR GEWONE CONSOLE OM CODE TE TESTEN
 
 
-            User user = new User();
+            User user = new User("Pieter","Beelen","pieter",1234,1234);
 
-            user.createUserAccount("Pieter", "Beelen", "pieter", 1234, 1234);
-            user.editProfilePic();
+            user.CreateUserAccount();
+            user.EditProfilePic();
+            
+            
 
            
         }

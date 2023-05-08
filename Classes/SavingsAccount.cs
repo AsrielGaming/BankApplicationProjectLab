@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_InspirationLab_2023.Classes
 {
-    internal class SavingsAccount
+    class SavingsAccount
     {
         public SavingsAccount()
         {

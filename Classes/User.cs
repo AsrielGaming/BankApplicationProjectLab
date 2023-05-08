@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_InspirationLab_2023.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,19 +7,22 @@ using System.Threading.Tasks;
 
 namespace BankApplicationProjectLab.Classes
 {
-    internal class User
+    internal class User: People
     {
-        public User()
-        {
 
+        private int PinCheck { get; set; }
+
+        public User(string firstName, string lastName, string email, int pin, int pincheck) : base(firstName,lastName,email,pin)
+        {
+            this.PinCheck = pincheck;
         }
 
-        public void createUserAccount(string Firstname, string Lastname, string Email, int Pin, int PinCheck)
+        public void CreateUserAccount()
         {
             Console.WriteLine("CreateUserAccount werkt");
         }
 
-        public void editProfilePic()
+        public void EditProfilePic()
         {
             Console.WriteLine("editProfilePic werkt");
         }

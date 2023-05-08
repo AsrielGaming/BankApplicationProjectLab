@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BankApplicationProjectLab.Classes
 {
-    internal class Account
+    class Account
     {
         public string Name { get; set; }
         protected double Saldo { get; set; }
@@ -16,10 +16,10 @@ namespace BankApplicationProjectLab.Classes
 
         public Account(string name, double saldo, int userID, bool isfree)
         {
-            Name = name;
-            Saldo = saldo;
-            UserID = userID;
-            IsFree = isfree;
+            this.Name = name;
+            this.Saldo = saldo;
+            this.UserID = userID;
+            this.IsFree = isfree;
         }
 
         public void NewTransaction()

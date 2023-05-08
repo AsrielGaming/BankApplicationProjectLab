@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project_InspirationLab_2023.Classes
 {
-    internal class People
+    class People
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
