@@ -9,7 +9,7 @@ namespace Project_InspirationLab_2023.Classes
 {
     class SavingsAccount: Account
     {
-        public SavingsAccount(string name, string accountNumber, int saldo, int userID, bool isFree): base(name,accountNumber, saldo, userID,isFree)
+        public SavingsAccount(string name, string accountNumber, int balance, int userID, bool isFree): base(name,accountNumber, balance, userID,isFree)
         {
 
         }

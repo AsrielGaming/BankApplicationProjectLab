@@ -8,7 +8,7 @@ namespace BankApplicationProjectLab.Classes
 {
     class CurrentAccount: Account
     {
-        public CurrentAccount(string name, string accountNumber, int saldo, int userID, bool isFree): base(name, accountNumber, saldo, userID,isFree)
+        public CurrentAccount(string name, string accountNumber, int balance, int userID, bool isFree): base(name, accountNumber, balance, userID,isFree)
         {
 
         }

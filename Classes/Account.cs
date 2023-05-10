@@ -12,15 +12,15 @@ namespace BankApplicationProjectLab.Classes
     {
         public string Name { get; set; }
         public string AccountNumber { get; set; }
-        protected double Saldo { get; set; }
+        public double Balance { get; set; }
         public int UserID { get; set; }
         public bool IsFree { get; set; }
 
-        public Account(string name, string accountNumber, double saldo, int userID, bool isfree)
+        public Account(string name, string accountNumber, double balance, int userID, bool isfree)
         {
             this.Name = name;
             this.AccountNumber = accountNumber;
-            this.Saldo = saldo;
+            this.Balance = balance;
             this.UserID = userID;
             this.IsFree = isfree;
         }
