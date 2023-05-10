@@ -9,7 +9,7 @@ namespace BankApplicationProjectLab.Classes
 {
     class Admin: People
     {
-        public Admin(string firstName, string lastName, string email, int pin, int userID): base(firstName, lastName, email,pin, userID)
+        public Admin(string firstName, string lastName, string email, int pin, int userID): base(firstName, lastName, email, pin, userID)
         {
             
         }

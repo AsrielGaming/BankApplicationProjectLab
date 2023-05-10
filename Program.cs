@@ -67,6 +67,9 @@ namespace BankApplicationProjectLab
 
 
 
+
+
+
             /////////////////////////////// test to insert a user ////////////////////////////////////////////////////
 
             /*
@@ -114,7 +117,7 @@ namespace BankApplicationProjectLab
 
             ///////////////////////////// test to insert a current account ////////////////////////////////////////////////
 
-
+            /*
             Data data = new Data();
 
             // Create a new User object with the necessary data
@@ -133,7 +136,28 @@ namespace BankApplicationProjectLab
             {
                 Console.WriteLine("Failed to insert current account.");
             }
+            */
 
+
+            ////////////////////////// test to insert an admin ////////////////////////////////////////////////////////////////////////
+            Data data = new Data();
+
+            // Create a new User object with the necessary data
+            Admin newAdmin = new Admin("admin", "admin", "admin@admin.com", 4321, 1);
+
+
+            // Call the InsertUser method to insert the new user into the database
+            int insertedId = data.InsertAdmin(newAdmin);
+
+            // Check if the insertion was successful
+            if (insertedId != -1)
+            {
+                Console.WriteLine("Admin inserted successfully. ID: " + insertedId);
+            }
+            else
+            {
+                Console.WriteLine("Failed to insert admin.");
+            }
 
 
         }

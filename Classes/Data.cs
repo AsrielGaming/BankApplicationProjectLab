@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using MySqlConnector;
 using Project_InspirationLab_2023.Classes;
 using System;
 using System.Collections.Generic;
@@ -68,6 +69,18 @@ namespace BankApplicationProjectLab.Classes
               $"{currentAccount.Balance}, " +
               $"{currentAccount.IsFree}, " +
               $"0);";
+
+
+            return this.Insert(query);
+        }
+
+        public int InsertAdmin(Admin admin)
+        {
+            string query = $"INSERT INTO admin(Firstname,Lastname,Pin,Email) " +
+              $"VALUES ('{admin.FirstName}', " +
+              $"'{admin.LastName}'," +
+              $"{admin.Pin}, " +
+              $"'{admin.Email}');";
 
 
             return this.Insert(query);
