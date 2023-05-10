@@ -23,36 +23,43 @@ namespace BankApplicationProjectLab
             // WANT NU NAAR CONSOLE APPLICATION GEZET OM PRINTEN TE KUNNEN DOEN NAAR GEWONE CONSOLE OM CODE TE TESTEN
 
 
-            User user = new User("Pieter","Beelen","pieter",1234,1234);
+            User user = new User("Pieter","Beelen","pieter",1234,1234,155555);
 
-            Account account = new Account("Pieter", 500, 1, true);
+            Admin admin = new Admin("Pieter", "Beelen", "pieter@", 1234,155555);
 
-            People people = new People("Pieter", "Beelen", "pieter@", 1234);
+            Account account = new Account("Pieter","BE823405851", 500, 1, true);
 
-            Admin admin = new Admin();
 
-            CurrentAccount currentAccount = new CurrentAccount();
+            CurrentAccount currentAccount = new CurrentAccount("rek1","BE048456", -5000, 59, false);
 
-            SavingsAccount savingsAccount = new SavingsAccount();
+            SavingsAccount savingsAccount = new SavingsAccount("rek1", "BE048456", -5000, 59, false);
 
-            user.CreateUserAccount();
-            user.EditProfilePic();
+            
+            // tests to check whether the fucntions work or not and if the inheritance works properly or not
+            /*
+            savingsAccount.NewTransaction();
+            savingsAccount.OverViewHistory();
+            savingsAccount.CheckAccountBalance();
 
-            account.NewTransaction();
-            account.OverViewHistory();
-            account.CheckAccountBalance();
-
+            
             admin.GiveUserAccountOverview();
 
             currentAccount.OverviewCurrentAccount();
 
             savingsAccount.OverviewSavingsAccount();
 
-            people.Login();
-            people.EditFirstName();
-            people.EditLastName();
-            people.EditPIN();
-            people.DeleteUserAccount();
+            admin.Login();
+            admin.EditFirstName();
+            admin.EditLastName();
+            admin.EditPIN();
+            admin.CreateUserAccount();
+            admin.DeleteUserAccount();
+            
+
+            user.EditProfilePic();
+
+            admin.GiveUserAccountOverview();
+            */
 
             
             

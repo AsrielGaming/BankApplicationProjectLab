@@ -12,17 +12,17 @@ namespace BankApplicationProjectLab.Classes
 
         private int PinCheck { get; set; }
 
-        public User(string firstName, string lastName, string email, int pin, int pincheck) : base(firstName,lastName,email,pin)
+        public User(string firstName, string lastName, string email, int pin, int pincheck, int userID) : base(firstName,lastName,email,pin, userID)
         {
             this.PinCheck = pincheck;
         }
 
-        
 
         public void EditProfilePic()
         {
             Console.WriteLine("editProfilePic werkt");
         }
+
 
     }
 }

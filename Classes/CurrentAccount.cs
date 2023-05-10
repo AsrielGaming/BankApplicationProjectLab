@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BankApplicationProjectLab.Classes
 {
-    class CurrentAccount
+    class CurrentAccount: Account
     {
-        public CurrentAccount()
+        public CurrentAccount(string name, string accountNumber, int saldo, int userID, bool isFree): base(name, accountNumber, saldo, userID,isFree)
         {
 
         }

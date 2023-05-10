@@ -13,13 +13,15 @@ namespace Project_InspirationLab_2023.Classes
         public string LastName { get; set; }
         public string Email { get; set; }
         protected int Pin { get; set; }
+        protected int UserID { get; set; }
 
-        public People(string firstName, string lastName, string email, int pin)
+        public People(string firstName, string lastName, string email, int pin, int userID)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Email = email;
             this.Pin = pin;
+            this.UserID = userID;
         }
 
         public void Login()
@@ -42,9 +44,14 @@ namespace Project_InspirationLab_2023.Classes
             Console.WriteLine("editPin werkt");
         }
 
+        public void CreateUserAccount()
+        {
+            Console.WriteLine("CreateUserAccount werkt");
+        }
+
         public void DeleteUserAccount()
         {
-            Console.WriteLine("delete user account");
+            Console.WriteLine("delete user account werkt");
         }
 
     }
