@@ -24,27 +24,27 @@ namespace Project_InspirationLab_2023.Classes
 
         public void Login()
         {
-
+            Console.WriteLine("login werkt");
         }
 
         public void EditFirstName()
         {
-
+            Console.WriteLine("edit firstname werkt");
         }
 
         public void EditLastName()
         {
-
+            Console.WriteLine("edit lastname werkt");
         }
 
         public void EditPIN()
         {
-
+            Console.WriteLine("editPin werkt");
         }
 
         public void DeleteUserAccount()
         {
-
+            Console.WriteLine("delete user account");
         }
 
     }

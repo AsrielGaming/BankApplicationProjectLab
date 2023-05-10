@@ -17,10 +17,7 @@ namespace BankApplicationProjectLab.Classes
             this.PinCheck = pincheck;
         }
 
-        public void CreateUserAccount()
-        {
-            Console.WriteLine("CreateUserAccount werkt");
-        }
+        
 
         public void EditProfilePic()
         {

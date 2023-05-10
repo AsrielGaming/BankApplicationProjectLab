@@ -48,6 +48,12 @@ namespace BankApplicationProjectLab
 
             savingsAccount.OverviewSavingsAccount();
 
+            people.Login();
+            people.EditFirstName();
+            people.EditLastName();
+            people.EditPIN();
+            people.DeleteUserAccount();
+
             
             
             
