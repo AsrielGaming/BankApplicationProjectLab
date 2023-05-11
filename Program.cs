@@ -146,7 +146,7 @@ namespace BankApplicationProjectLab
 
             ////////////////////////// test to check account balance(s) ////////////////////////////////////////////////////////////////////////
 
-
+            /*
             Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234,2 );
 
             Account account = new Account("Zichtrekening", "BE5285315", 500500, 1, true);
@@ -160,7 +160,38 @@ namespace BankApplicationProjectLab
                 double balance = entry.Value;
                 Console.WriteLine("Name: " + name + " ---> Account Balance: " + balance);
             }
+            */
+
+
+
+            ////////////////////////// test to check transaction history ///////////////////////////////////////////////////////////////////////////
+
+
+            
+            Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 9);
+
+            CurrentAccount currentaccount = new CurrentAccount("Zichtrekening", "BE5285315", 500500, 1, true);
+
+            List<Tuple<int, int, double, DateTime>> transactions = currentaccount.OverViewHistory(user);
+
+            // loopen over list met tuples erin. .item om verschillende items (transactiegegevens) uit de tuple te halen
+            foreach (Tuple<int, int, double, DateTime> transaction in transactions)
+            {
+                int from = transaction.Item1;
+                int to = transaction.Item2;
+                double amount = transaction.Item3;
+                DateTime date = transaction.Item4;
+
+                Console.WriteLine("From: " + from + ", To: " + to + ", Amount: " + amount + ", Date: " + date);
+            }
+            
+
+
+
+
+
 
         }
+
     }
 }

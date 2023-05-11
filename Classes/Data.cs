@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Transactions;
 
 namespace BankApplicationProjectLab.Classes
 {
@@ -145,5 +147,53 @@ namespace BankApplicationProjectLab.Classes
             return balances;
             
         }
+
+        // select transaction history from certain user, both when he is "transaction_from" and "transaction_to"
+        // getting all transaction data out of DB and putting them in a tuple, making a list named transactions from these tuples. so 1 tuple contains all data about 1 transaction
+
+        public List<Tuple<int, int, double, DateTime>> SelectTransactionHistory(User user)
+        {
+            string query = $"SELECT* FROM `transaction` WHERE Transferred_from = {user.UserID} or Transferred_to = {user.UserID};";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            List<Tuple<int, int, double, DateTime>> transactions = new List<Tuple<int, int, double, DateTime>>(); ;
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int from = (int)reader["Transferred_from"];
+
+                    int to = (int)reader["Transferred_to"];
+
+                    double amount = reader.GetDouble(reader.GetOrdinal("Amount"));
+
+                    DateTime date = reader.GetDateTime(reader.GetOrdinal("Date"));
+
+                    Tuple<int, int, double, DateTime> transaction = Tuple.Create(from, to, amount, date);
+
+                    transactions.Add(transaction);
+                }
+                reader.Close();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
+            return transactions;
+
+        }
+
+
+
+
     }
 }

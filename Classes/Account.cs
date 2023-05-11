@@ -35,23 +35,27 @@ namespace BankApplicationProjectLab.Classes
             DateTime date = DateTime.Now;
             string dateUSA = date.ToString("yyyy-MM-dd HH:mm:ss");
 
-            // Call the InsertUser method to insert the new user into the database
+            
             int insertedId = data.InsertTransaction(userFrom,userTo,amount,dateUSA);
 
             // Check if the insertion was successful, -1 is default database error message 
             if (insertedId != -1)
             {
-                Console.WriteLine("Admin inserted successfully. ID: " + insertedId);
+                Console.WriteLine("Transaction inserted successfully. ID: " + insertedId);
             }
             else
             {
-                Console.WriteLine("Failed to insert admin.");
+                Console.WriteLine("Failed to insert transaction.");
             }
         }
 
-        public void OverViewHistory()
+        public List<Tuple<int, int, double, DateTime>> OverViewHistory(User user)
         {
-            Console.WriteLine("overviewhistory werkt");
+            Data data = new Data();
+
+            List<Tuple<int,int,double, DateTime>> transactions = data.SelectTransactionHistory(user);
+
+            return transactions;
         }
 
         public Dictionary<string, double> CheckAccountBalance(User user)
