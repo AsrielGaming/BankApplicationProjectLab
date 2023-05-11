@@ -21,51 +21,10 @@ namespace BankApplicationProjectLab
             Application.Run(new Form1());
 
 
+
+
             // eigen deel: NIET VERGETEN OUTPUT TYPE TERUG TE ZETTEN NAAR WINDOWS APPLICATION
             // WANT NU NAAR CONSOLE APPLICATION GEZET OM PRINTEN TE KUNNEN DOEN NAAR GEWONE CONSOLE OM CODE TE TESTEN
-
-
-            //User user = new User("Pieter","Beelen","pieter",1234,1234,155555);
-
-            Admin admin = new Admin("Pieter", "Beelen", "pieter@", 1234,155555);
-
-            Account account = new Account("Pieter","BE823405851", 500, 1, true);
-
-
-            CurrentAccount currentAccount = new CurrentAccount("rek1","BE048456", -5000, 59, false);
-
-            SavingsAccount savingsAccount = new SavingsAccount("rek1", "BE048456", -5000, 59, false);
-
-
-            // tests to check whether the fucntions work or not and if the inheritance works properly or not
-            /*
-            savingsAccount.NewTransaction();
-            savingsAccount.OverViewHistory();
-            savingsAccount.CheckAccountBalance();
-
-            
-            admin.GiveUserAccountOverview();
-
-            currentAccount.OverviewCurrentAccount();
-
-            savingsAccount.OverviewSavingsAccount();
-
-            admin.Login();
-            admin.EditFirstName();
-            admin.EditLastName();
-            admin.EditPIN();
-            admin.CreateUserAccount();
-            admin.DeleteUserAccount();
-            
-
-            user.EditProfilePic();
-
-            admin.GiveUserAccountOverview();
-            */
-
-
-
-
 
 
 
@@ -140,6 +99,9 @@ namespace BankApplicationProjectLab
 
 
             ////////////////////////// test to insert an admin ////////////////////////////////////////////////////////////////////////
+
+            /*
+
             Data data = new Data();
 
             // Create a new User object with the necessary data
@@ -158,7 +120,46 @@ namespace BankApplicationProjectLab
             {
                 Console.WriteLine("Failed to insert admin.");
             }
+            */
 
+
+
+
+            ////////////////////////// test to execute transaction ////////////////////////////////////////////////////////////////////////
+
+
+
+            // Classes before user because name user is ambigiuous.
+            // Create two users and an account to test the transaction creation and input into database.
+            // Works with Account, savings-and currentaccount
+            /*
+            Classes.User userFrom = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 9);
+            Classes.User userTo = new Classes.User("Daniel", "Janssens", "Danny@gmail.com", 1234, 1234, 56);
+
+            SavingsAccount newAccount = new SavingsAccount("Zichtrekening", "BE5285315", 500500, 1, true);
+
+            newAccount.NewTransaction(userFrom, userTo, 985224) ;
+            */
+
+
+
+
+            ////////////////////////// test to check account balance(s) ////////////////////////////////////////////////////////////////////////
+
+
+            Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234,2 );
+
+            Account account = new Account("Zichtrekening", "BE5285315", 500500, 1, true);
+
+            Dictionary<string,double> balances = account.CheckAccountBalance(user);
+
+
+            foreach (KeyValuePair<string, double> entry in balances)
+            {
+                string name = entry.Key;
+                double balance = entry.Value;
+                Console.WriteLine("Name: " + name + " ---> Account Balance: " + balance);
+            }
 
         }
     }

@@ -13,7 +13,7 @@ namespace Project_InspirationLab_2023.Classes
         public string LastName { get; set; }
         public string Email { get; set; }
         public int Pin { get; set; }
-        protected int UserID { get; set; }
+        public int UserID { get; set; }
 
         public People(string firstName, string lastName, string email, int pin, int userID)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -25,9 +26,27 @@ namespace BankApplicationProjectLab.Classes
             this.IsFree = isfree;
         }
 
-        public void NewTransaction()
+        public void NewTransaction(User userFrom, User userTo, double amount)
         {
-            Console.WriteLine("new transaction werkt");
+            // create data object 
+            Data data = new Data();
+
+            // DateTime is EU format, so create string with USA format to insert in DB
+            DateTime date = DateTime.Now;
+            string dateUSA = date.ToString("yyyy-MM-dd HH:mm:ss");
+
+            // Call the InsertUser method to insert the new user into the database
+            int insertedId = data.InsertTransaction(userFrom,userTo,amount,dateUSA);
+
+            // Check if the insertion was successful, -1 is default database error message 
+            if (insertedId != -1)
+            {
+                Console.WriteLine("Admin inserted successfully. ID: " + insertedId);
+            }
+            else
+            {
+                Console.WriteLine("Failed to insert admin.");
+            }
         }
 
         public void OverViewHistory()
@@ -35,10 +54,13 @@ namespace BankApplicationProjectLab.Classes
             Console.WriteLine("overviewhistory werkt");
         }
 
-        public void CheckAccountBalance()
+        public Dictionary<string, double> CheckAccountBalance(User user)
         {
-            Console.WriteLine("check accountBalance werkt");
+            Data data = new Data();
 
+            Dictionary<string, double> balances = data.SelectAccountBalance(user);
+
+            return balances;
         }
 
     }

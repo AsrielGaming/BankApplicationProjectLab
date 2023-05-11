@@ -18,6 +18,10 @@ namespace BankApplicationProjectLab.Classes
             "password=;" +
             "database=bankingapp;";
 
+
+
+        //////////////////////////////////////////////   inserting   //////////////////////////////////////////////////////
+
         private int Insert(string query)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -84,6 +88,62 @@ namespace BankApplicationProjectLab.Classes
 
 
             return this.Insert(query);
+        }
+
+        public int InsertTransaction(User userFrom, User userTo, double amount, string date)
+        {
+            
+
+            string query = $"INSERT INTO transaction(Transferred_from,Transferred_to,Amount,Date) " +
+              $"VALUES ('{userFrom.UserID}', " +
+              $"'{userTo.UserID}'," +
+              $"{amount}, " +
+              $"'{date}');";
+
+
+            return this.Insert(query);
+        }
+
+
+        //////////////////////////////////////////////     selecting     //////////////////////////////////////////////////////
+        
+
+
+        // select account balances from all accounts a user has
+        // put it into a dictionary with the account's name and balance
+        public Dictionary<string,double> SelectAccountBalance(User user)
+        {
+            string query = $"SELECT * FROM `account` WHERE UserID = {user.UserID};";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            Dictionary<string,double> balances = new Dictionary<string, double>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string name = (string)reader["Name"];
+
+                    double balanceDB = reader.GetDouble(reader.GetOrdinal("Balance"));
+
+                    balances[name] = balanceDB;
+                }
+                reader.Close();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            
+
+            return balances;
+            
         }
     }
 }
