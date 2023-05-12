@@ -258,6 +258,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
             Name = "SignUpForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             FormClosed += SignUpForm_FormClosed;
             Load += SignUpForm_Load;

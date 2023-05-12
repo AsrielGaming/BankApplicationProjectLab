@@ -27,10 +27,10 @@
             pinLabel = new Label();
             loginButton = new Button();
             linkLabel1 = new LinkLabel();
+            button1 = new Button();
             emailTextBox = new TextBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
-            button1 = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -153,6 +153,16 @@
             linkLabel1.Text = "Make a new account here";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked_1;
             // 
+            // button1
+            // 
+            button1.Location = new Point(101, 365);
+            button1.Name = "button1";
+            button1.Size = new Size(211, 29);
+            button1.TabIndex = 14;
+            button1.Text = "admin controls";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // emailTextBox
             // 
             emailTextBox.Anchor = AnchorStyles.Left;
@@ -192,16 +202,6 @@
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
             // 
-            // button1
-            // 
-            button1.Location = new Point(101, 365);
-            button1.Name = "button1";
-            button1.Size = new Size(211, 29);
-            button1.TabIndex = 14;
-            button1.Text = "admin controls";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -211,6 +211,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel2);
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "loginForm";
             FormClosed += LoginForm_FormClosed;
             Load += LoginForm_Load;

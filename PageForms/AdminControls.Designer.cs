@@ -816,6 +816,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
             Name = "AdminControls";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form4";
             FormClosed += AdminControls_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);

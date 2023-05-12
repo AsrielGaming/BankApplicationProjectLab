@@ -610,6 +610,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
             Name = "UserAccountPage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form3";
             FormClosed += UserAccountPage_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);

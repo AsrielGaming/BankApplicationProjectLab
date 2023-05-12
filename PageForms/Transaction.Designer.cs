@@ -522,6 +522,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
             Name = "Transaction";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             FormClosed += Transaction_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);

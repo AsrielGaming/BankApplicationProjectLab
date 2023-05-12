@@ -525,6 +525,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
             Name = "Homepage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             FormClosed += Homepage_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);
