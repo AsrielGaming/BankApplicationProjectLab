@@ -144,29 +144,9 @@ namespace BankApplicationProjectLab
 
 
 
-            ////////////////////////// test to check account balance(s) ////////////////////////////////////////////////////////////////////////
-
-            /*
-            Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234,2 );
-
-            Account account = new Account("Zichtrekening", "BE5285315", 500500, 1, true);
-
-            Dictionary<string,double> balances = account.CheckAccountBalance(user);
-
-
-            foreach (KeyValuePair<string, double> entry in balances)
-            {
-                string name = entry.Key;
-                double balance = entry.Value;
-                Console.WriteLine("Name: " + name + " ---> Account Balance: " + balance);
-            }
-            */
-
-
-
             ////////////////////////// test to check transaction history ///////////////////////////////////////////////////////////////////////////
 
-
+            /*
             
             Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 9);
 
@@ -184,7 +164,28 @@ namespace BankApplicationProjectLab
 
                 Console.WriteLine("From: " + from + ", To: " + to + ", Amount: " + amount + ", Date: " + date);
             }
-            
+            */
+
+
+
+
+            ////////////////////////// test to give overview of accounts ///////////////////////////////////////////////////////////////////////////
+
+            // works both for  savings and current accounts
+
+            Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 2);
+
+            CurrentAccount account = new CurrentAccount("spaarrekening", "BE5285315", 500500, 1, true);
+
+            Dictionary<string, double> currentAccounts = account.OverviewCurrentAccount(user);
+
+
+            foreach (KeyValuePair<string, double> entry in currentAccounts)
+            {
+                string name = entry.Key;
+                double balance = entry.Value;
+                Console.WriteLine("Name: " + name + " ---> Account Balance: " + balance);
+            }
 
 
 

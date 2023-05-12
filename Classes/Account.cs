@@ -58,6 +58,7 @@ namespace BankApplicationProjectLab.Classes
             return transactions;
         }
 
+        /*
         public Dictionary<string, double> CheckAccountBalance(User user)
         {
             Data data = new Data();
@@ -66,6 +67,7 @@ namespace BankApplicationProjectLab.Classes
 
             return balances;
         }
+        */
 
     }
 }

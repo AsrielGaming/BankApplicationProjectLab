@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,13 @@ namespace BankApplicationProjectLab.Classes
 
         }
 
-        public void OverviewCurrentAccount()
+        public Dictionary<string, double> OverviewCurrentAccount(User user)
         {
-            Console.WriteLine("overview current account werkt");
+            Data data = new Data();
+
+            Dictionary<string, double> currentAccounts = data.SelectOverwiewCurrentAccounts(user);
+
+            return currentAccounts;
         }
 
     }

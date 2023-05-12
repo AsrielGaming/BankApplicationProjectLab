@@ -1,4 +1,5 @@
 ﻿using BankApplicationProjectLab.Classes;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,13 @@ namespace Project_InspirationLab_2023.Classes
 
         }
 
-        public void OverviewSavingsAccount()
+        public Dictionary<string, double> OverviewSavingsAccount(BankApplicationProjectLab.Classes.User user)
         {
-            Console.WriteLine("overview savings account werkt");
+            Data data = new Data();
+
+            Dictionary<string, double> savingsAccounts = data.SelectOverwiewSavingAccounts(user);
+
+            return savingsAccounts;
         }
 
     }

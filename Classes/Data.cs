@@ -42,6 +42,7 @@ namespace BankApplicationProjectLab.Classes
             return -1;
         }
 
+        // function to create a new user in the database when creating a new user in the program
         public int InsertUser(User user)
         {
             string query = $"INSERT INTO user(Firstname,Lastname,Pin,Email) " +
@@ -54,6 +55,7 @@ namespace BankApplicationProjectLab.Classes
             return this.Insert(query);
         }
 
+        // function to create a new savingsAccount in the database when creating a new savingsaccount in program
         public int InsertSavingsAccount(SavingsAccount savingsAccount)
         {
             string query = $"INSERT INTO account(UserID,Name,Balance,isFree,isSavingsAccount) " +
@@ -67,6 +69,7 @@ namespace BankApplicationProjectLab.Classes
             return this.Insert(query);
         }
 
+        // function to create a new currentAccount in the database when creating a new currentaccount in program
         public int InsertCurrentAccount(CurrentAccount currentAccount)
         {
             string query = $"INSERT INTO account(UserID,Name,Balance,isFree,isSavingsAccount) " +
@@ -80,6 +83,7 @@ namespace BankApplicationProjectLab.Classes
             return this.Insert(query);
         }
 
+        // insert admin in the database when creating a new admin in program
         public int InsertAdmin(Admin admin)
         {
             string query = $"INSERT INTO admin(Firstname,Lastname,Pin,Email) " +
@@ -108,49 +112,12 @@ namespace BankApplicationProjectLab.Classes
 
 
         //////////////////////////////////////////////     selecting     //////////////////////////////////////////////////////
-        
 
-
-        // select account balances from all accounts a user has
-        // put it into a dictionary with the account's name and balance
-        public Dictionary<string,double> SelectAccountBalance(User user)
-        {
-            string query = $"SELECT * FROM `account` WHERE UserID = {user.UserID};";
-
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            Dictionary<string,double> balances = new Dictionary<string, double>();
-
-            try
-            {
-                connection.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    string name = (string)reader["Name"];
-
-                    double balanceDB = reader.GetDouble(reader.GetOrdinal("Balance"));
-
-                    balances[name] = balanceDB;
-                }
-                reader.Close();
-                connection.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-            
-
-            return balances;
-            
-        }
 
         // select transaction history from certain user, both when he is "transaction_from" and "transaction_to"
         // getting all transaction data out of DB and putting them in a tuple, making a list named transactions from these tuples. so 1 tuple contains all data about 1 transaction
 
+        
         public List<Tuple<int, int, double, DateTime>> SelectTransactionHistory(User user)
         {
             string query = $"SELECT* FROM `transaction` WHERE Transferred_from = {user.UserID} or Transferred_to = {user.UserID};";
@@ -191,6 +158,92 @@ namespace BankApplicationProjectLab.Classes
             return transactions;
 
         }
+
+
+
+        // select name and balance from all Savingsaccounts
+        // select savingsaccounts out of database and put them in to dictionary
+
+        public Dictionary<string, double> SelectOverwiewSavingAccounts(User user)
+        {
+            string query = $"SELECT * FROM `account` WHERE UserID = {user.UserID} and isSavingsAccount = 1;";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            Dictionary<string, double> savingsAccounts = new Dictionary<string, double>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string name = (string)reader["Name"];
+
+                    double balanceDB = reader.GetDouble(reader.GetOrdinal("Balance"));
+
+                    savingsAccounts[name] = balanceDB;
+                }
+                reader.Close();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
+            return savingsAccounts;
+
+        }
+
+
+
+
+        // select name and balance from all Currentaccounts
+        // select currentaccounts out of database and put them in to dictionary
+
+        public Dictionary<string, double> SelectOverwiewCurrentAccounts(User user)
+        {
+            string query = $"SELECT * FROM `account` WHERE UserID = {user.UserID} and isSavingsAccount = 0;";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            Dictionary<string, double> currentAccounts = new Dictionary<string, double>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string name = (string)reader["Name"];
+
+                    double balanceDB = reader.GetDouble(reader.GetOrdinal("Balance"));
+
+                    currentAccounts[name] = balanceDB;
+                }
+                reader.Close();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
+            return currentAccounts;
+
+        }
+
+
+
+
+
 
 
 
