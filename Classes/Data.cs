@@ -242,11 +242,53 @@ namespace BankApplicationProjectLab.Classes
 
 
 
+        // select user info to give an admin overview of all users
+
+
+        public List<Tuple<int, string, string, int, string, bool>> SelectUserOverview()
+        {
+            string query = $"SELECT * FROM `user`;";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            List<Tuple<int, string, string, int, string, bool>> users = new List<Tuple<int, string, string, int, string, bool>>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int ID = (int)reader["ID"];
+
+                    string Firstname = (string)reader["Firstname"];
+
+                    string Lastname = (string)reader["Lastname"];
+
+                    int PIN = (int)reader["PIN"];
+
+                    string Email = (string)reader["Email"];
+
+                    bool isActive = (bool)reader["isActive"];
+
+                    Tuple<int, string, string, int, string, bool> user = Tuple.Create(ID, Firstname, Lastname, PIN, Email, isActive);
+
+                    users.Add(user);
+                }
+                reader.Close();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
 
 
+            return users;
 
-
+        }
 
     }
 }

@@ -56,18 +56,7 @@ namespace BankApplicationProjectLab.Classes
             List<Tuple<int,int,double, DateTime>> transactions = data.SelectTransactionHistory(user);
 
             return transactions;
-        }
-
-        /*
-        public Dictionary<string, double> CheckAccountBalance(User user)
-        {
-            Data data = new Data();
-
-            Dictionary<string, double> balances = data.SelectAccountBalance(user);
-
-            return balances;
-        }
-        */
+        } 
 
     }
 }

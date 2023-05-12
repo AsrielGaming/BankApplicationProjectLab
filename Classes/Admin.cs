@@ -1,4 +1,5 @@
-﻿using Project_InspirationLab_2023.Classes;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Project_InspirationLab_2023.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,13 @@ namespace BankApplicationProjectLab.Classes
             
         }
 
-        public void GiveUserAccountOverview()
+        public List<Tuple<int, string, string, int, string, bool>> GiveUserAccountOverview()
         {
-            Console.WriteLine("giveuseraccountoverview werkt");
+            Data data = new Data();
+
+            List<Tuple<int, string, string, int, string, bool>> users = data.SelectUserOverview();
+
+            return users;
         }
 
         

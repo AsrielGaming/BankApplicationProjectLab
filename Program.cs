@@ -1,6 +1,7 @@
 using BankApplicationProjectLab.Classes;
 using Microsoft.VisualBasic.ApplicationServices;
 using Project_InspirationLab_2023.Classes;
+using System.Transactions;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
@@ -173,6 +174,9 @@ namespace BankApplicationProjectLab
 
             // works both for  savings and current accounts
 
+
+
+            /*
             Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 2);
 
             CurrentAccount account = new CurrentAccount("spaarrekening", "BE5285315", 500500, 1, true);
@@ -187,12 +191,31 @@ namespace BankApplicationProjectLab
                 Console.WriteLine("Name: " + name + " ---> Account Balance: " + balance);
             }
 
+            */
+
+            ////////////////////////// test to give admin's overview of users ///////////////////////////////////////////////////////////////////////////
+
+            Admin admin = new Admin("admin", "admin", "admin@admin.com", 4321, 1);
+
+            List<Tuple<int, string, string, int, string, bool>> users = admin.GiveUserAccountOverview();
+
+
+            foreach (Tuple<int, string, string, int, string, bool> user in users)
+            {
+                int ID = user.Item1;
+                string Firstname = user.Item2;
+                string Lastname = user.Item3;
+                int PIN = user.Item4;
+                string Email = user.Item5;
+                bool isActive = user.Item6;
+
+                Console.WriteLine("ID: " + ID + ", Firstname: " + Firstname + ", Lastname: " + Lastname + ", PIN: " + PIN + ", Email: " + Email + ", isActive: " + isActive);
 
 
 
 
+            }
 
         }
-
     }
 }
