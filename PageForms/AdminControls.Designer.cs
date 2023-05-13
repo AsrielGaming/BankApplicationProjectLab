@@ -817,7 +817,7 @@
             Controls.Add(tableLayoutPanel1);
             Name = "AdminControls";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form4";
+            Text = "Admin page";
             FormClosed += AdminControls_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

@@ -526,8 +526,9 @@
             Controls.Add(tableLayoutPanel1);
             Name = "Homepage";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Homepage";
             FormClosed += Homepage_FormClosed;
+            Load += Homepage_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();

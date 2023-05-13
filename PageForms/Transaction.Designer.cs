@@ -523,7 +523,7 @@
             Controls.Add(tableLayoutPanel1);
             Name = "Transaction";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Transaction page";
             FormClosed += Transaction_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

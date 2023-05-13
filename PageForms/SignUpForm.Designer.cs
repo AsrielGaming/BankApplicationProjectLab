@@ -259,7 +259,7 @@
             Controls.Add(tableLayoutPanel1);
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Sign up page";
             FormClosed += SignUpForm_FormClosed;
             Load += SignUpForm_Load;
             tableLayoutPanel1.ResumeLayout(false);

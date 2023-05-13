@@ -611,7 +611,7 @@
             Controls.Add(tableLayoutPanel1);
             Name = "UserAccountPage";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form3";
+            Text = "Account page";
             FormClosed += UserAccountPage_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

@@ -79,5 +79,10 @@ namespace BankApplicationProjectLab.PageForms
             UserAccountPage userAccount = new UserAccountPage();
             userAccount.Show();
         }
+
+        private void Homepage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
