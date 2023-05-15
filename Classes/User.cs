@@ -12,10 +12,13 @@ namespace BankApplicationProjectLab.Classes
     {
 
         private int PinCheck { get; set; }
+        public int UserID { get; set; }
 
-        public User(string firstName, string lastName, string email, int pin, int pincheck, int userID) : base(firstName, lastName, email, pin, userID)
+        private Data data = new Data();
+        public User(string firstName, string lastName, string email, int pin, int pincheck) : base(firstName, lastName, email, pin)
         {
             this.PinCheck = pincheck;
+            this.UserID = data.InsertUser(firstName, lastName, pin, email);
         }
 
 

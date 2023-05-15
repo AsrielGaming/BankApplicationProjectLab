@@ -15,6 +15,7 @@ namespace Project_InspirationLab_2023.Classes
 
         }
 
+
         public Dictionary<string, double> OverviewSavingsAccount(BankApplicationProjectLab.Classes.User user)
         {
             Data data = new Data();

@@ -10,7 +10,7 @@ namespace BankApplicationProjectLab.Classes
 {
     class Admin: People
     {
-        public Admin(string firstName, string lastName, string email, int pin, int userID): base(firstName, lastName, email, pin, userID)
+        public Admin(string firstName, string lastName, string email, int pin): base(firstName, lastName, email, pin)
         {
             
         }
@@ -24,7 +24,15 @@ namespace BankApplicationProjectLab.Classes
             return users;
         }
 
-        
+        public void CreateUserAccount(string firstName, string lastName, int pin, string email)
+        {
+            // this is for admin, user is by default added to database when user object is made
+            Data data = new Data();
+
+            data.InsertUser(firstName, lastName, pin, email);
+
+
+        }
 
     }
 }

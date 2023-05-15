@@ -272,11 +272,29 @@ namespace BankApplicationProjectLab
 
             ///////////////////////////////////////  test to login  ////////////////////////////////////
 
-
+            /*
             Classes.User user = new Classes.User("Jefke", "Peeters", "jefkepeeters@gmail.com", 4566, 4566, 8);
 
             user.Login(user.Email, user.Pin);
 
+            */
+
+            ///////////////////////////////////////  test insert user via createUseraccount ////////////////////////////////////
+            /*
+            Classes.User user = new Classes.User("Tjaja", "Tjajalana", "Tjajalanatjaja@gmail.com", 6527, 6527, 10);
+
+            user.CreateUserAccount(user);
+            */
+
+
+            //Classes.User user = new Classes.User("Mona", "Moons", "mm@gmail.com", 8712, 8712);
+
+            //Admin admin = new Admin("Pieter", "Beelen", "admin@admin.be", 1234);
+
+            //admin.CreateUserAccount("Jos", "Lembrechts", 6385, "joslemme@gmail.com");
+
+
+            
         }
     }
 }

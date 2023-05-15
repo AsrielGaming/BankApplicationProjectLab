@@ -44,13 +44,13 @@ namespace BankApplicationProjectLab.Classes
         }
 
         // function to create a new user in the database when creating a new user in the program
-        public int InsertUser(User user)
+        public int InsertUser(string Firstname, string Lastname, int Pin, string Email)
         {
             string query = $"INSERT INTO user(Firstname,Lastname,Pin,Email) " +
-              $"VALUES ('{user.FirstName}', " +
-              $"'{user.LastName}'," +
-              $"{user.Pin}, " +
-              $"'{user.Email}');";
+              $"VALUES ('{Firstname}', " +
+              $"'{Lastname}'," +
+              $"{Pin}, " +
+              $"'{Email}');";
 
 
             return this.Insert(query);
