@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BankApplicationProjectLab.Classes;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -29,29 +31,37 @@ namespace Project_InspirationLab_2023.Classes
             Console.WriteLine("login werkt");
         }
 
-        public void EditFirstName()
+        public void EditFirstName(string updatedFirstname, People user)
         {
-            Console.WriteLine("edit firstname werkt");
+            Data data = new Data();
+
+            data.Update("FirstName", updatedFirstname, user.UserID);
         }
 
-        public void EditLastName()
+        public void EditLastName(string updatedLastname, People user)
         {
-            Console.WriteLine("edit lastname werkt");
+            Data data = new Data();
+
+            data.Update("Lastname", updatedLastname, user.UserID);
         }
 
-        public void EditPIN()
+        public void EditPIN(string updatedPIN, People user)
         {
-            Console.WriteLine("editPin werkt");
+            Data data = new Data();
+
+            data.Update("PIN", updatedPIN, user.UserID);
         }
 
         public void CreateUserAccount()
         {
-            Console.WriteLine("CreateUserAccount werkt");
+            // this function is not necessary because a new user will be added via the constructor
         }
 
-        public void DeleteUserAccount()
+        public void DeleteUserAccount(People user)
         {
-            Console.WriteLine("delete user account werkt");
+            Data data = new Data();
+
+            data.MakeUserAccountInActive(user.UserID);
         }
 
     }

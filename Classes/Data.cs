@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using System.Transactions;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BankApplicationProjectLab.Classes
 {
@@ -247,7 +248,7 @@ namespace BankApplicationProjectLab.Classes
 
         public List<Tuple<int, string, string, int, string, bool>> SelectUserOverview()
         {
-            string query = $"SELECT * FROM `user`;";
+            string query = $"SELECT * FROM `user` WHERE isActive = 1;";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -332,7 +333,7 @@ namespace BankApplicationProjectLab.Classes
 
 
 
-        //////////////////////////////////////////////     selecting     //////////////////////////////////////////////////////
+        //////////////////////////////////////////////     updating     //////////////////////////////////////////////////////
 
 
 
@@ -374,11 +375,51 @@ namespace BankApplicationProjectLab.Classes
                 }
             }
 
-
-
-
+            
 
         }
+
+
+        public void Update(string whatToUpdate, string updatedValue, int UserID)
+        {
+            string query = $"UPDATE user SET {whatToUpdate.ToLower()} = '{updatedValue}' WHERE ID = {UserID}";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+
+
+        public void MakeUserAccountInActive(int UserID)
+        {
+            string query = $"UPDATE user SET isActive = 0 WHERE ID = {UserID}";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
     }
 
 }   

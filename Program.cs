@@ -197,7 +197,7 @@ namespace BankApplicationProjectLab
 
             ////////////////////////// test to give admin's overview of users ///////////////////////////////////////////////////////////////////////////
 
-            /*
+           /* 
             Admin admin = new Admin("admin", "admin", "admin@admin.com", 4321, 1);
 
             List<Tuple<int, string, string, int, string, bool>> users = admin.GiveUserAccountOverview();
@@ -216,8 +216,8 @@ namespace BankApplicationProjectLab
 
 
             }
+            
             */
-
 
 
 
@@ -233,7 +233,7 @@ namespace BankApplicationProjectLab
 
             ///////////////////////////////////////  test to select profile picture out of database  ////////////////////////////////////
 
-
+            /*
 
             Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 8);
             Image image = user.ShowProfilePic(user);
@@ -251,8 +251,23 @@ namespace BankApplicationProjectLab
                 Console.WriteLine("no profile Picture");
             }
             
+            */
 
+
+
+            ///////////////////////////////////////  test to update user info  ////////////////////////////////////
             
+            /*
+            Admin admin = new Admin("Jefke", "Peeters", "Jefke@gmail.com", 1234, 8);
+            Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 6);
+
+            user.DeleteUserAccount(user);
+            */
+
+
+
+
+
 
         }
     }
