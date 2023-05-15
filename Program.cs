@@ -197,27 +197,27 @@ namespace BankApplicationProjectLab
 
             ////////////////////////// test to give admin's overview of users ///////////////////////////////////////////////////////////////////////////
 
-           /* 
-            Admin admin = new Admin("admin", "admin", "admin@admin.com", 4321, 1);
+            /* 
+             Admin admin = new Admin("admin", "admin", "admin@admin.com", 4321, 1);
 
-            List<Tuple<int, string, string, int, string, bool>> users = admin.GiveUserAccountOverview();
-
-
-            foreach (Tuple<int, string, string, int, string, bool> user in users)
-            {
-                int ID = user.Item1;
-                string Firstname = user.Item2;
-                string Lastname = user.Item3;
-                int PIN = user.Item4;
-                string Email = user.Item5;
-                bool isActive = user.Item6;
-
-                Console.WriteLine("ID: " + ID + ", Firstname: " + Firstname + ", Lastname: " + Lastname + ", PIN: " + PIN + ", Email: " + Email + ", isActive: " + isActive);
+             List<Tuple<int, string, string, int, string, bool>> users = admin.GiveUserAccountOverview();
 
 
-            }
-            
-            */
+             foreach (Tuple<int, string, string, int, string, bool> user in users)
+             {
+                 int ID = user.Item1;
+                 string Firstname = user.Item2;
+                 string Lastname = user.Item3;
+                 int PIN = user.Item4;
+                 string Email = user.Item5;
+                 bool isActive = user.Item6;
+
+                 Console.WriteLine("ID: " + ID + ", Firstname: " + Firstname + ", Lastname: " + Lastname + ", PIN: " + PIN + ", Email: " + Email + ", isActive: " + isActive);
+
+
+             }
+
+             */
 
 
 
@@ -256,7 +256,7 @@ namespace BankApplicationProjectLab
 
 
             ///////////////////////////////////////  test to update user info  ////////////////////////////////////
-            
+
             /*
             Admin admin = new Admin("Jefke", "Peeters", "Jefke@gmail.com", 1234, 8);
             Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 6);
@@ -268,6 +268,14 @@ namespace BankApplicationProjectLab
 
 
 
+
+
+            ///////////////////////////////////////  test to login  ////////////////////////////////////
+
+
+            Classes.User user = new Classes.User("Jefke", "Peeters", "jefkepeeters@gmail.com", 4566, 4566, 8);
+
+            user.Login(user.Email, user.Pin);
 
         }
     }

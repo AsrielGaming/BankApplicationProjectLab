@@ -333,6 +333,44 @@ namespace BankApplicationProjectLab.Classes
 
 
 
+        public bool LoginAttempt(string Email, int PIN)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM User WHERE Email = @Email";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", Email);
+                    connection.Open();
+
+                    int userCount = Convert.ToInt32(command.ExecuteScalar());
+                    if (userCount == 0)
+                    {
+                        // User not found, handle the error or display error message
+                        return false;
+                    }
+                }
+
+                query = "SELECT PIN FROM User WHERE Email = @Email";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", Email);
+                    int storedPIN = Convert.ToInt32(command.ExecuteScalar());
+
+                    if (storedPIN != PIN)
+                    {
+                        // Invalid PIN, handle the error or display error message
+                        return false;
+                    }
+                }
+
+                // Login successful
+                return true;
+            }
+        }
+
+
+
         //////////////////////////////////////////////     updating     //////////////////////////////////////////////////////
 
 

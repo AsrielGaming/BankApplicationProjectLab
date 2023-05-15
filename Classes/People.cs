@@ -2,10 +2,12 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Project_InspirationLab_2023.Classes
 {
@@ -26,9 +28,20 @@ namespace Project_InspirationLab_2023.Classes
             this.UserID = userID;
         }
 
-        public void Login()
+        public void Login(string Email, int PIN)
         {
-            Console.WriteLine("login werkt");
+            Data data = new Data();
+            
+            bool loginSuccessful = data.LoginAttempt(Email, PIN);
+
+            if (loginSuccessful)
+            {
+                Console.WriteLine("login succesful");
+            }
+            else
+            {
+                Console.WriteLine("login failed, provide correct credentials or sign up");
+            }
         }
 
         public void EditFirstName(string updatedFirstname, People user)
