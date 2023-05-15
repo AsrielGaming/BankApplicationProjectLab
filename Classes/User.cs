@@ -1,4 +1,5 @@
-﻿using Project_InspirationLab_2023.Classes;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Project_InspirationLab_2023.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,22 @@ namespace BankApplicationProjectLab.Classes
         }
 
 
-        public void EditProfilePic()
+        public void EditProfilePic(User user)
         {
-            Console.WriteLine("editProfilePic werkt");
+            Data data = new Data();
+
+            data.UpdateProfilePicture(user.UserID);
+        }
+
+        public Image ShowProfilePic(User user)
+        {
+            Data data = new Data();
+
+            Image image = data.SelectProfilePicture(user.UserID);
+
+            return image;
+
+
         }
 
 

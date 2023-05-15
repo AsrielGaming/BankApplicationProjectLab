@@ -1,10 +1,12 @@
 using BankApplicationProjectLab.Classes;
 using Microsoft.VisualBasic.ApplicationServices;
 using Project_InspirationLab_2023.Classes;
+using System.Security.Policy;
 using System.Transactions;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BankApplicationProjectLab
 {
@@ -195,6 +197,7 @@ namespace BankApplicationProjectLab
 
             ////////////////////////// test to give admin's overview of users ///////////////////////////////////////////////////////////////////////////
 
+            /*
             Admin admin = new Admin("admin", "admin", "admin@admin.com", 4321, 1);
 
             List<Tuple<int, string, string, int, string, bool>> users = admin.GiveUserAccountOverview();
@@ -212,9 +215,44 @@ namespace BankApplicationProjectLab
                 Console.WriteLine("ID: " + ID + ", Firstname: " + Firstname + ", Lastname: " + Lastname + ", PIN: " + PIN + ", Email: " + Email + ", isActive: " + isActive);
 
 
-
-
             }
+            */
+
+
+
+
+            ///////////////////////////////////////  test to update profile picture  ////////////////////////////////////
+
+
+            /*
+            Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 7);
+
+            user.EditProfilePic(user);
+            */
+
+
+            ///////////////////////////////////////  test to select profile picture out of database  ////////////////////////////////////
+
+
+
+            Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 8);
+            Image image = user.ShowProfilePic(user);
+
+            string filePath = @"C:\Users\piete\OneDrive - Thomas More\Thomas More-Pieter\Semester 2\Project Lab\testFolderTosaveProfilePics\profile.jpg";
+
+            if(image != null)
+            { 
+                
+                image.Save(filePath); 
+            
+            }
+            else
+            {
+                Console.WriteLine("no profile Picture");
+            }
+            
+
+            
 
         }
     }

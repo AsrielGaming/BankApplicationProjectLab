@@ -13,7 +13,7 @@ namespace BankApplicationProjectLab.Classes
 {
     class Data
     {
-        private string connectionString = 
+        private string connectionString =
             "datasource=127.0.0.1;" +
             "port=3306;" +
             "username=root;" +
@@ -50,7 +50,7 @@ namespace BankApplicationProjectLab.Classes
               $"'{user.LastName}'," +
               $"{user.Pin}, " +
               $"'{user.Email}');";
-              
+
 
             return this.Insert(query);
         }
@@ -98,7 +98,7 @@ namespace BankApplicationProjectLab.Classes
 
         public int InsertTransaction(User userFrom, User userTo, double amount, string date)
         {
-            
+
 
             string query = $"INSERT INTO transaction(Transferred_from,Transferred_to,Amount,Date) " +
               $"VALUES ('{userFrom.UserID}', " +
@@ -117,7 +117,7 @@ namespace BankApplicationProjectLab.Classes
         // select transaction history from certain user, both when he is "transaction_from" and "transaction_to"
         // getting all transaction data out of DB and putting them in a tuple, making a list named transactions from these tuples. so 1 tuple contains all data about 1 transaction
 
-        
+
         public List<Tuple<int, int, double, DateTime>> SelectTransactionHistory(User user)
         {
             string query = $"SELECT* FROM `transaction` WHERE Transferred_from = {user.UserID} or Transferred_to = {user.UserID};";
@@ -290,5 +290,95 @@ namespace BankApplicationProjectLab.Classes
 
         }
 
+
+
+        public Image SelectProfilePicture(int UserID)
+        {
+            string query = $"SELECT ProfilePicture FROM user WHERE ID = {UserID}";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read() && !reader.IsDBNull(0))
+                {
+                    byte[] profilePictureData = (byte[])reader["ProfilePicture"];
+                    MemoryStream ms = new MemoryStream(profilePictureData);
+                       
+
+                    return Image.FromStream(ms);
+                    
+
+                }
+                reader.Close();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+            
+            return null;
+
+        }
+
+
+
+
+        //////////////////////////////////////////////     selecting     //////////////////////////////////////////////////////
+
+
+
+
+
+        public void UpdateProfilePicture(int userId)
+        {
+            // Create an instance of OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Select Profile Picture";
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
+
+            // Show the dialog and check if the user selected a file
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Read the selected image file
+                byte[] newPictureData = File.ReadAllBytes(openFileDialog.FileName);
+
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    string query = $"UPDATE user SET ProfilePicture = @newPictureData WHERE ID = @userId";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@newPictureData", newPictureData);
+                        command.Parameters.AddWithValue("@userId", userId);
+
+                        try
+                        {
+                            connection.Open();
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Profile picture updated successfully.");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred while updating the profile picture: " + ex.Message);
+                        }
+                    }
+                }
+            }
+
+
+
+
+
+        }
     }
-}
+
+}   
