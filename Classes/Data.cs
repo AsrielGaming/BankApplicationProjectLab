@@ -334,8 +334,13 @@ namespace BankApplicationProjectLab.Classes
 
 
 
-        public User LoginAttempt(string email, int pin)
+        public People LoginAttempt(string email, int pin)
         {
+            if (email == "admin@admin.be" && pin == 1234)
+            {
+                Admin admin = new Admin("admin","admin", "admin@admin.be", 1234);
+                return admin;
+            }
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 string query = "SELECT COUNT(*) FROM User WHERE Email = @Email";

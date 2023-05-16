@@ -28,21 +28,26 @@ namespace Project_InspirationLab_2023.Classes
             //this.UserID = userID;
         }
 
-        public static BankApplicationProjectLab.Classes.User Login(string email, int pin)
+        public static People Login(string email, int pin)
         {
             Data data = new Data();
 
-            BankApplicationProjectLab.Classes.User loggedInUser = data.LoginAttempt(email, pin);
+            People loggedInUser = data.LoginAttempt(email, pin);
 
-            if (loggedInUser != null)
-            {
-                Console.WriteLine("Login successful");
-                return loggedInUser;
-            }
-            else
+            if (loggedInUser == null)
             {
                 Console.WriteLine("Login failed. Provide correct credentials or sign up.");
                 return null;
+            }
+            else if(loggedInUser is Admin)
+            {
+                Console.WriteLine("admin logged in");
+                return (Admin)loggedInUser;
+            }
+            else
+            {
+                Console.WriteLine("Login successful");
+                return (BankApplicationProjectLab.Classes.User)loggedInUser;
             }
         }
 

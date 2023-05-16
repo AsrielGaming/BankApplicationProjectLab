@@ -314,15 +314,28 @@ namespace BankApplicationProjectLab
 
 
 
-            /*
-            Classes.User Rudolf = Classes.User.Login("RudolfDolvus@gmail.com", 9108);
+            
+           People Rudolf = Classes.User.Login("admin@admin.be", 1234);
+
+           if (Rudolf is Admin) 
+           {
+                Console.WriteLine("he is admin");
+           }
+           else if(Rudolf is Classes.User)
+           {
+                Console.WriteLine("he is user");
+           }
+           else if(Rudolf is null)
+           {
+                Console.WriteLine("no user or admin found with these credentials");
+           }
 
 
-            CurrentAccount savingsAccount = new CurrentAccount("zichtrekening 2", "BE045217962", 105963271.15615, Rudolf.UserID, true);
+            //CurrentAccount savingsAccount = new CurrentAccount("zichtrekening 2", "BE045217962", 105963271.15615, Rudolf.UserID, true);
 
 
-            savingsAccount.NewTransaction(Rudolf.UserID, Rudolf.UserID, 500.36);
-            */
+            //savingsAccount.NewTransaction(Rudolf.UserID, Rudolf.UserID, 500.36);
+
 
 
 
