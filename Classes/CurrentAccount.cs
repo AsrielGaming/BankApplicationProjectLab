@@ -9,16 +9,17 @@ namespace BankApplicationProjectLab.Classes
 {
     class CurrentAccount: Account
     {
-        public CurrentAccount(string name, string accountNumber, int balance, int userID, bool isFree): base(name, accountNumber, balance, userID,isFree)
+        private Data data = new Data();
+        public CurrentAccount(string name, string accountNumber, double balance, int userID, bool isFree): base(name, accountNumber, balance, userID,isFree)
         {
-
+            data.InsertCurrentAccount(UserID, Name, Balance, isFree);
         }
 
-        public Dictionary<string, double> OverviewCurrentAccount(User user)
+        public Dictionary<string, double> OverviewCurrentAccount(int UserID)
         {
             Data data = new Data();
 
-            Dictionary<string, double> currentAccounts = data.SelectOverwiewCurrentAccounts(user);
+            Dictionary<string, double> currentAccounts = data.SelectOverwiewCurrentAccounts(UserID);
 
             return currentAccounts;
         }

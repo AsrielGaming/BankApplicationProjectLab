@@ -57,27 +57,27 @@ namespace BankApplicationProjectLab.Classes
         }
 
         // function to create a new savingsAccount in the database when creating a new savingsaccount in program
-        public int InsertSavingsAccount(SavingsAccount savingsAccount)
+        public void InsertSavingsAccount(int UserID, string Name, double Balance, bool isFree)
         {
             string query = $"INSERT INTO account(UserID,Name,Balance,isFree,isSavingsAccount) " +
-              $"VALUES ('{savingsAccount.UserID}', " +
-              $"'{savingsAccount.Name}'," +
-              $"{savingsAccount.Balance}, " +
-              $"{savingsAccount.IsFree}, " +
+              $"VALUES ('{UserID}', " +
+              $"'{Name}'," +
+              $"{Balance}, " +
+              $"{isFree}, " +
               $"1);";
 
 
-            return this.Insert(query);
+             this.Insert(query);
         }
 
         // function to create a new currentAccount in the database when creating a new currentaccount in program
-        public int InsertCurrentAccount(CurrentAccount currentAccount)
+        public int InsertCurrentAccount(int UserID, string Name, double Balance, bool isFree)
         {
             string query = $"INSERT INTO account(UserID,Name,Balance,isFree,isSavingsAccount) " +
-              $"VALUES ('{currentAccount.UserID}', " +
-              $"'{currentAccount.Name}'," +
-              $"{currentAccount.Balance}, " +
-              $"{currentAccount.IsFree}, " +
+              $"VALUES ('{UserID}', " +
+              $"'{Name}'," +
+              $"{Balance}, " +
+              $"{isFree}, " +
               $"0);";
 
 
@@ -85,6 +85,7 @@ namespace BankApplicationProjectLab.Classes
         }
 
         // insert admin in the database when creating a new admin in program
+        /*
         public int InsertAdmin(Admin admin)
         {
             string query = $"INSERT INTO admin(Firstname,Lastname,Pin,Email) " +
@@ -96,14 +97,14 @@ namespace BankApplicationProjectLab.Classes
 
             return this.Insert(query);
         }
-
-        public int InsertTransaction(User userFrom, User userTo, double amount, string date)
+        */
+        public int InsertTransaction(int userFromID, int userToID, double amount, string date)
         {
 
 
             string query = $"INSERT INTO transaction(Transferred_from,Transferred_to,Amount,Date) " +
-              $"VALUES ('{userFrom.UserID}', " +
-              $"'{userTo.UserID}'," +
+              $"VALUES ('{userFromID}', " +
+              $"'{userToID}'," +
               $"{amount}, " +
               $"'{date}');";
 
@@ -119,9 +120,9 @@ namespace BankApplicationProjectLab.Classes
         // getting all transaction data out of DB and putting them in a tuple, making a list named transactions from these tuples. so 1 tuple contains all data about 1 transaction
 
 
-        public List<Tuple<int, int, double, DateTime>> SelectTransactionHistory(User user)
+        public List<Tuple<int, int, double, DateTime>> SelectTransactionHistory(int UserID)
         {
-            string query = $"SELECT* FROM `transaction` WHERE Transferred_from = {user.UserID} or Transferred_to = {user.UserID};";
+            string query = $"SELECT* FROM `transaction` WHERE Transferred_from = {UserID} or Transferred_to = {UserID};";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -165,9 +166,9 @@ namespace BankApplicationProjectLab.Classes
         // select name and balance from all Savingsaccounts
         // select savingsaccounts out of database and put them in to dictionary
 
-        public Dictionary<string, double> SelectOverwiewSavingAccounts(User user)
+        public Dictionary<string, double> SelectOverwiewSavingAccounts(int UserID)
         {
-            string query = $"SELECT * FROM `account` WHERE UserID = {user.UserID} and isSavingsAccount = 1;";
+            string query = $"SELECT * FROM `account` WHERE UserID = {UserID} and isSavingsAccount = 1;";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -206,9 +207,9 @@ namespace BankApplicationProjectLab.Classes
         // select name and balance from all Currentaccounts
         // select currentaccounts out of database and put them in to dictionary
 
-        public Dictionary<string, double> SelectOverwiewCurrentAccounts(User user)
+        public Dictionary<string, double> SelectOverwiewCurrentAccounts(int UserID)
         {
-            string query = $"SELECT * FROM `account` WHERE UserID = {user.UserID} and isSavingsAccount = 0;";
+            string query = $"SELECT * FROM `account` WHERE UserID = {UserID} and isSavingsAccount = 0;";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);

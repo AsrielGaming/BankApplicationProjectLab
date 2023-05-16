@@ -13,9 +13,10 @@ namespace BankApplicationProjectLab.Classes
     {
         public string Name { get; set; }
         public string AccountNumber { get; set; }
-        public double Balance { get; set; }
-        public int UserID { get; set; }
-        public bool IsFree { get; set; }
+        protected double Balance { get; set; }
+        protected int UserID { get; set; }
+        protected bool IsFree { get; set; }
+        
 
         public Account(string name, string accountNumber, double balance, int userID, bool isfree)
         {
@@ -26,7 +27,7 @@ namespace BankApplicationProjectLab.Classes
             this.IsFree = isfree;
         }
 
-        public void NewTransaction(User userFrom, User userTo, double amount)
+        public void NewTransaction(int userFromID, int userToID, double amount)
         {
             // create data object 
             Data data = new Data();
@@ -36,7 +37,7 @@ namespace BankApplicationProjectLab.Classes
             string dateUSA = date.ToString("yyyy-MM-dd HH:mm:ss");
 
             
-            int insertedId = data.InsertTransaction(userFrom,userTo,amount,dateUSA);
+            int insertedId = data.InsertTransaction(userFromID,userToID,amount,dateUSA);
 
             // Check if the insertion was successful, -1 is default database error message 
             if (insertedId != -1)
@@ -49,11 +50,11 @@ namespace BankApplicationProjectLab.Classes
             }
         }
 
-        public List<Tuple<int, int, double, DateTime>> OverViewHistory(User user)
+        public List<Tuple<int, int, double, DateTime>> OverViewHistory(int UserID)
         {
             Data data = new Data();
 
-            List<Tuple<int,int,double, DateTime>> transactions = data.SelectTransactionHistory(user);
+            List<Tuple<int,int,double, DateTime>> transactions = data.SelectTransactionHistory(UserID);
 
             return transactions;
         } 

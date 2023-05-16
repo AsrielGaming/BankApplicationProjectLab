@@ -300,7 +300,7 @@ namespace BankApplicationProjectLab
 
             ///////////////////////////////////////  test to login and create user via second constructor (can't be added to database two times ////////////////////////////////////
 
-
+            /*
 
             Classes.User user = Classes.User.Login("joslemme@gmail.com", 6385);
 
@@ -308,6 +308,23 @@ namespace BankApplicationProjectLab
             {
                 Console.WriteLine(user.FirstName + " " + user.LastName + " " + user.Pin + " " + user.UserID + " " + user.Email);
             }
+
+
+            */
+
+
+
+            /*
+            Classes.User Rudolf = Classes.User.Login("RudolfDolvus@gmail.com", 9108);
+
+
+            CurrentAccount savingsAccount = new CurrentAccount("zichtrekening 2", "BE045217962", 105963271.15615, Rudolf.UserID, true);
+
+
+            savingsAccount.NewTransaction(Rudolf.UserID, Rudolf.UserID, 500.36);
+            */
+
+
 
         }
     }

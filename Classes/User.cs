@@ -26,7 +26,7 @@ namespace BankApplicationProjectLab.Classes
             {
                 return;
             }
-            this.UserID = data.InsertUser(firstName, lastName, pin, email);
+            this.UserID = data.InsertUser(FirstName, LastName, Pin, Email);
         }
 
         // second constructor, when user logs in, user can't be added again to the database
