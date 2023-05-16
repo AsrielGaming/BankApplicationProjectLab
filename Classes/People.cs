@@ -34,20 +34,20 @@ namespace Project_InspirationLab_2023.Classes
 
             People loggedInUser = data.LoginAttempt(email, pin);
 
-            if (loggedInUser == null)
+            if (loggedInUser is BankApplicationProjectLab.Classes.User)
             {
-                Console.WriteLine("Login failed. Provide correct credentials or sign up.");
-                return null;
+                Console.WriteLine("Login successful");
+                return loggedInUser;
             }
             else if(loggedInUser is Admin)
             {
                 Console.WriteLine("admin logged in");
-                return (Admin)loggedInUser;
+                return loggedInUser;
             }
             else
             {
-                Console.WriteLine("Login successful");
-                return (BankApplicationProjectLab.Classes.User)loggedInUser;
+                Console.WriteLine("Login failed. Provide correct credentials or sign up.");
+                return null;
             }
         }
 
