@@ -98,6 +98,8 @@ namespace BankApplicationProjectLab.Classes
             return this.Insert(query);
         }
         */
+
+        /*
         public int InsertTransaction(int userFromID, int userToID, double amount, string date)
         {
 
@@ -111,9 +113,128 @@ namespace BankApplicationProjectLab.Classes
 
             return this.Insert(query);
         }
+        */
+
+        public int InsertTransaction(int accountFromID, int accountToID, double amount, string date)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Start the database transaction
+                //this is a way to handle all db operations as one and if one fails, all the others are turned back
+                using (MySqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        if (accountFromID != accountToID)
+                        {
+                            string query = $"INSERT INTO transaction(Transferred_from,Transferred_to,Amount,Date) " +
+                                       $"VALUES ('{accountFromID}', '{accountToID}', {amount}, '{date}');";
+
+                            int transactionID = Insert(query);
+
+                            // Update the account balances based on the transaction
+
+                            // Get the account balance of the user sending the transaction
+                            double balanceFrom = GetAccountBalance(accountFromID);
+
+                            // Update the balance of the account sending the transaction
+                            double newBalanceFrom = balanceFrom - amount;
+
+                            // only execute transaction when accountbalance is sufficient
+                            if (newBalanceFrom < 0) 
+                            {
+                                throw new Exception();
+                            }
+
+                            UpdateAccountBalance(accountFromID, newBalanceFrom);
+
+                            // Check if the user sending the transaction is transferring to their own account
+
+
+                            // Get the account balance of the user receiving the transaction
+                            double balanceTo = GetAccountBalance(accountToID);
+
+                            // Update the balance of the account receiving the transaction
+                            double newBalanceTo = balanceTo + amount;
+                            UpdateAccountBalance(accountToID, newBalanceTo);
+
+
+                            // Commit the transaction if all updates were successful
+                            transaction.Commit();
+
+                            return transactionID;
+                        }
+                        else
+                        {
+                            throw new Exception();
+                        }
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        // An error occurred, rollback the transaction
+                        transaction.Rollback();
+                        Console.WriteLine("Transaction failed: " + ex.Message);
+                        return -1; // or throw an exception
+                    }
+                }
+            }
+        }
 
 
         //////////////////////////////////////////////     selecting     //////////////////////////////////////////////////////
+
+
+        public double GetAccountBalance(int accountFromID)
+        {
+            string query = $"SELECT Balance FROM Account WHERE ID = {accountFromID}";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            double balance = reader.GetDouble("Balance");
+                            return balance;
+                        }
+                    }
+                }
+            }
+
+            // Return a default balance if the user or account is not found
+            return 0.0;
+        }
+
+
+        public void UpdateAccountBalance(int accountID, double newBalance)
+        {
+            string query = $"UPDATE Account SET Balance = {newBalance} WHERE ID = {accountID}";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+
+
+
+
+
 
 
         // select transaction history from certain user, both when he is "transaction_from" and "transaction_to"

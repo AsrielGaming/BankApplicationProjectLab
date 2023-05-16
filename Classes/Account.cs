@@ -27,7 +27,7 @@ namespace BankApplicationProjectLab.Classes
             this.IsFree = isfree;
         }
 
-        public void NewTransaction(int userFromID, int userToID, double amount)
+        public static void NewTransaction(int accountFromID, int accountToID, double amount)
         {
             // create data object 
             Data data = new Data();
@@ -37,7 +37,7 @@ namespace BankApplicationProjectLab.Classes
             string dateUSA = date.ToString("yyyy-MM-dd HH:mm:ss");
 
             
-            int insertedId = data.InsertTransaction(userFromID,userToID,amount,dateUSA);
+            int insertedId = data.InsertTransaction(accountFromID, accountToID, amount,dateUSA);
 
             // Check if the insertion was successful, -1 is default database error message 
             if (insertedId != -1)

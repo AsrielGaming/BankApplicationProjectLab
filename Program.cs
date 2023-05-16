@@ -338,6 +338,14 @@ namespace BankApplicationProjectLab
 
 
 
+
+
+
+            //CurrentAccount currentAccount = new CurrentAccount("Zichtrekening 3", "BE96244", 100000, 14, true);
+
+            //Account.NewTransaction(1, 3, 1000000);
+
+
         }
     }
 }
