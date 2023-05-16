@@ -18,8 +18,24 @@ namespace BankApplicationProjectLab.Classes
         public User(string firstName, string lastName, string email, int pin, int pincheck) : base(firstName, lastName, email, pin)
         {
             this.PinCheck = pincheck;
+            if(PinCheck == pin)
+            {
+                this.Pin = pin;
+            }
+            else
+            {
+                return;
+            }
             this.UserID = data.InsertUser(firstName, lastName, pin, email);
         }
+
+        // second constructor, when user logs in, user can't be added again to the database
+        // and user attributes come out of database
+        public User(int userID, string firstName, string lastName,string email, int pin) : base(firstName, lastName, email, pin)
+        {
+            this.UserID = userID; 
+        }
+
 
 
         public void EditProfilePic(User user)

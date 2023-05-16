@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BankApplicationProjectLab
 {
@@ -294,7 +295,20 @@ namespace BankApplicationProjectLab
             //admin.CreateUserAccount("Jos", "Lembrechts", 6385, "joslemme@gmail.com");
 
 
-            
+
+
+
+            ///////////////////////////////////////  test to login and create user via second constructor (can't be added to database two times ////////////////////////////////////
+
+
+
+            Classes.User user = Classes.User.Login("joslemme@gmail.com", 6385);
+
+            if (user != null )
+            {
+                Console.WriteLine(user.FirstName + " " + user.LastName + " " + user.Pin + " " + user.UserID + " " + user.Email);
+            }
+
         }
     }
 }

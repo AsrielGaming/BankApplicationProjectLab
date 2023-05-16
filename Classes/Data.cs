@@ -333,41 +333,69 @@ namespace BankApplicationProjectLab.Classes
 
 
 
-        public bool LoginAttempt(string Email, int PIN)
+        public User LoginAttempt(string email, int pin)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 string query = "SELECT COUNT(*) FROM User WHERE Email = @Email";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Email", Email);
+                    command.Parameters.AddWithValue("@Email", email);
                     connection.Open();
 
                     int userCount = Convert.ToInt32(command.ExecuteScalar());
                     if (userCount == 0)
                     {
-                        // User not found, handle the error or display error message
-                        return false;
+                        // User not found, return null
+                        return null;
                     }
                 }
 
-                query = "SELECT PIN FROM User WHERE Email = @Email";
+                query = "SELECT ID, FirstName, LastName, isActive FROM User WHERE Email = @Email AND PIN = @PIN";
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Email", Email);
-                    int storedPIN = Convert.ToInt32(command.ExecuteScalar());
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@PIN", pin);
 
-                    if (storedPIN != PIN)
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        // Invalid PIN, handle the error or display error message
-                        return false;
+                        if (reader.Read())
+                        {
+                            // Retrieve user information from the database
+                            int userID = (int)reader["ID"];
+
+                            string firstName = reader.GetString("FirstName");
+
+                            string lastName = reader.GetString("LastName");
+
+                            bool isActive = (bool)reader["isActive"];
+
+                            if(isActive) 
+                            {
+
+                                // Create a new User object with the retrieved information
+                                User user = new User(userID, firstName, lastName, email, pin);
+
+                                // Return the user object
+                                return user;
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                            
+                        }
                     }
                 }
-
-                // Login successful
-                return true;
             }
+
+            // Invalid login credentials or other errors occurred
+            return null;
         }
+
+
+
+
 
 
 
