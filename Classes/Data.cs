@@ -455,13 +455,9 @@ namespace BankApplicationProjectLab.Classes
 
 
 
-        public People LoginAttempt(string email, int pin)
+        public User LoginAttempt(string email, int pin)
         {
-            if (email == "admin@admin.be" && pin == 1234)
-            {
-                Admin admin = new Admin("admin","admin", "admin@admin.be", 1234);
-                return admin;
-            }
+            
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 string query = "SELECT COUNT(*) FROM User WHERE Email = @Email";
@@ -522,6 +518,41 @@ namespace BankApplicationProjectLab.Classes
 
 
 
+        public Admin SelectAdmin(string email, int pin)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT  FirstName, LastName, PIN, Email FROM Admin WHERE Email = @Email AND PIN = @PIN";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@PIN", pin);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            
+                            string firstName = reader.GetString("FirstName");
+                            string lastName = reader.GetString("LastName");
+                            string adminEmail = reader.GetString("Email");
+                            int adminPIN = (int)reader["PIN"];
+
+                            // Create a new Admin object with the retrieved information
+                            Admin admin = new Admin( firstName, lastName, adminEmail, adminPIN);
+
+                            // Return the Admin object
+                            return admin;
+                        }
+                    }
+                }
+            }
+
+            // Admin not found
+            return null;
+        }
 
 
 

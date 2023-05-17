@@ -315,25 +315,27 @@ namespace BankApplicationProjectLab
 
             ///////////////////////////////////////  login and check type of returned object form people class ////////////////////////////////////
 
-            /*
-           People Rudolf = Classes.User.Login("joerieeeke@hotmail.com", 7627);
+           /*
+           People Rudolf = Classes.User.Login("admin@admin.be", 1244);
 
            if (Rudolf is Admin) 
            {
                 Console.WriteLine("he is admin");
-                Console.WriteLine(Rudolf.FirstName);
+                Console.WriteLine(Rudolf.FirstName + " " + Rudolf.LastName);
            }
            else if(Rudolf is Classes.User)
            {
                 Console.WriteLine("he is user");
                 Console.WriteLine(Rudolf.FirstName + " " + Rudolf.LastName);
+                
+                
            }
            else if(Rudolf is null)
            {
                 Console.WriteLine("no user or admin found with these credentials");
            }
+            
             */
-
 
 
 

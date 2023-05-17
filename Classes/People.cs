@@ -32,24 +32,26 @@ namespace Project_InspirationLab_2023.Classes
         {
             Data data = new Data();
 
-            People loggedInUser = data.LoginAttempt(email, pin);
+            // Check if the credentials are for an admin
+            Admin admin = data.SelectAdmin(email, pin);
+            if (admin != null)
+            {
+                Console.WriteLine("Admin logged in");
+                return admin;
+            }
 
-            if (loggedInUser is BankApplicationProjectLab.Classes.User)
+            // Check if the credentials are for a regular user
+            People user = data.LoginAttempt(email, pin);
+            if (user != null)
             {
                 Console.WriteLine("Login successful");
-                return loggedInUser;
+                return user;
             }
-            else if(loggedInUser is Admin)
-            {
-                Console.WriteLine("admin logged in");
-                return loggedInUser;
-            }
-            else
-            {
-                Console.WriteLine("Login failed. Provide correct credentials or sign up.");
-                return null;
-            }
+
+            Console.WriteLine("Login failed. Provide correct credentials or sign up.");
+            return null;
         }
+
 
 
         public void EditFirstName(string updatedFirstname, BankApplicationProjectLab.Classes.User user)
