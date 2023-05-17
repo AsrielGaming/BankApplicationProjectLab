@@ -149,25 +149,25 @@ namespace BankApplicationProjectLab
 
 
             ////////////////////////// test to check transaction history ///////////////////////////////////////////////////////////////////////////
-            
-            /*
-            Classes.User user = new Classes.User(14, "Rudolf", "Dolvus", "RudolfDolvus@gmail.com", 4392);
 
-            List<Tuple<string, string, string, double, DateTime>> transactions = Account.OverViewHistory(user.UserID);
+            /* 
+             Classes.User user = new Classes.User(14, "Rudolf", "Dolvus", "RudolfDolvus@gmail.com", 4392);
 
-            // loopen over list met tuples erin. .item om verschillende items (transactiegegevens) uit de tuple te halen
-            foreach (Tuple<string, string, string, double, DateTime> transaction in transactions)
-            {
-                string sender = transaction.Item1;
-                string receiver = transaction.Item2;
-                string accountName = transaction.Item3;
-                double amount = transaction.Item4;
-                DateTime date = transaction.Item5;
+             List<Tuple<string, string, string, double, DateTime>> transactions = Account.OverViewHistory(user.UserID);
 
-                Console.WriteLine("Sender: " + sender + ", Receiver: " + receiver + ", Account Name: " + accountName + ", Amount: " + amount + ", Date: " + date);
-            }
-            */
+             // loopen over list met tuples erin. .item om verschillende items (transactiegegevens) uit de tuple te halen
+             foreach (Tuple<string, string, string, double, DateTime> transaction in transactions)
+             {
+                 string sender = transaction.Item1;
+                 string receiver = transaction.Item2;
+                 string accountName = transaction.Item3;
+                 double amount = transaction.Item4;
+                 DateTime date = transaction.Item5;
 
+                 Console.WriteLine("Sender: " + sender + ", Receiver: " + receiver + ", Account Name: " + accountName + ", Amount: " + amount + ", Date: " + date);
+             }
+
+             */
 
 
 
@@ -350,6 +350,23 @@ namespace BankApplicationProjectLab
 
 
             //Classes.User user = new Classes.User("Admiral", "Alvorano", "adal@gmail.com", 4392, 4392);
+
+
+
+
+
+
+
+            ///////////////////////////////////////  test auto transaction ////////////////////////////////////
+
+
+
+            //Account.NewAutoTransaction(1, 4, 100, "daily",5);
+
+
+            Account.ExecutePossibleAutoTransaction();
+
+
 
 
 

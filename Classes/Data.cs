@@ -99,21 +99,7 @@ namespace BankApplicationProjectLab.Classes
         }
         */
 
-        /*
-        public int InsertTransaction(int userFromID, int userToID, double amount, string date)
-        {
-
-
-            string query = $"INSERT INTO transaction(Transferred_from,Transferred_to,Amount,Date) " +
-              $"VALUES ('{userFromID}', " +
-              $"'{userToID}'," +
-              $"{amount}, " +
-              $"'{date}');";
-
-
-            return this.Insert(query);
-        }
-        */
+        
 
         public int InsertTransaction(int accountFromID, int accountToID, double amount, string date)
         {
@@ -183,6 +169,26 @@ namespace BankApplicationProjectLab.Classes
             }
         }
 
+        public void InsertAutoTransaction(int accountFromID, int accountToID, double amount, string scheduledDate)
+        {
+            string query = $"INSERT INTO `auto_transaction` (Transferred_from, Transferred_to, Amount, Scheduled_date, isExecuted ) " +
+                           $"VALUES ({accountFromID}, {accountToID}, {amount}, '{scheduledDate}', 0)";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                Console.WriteLine("Auto transaction inserted successfully.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
 
         //////////////////////////////////////////////     selecting     //////////////////////////////////////////////////////
 
@@ -211,27 +217,6 @@ namespace BankApplicationProjectLab.Classes
             // Return a default balance if the user or account is not found
             return 0.0;
         }
-
-
-        public void UpdateAccountBalance(int accountID, double newBalance)
-        {
-            string query = $"UPDATE Account SET Balance = {newBalance} WHERE ID = {accountID}";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
-
-
-
-
 
 
 
@@ -570,6 +555,42 @@ namespace BankApplicationProjectLab.Classes
             return null;
         }
 
+        public List<Tuple<int, int, int, double, DateTime>> SelectAutoTransactions()
+        {
+            List<Tuple<int, int, int, double, DateTime>> autoTransactions = new List<Tuple<int, int, int, double, DateTime>>();
+
+            
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT ID, Transferred_from, Transferred_to, Amount, Scheduled_date FROM auto_transaction WHERE isExecuted = 0;";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int autoTransactionID = reader.GetInt32("ID");
+                                int accountFromID = reader.GetInt32("Transferred_from");
+                                int accountToID = reader.GetInt32("Transferred_to");
+                                double amount = reader.GetDouble("Amount");
+                                DateTime scheduledDate = reader.GetDateTime(reader.GetOrdinal("Scheduled_date"));
+
+                                autoTransactions.Add(Tuple.Create(autoTransactionID,accountFromID, accountToID, amount, scheduledDate));
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("An error occurred while retrieving auto transactions: " + e.Message);
+                    }
+                }
+            }
+
+            return autoTransactions;
+        }
 
 
 
@@ -659,6 +680,51 @@ namespace BankApplicationProjectLab.Classes
                 Console.WriteLine(e.Message);
             }
         }
+
+        public void UpdateAccountBalance(int accountID, double newBalance)
+        {
+            string query = $"UPDATE Account SET Balance = {newBalance} WHERE ID = {accountID}";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+        public void UpdateAutoTransactionExecutedStatus(int autoTransactionID)
+        {
+            string query = $"UPDATE auto_transaction SET isExecuted = 1 WHERE ID = {autoTransactionID}";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        Console.WriteLine($"Updated {rowsAffected} row(s).");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Error updating auto transaction executed status: " + e.Message);
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
 
     }
 
