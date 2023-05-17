@@ -17,16 +17,26 @@ namespace BankApplicationProjectLab.Classes
         private Data data = new Data();
         public User(string firstName, string lastName, string email, int pin, int pincheck) : base(firstName, lastName, email, pin)
         {
-            this.PinCheck = pincheck;
-            if(PinCheck == pin)
+            try
             {
-                this.Pin = pin;
+                this.PinCheck = pincheck;
+                if (PinCheck == pin)
+                {
+                    this.Pin = pin;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+                this.UserID = data.InsertUser(FirstName, LastName, Pin, Email);
             }
-            else
+            catch (Exception ex)
             {
-                return;
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Pin does not match");
+
             }
-            this.UserID = data.InsertUser(FirstName, LastName, Pin, Email);
+            
         }
 
         // second constructor, when user logs in, user can't be added again to the database

@@ -315,27 +315,27 @@ namespace BankApplicationProjectLab
 
             ///////////////////////////////////////  login and check type of returned object form people class ////////////////////////////////////
 
-           /*
-           People Rudolf = Classes.User.Login("admin@admin.be", 1244);
+            /*
+            People Rudolf = Classes.User.Login("admin@admin.be", 1244);
 
-           if (Rudolf is Admin) 
-           {
-                Console.WriteLine("he is admin");
-                Console.WriteLine(Rudolf.FirstName + " " + Rudolf.LastName);
-           }
-           else if(Rudolf is Classes.User)
-           {
-                Console.WriteLine("he is user");
-                Console.WriteLine(Rudolf.FirstName + " " + Rudolf.LastName);
-                
-                
-           }
-           else if(Rudolf is null)
-           {
-                Console.WriteLine("no user or admin found with these credentials");
-           }
-            
-            */
+            if (Rudolf is Admin) 
+            {
+                 Console.WriteLine("he is admin");
+                 Console.WriteLine(Rudolf.FirstName + " " + Rudolf.LastName);
+            }
+            else if(Rudolf is Classes.User)
+            {
+                 Console.WriteLine("he is user");
+                 Console.WriteLine(Rudolf.FirstName + " " + Rudolf.LastName);
+
+
+            }
+            else if(Rudolf is null)
+            {
+                 Console.WriteLine("no user or admin found with these credentials");
+            }
+
+             */
 
 
 
@@ -346,6 +346,13 @@ namespace BankApplicationProjectLab
             //CurrentAccount currentAccount = new CurrentAccount("Zichtrekening 3", "BE96244", 100000, 14, true);
 
             //Account.NewTransaction(1, 3, 1000000);
+
+
+
+
+
+            Classes.User user = new Classes.User("Admiral", "Alvorano", "adal@gmail.com", 4392, 4392);
+
 
 
         }
