@@ -50,11 +50,11 @@ namespace BankApplicationProjectLab.Classes
             }
         }
 
-        public List<Tuple<int, int, double, DateTime>> OverViewHistory(int UserID)
+        public static List<Tuple<string, string, string, double, DateTime>> OverViewHistory(int userID)
         {
             Data data = new Data();
 
-            List<Tuple<int,int,double, DateTime>> transactions = data.SelectTransactionHistory(UserID);
+            List<Tuple<string, string, string, double, DateTime>> transactions = data.SelectTransactionHistory(userID);
 
             return transactions;
         } 

@@ -241,14 +241,31 @@ namespace BankApplicationProjectLab.Classes
         // getting all transaction data out of DB and putting them in a tuple, making a list named transactions from these tuples. so 1 tuple contains all data about 1 transaction
 
 
-        public List<Tuple<int, int, double, DateTime>> SelectTransactionHistory(int UserID)
+        public List<Tuple<string, string, string, double, DateTime>> SelectTransactionHistory(int userID)
         {
-            string query = $"SELECT* FROM `transaction` WHERE Transferred_from = {UserID} or Transferred_to = {UserID};";
+            string query = $@"
+                SELECT
+                    CONCAT(sender.FirstName, ' ', sender.LastName) AS SenderName,
+                    (CASE WHEN sender.ID = @UserID THEN senderAccount.Name ELSE receiverAccount.Name END) AS AccountName,
+                    CONCAT(receiver.FirstName, ' ', receiver.LastName) AS ReceiverName,
+                    t.Amount,
+                    t.Date
+                FROM
+                    `transaction` AS t
+                    INNER JOIN Account AS senderAccount ON t.Transferred_from = senderAccount.ID
+                    INNER JOIN Account AS receiverAccount ON t.Transferred_to = receiverAccount.ID
+                    INNER JOIN User AS sender ON senderAccount.UserID = sender.ID
+                    INNER JOIN User AS receiver ON receiverAccount.UserID = receiver.ID
+                WHERE
+                    senderAccount.UserID = @UserID
+                    OR receiverAccount.UserID = @UserID;";
 
             MySqlConnection connection = new MySqlConnection(connectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
-            List<Tuple<int, int, double, DateTime>> transactions = new List<Tuple<int, int, double, DateTime>>(); ;
+            command.Parameters.AddWithValue("@UserID", userID);
+
+            List<Tuple<string, string, string, double, DateTime>> transactions = new List<Tuple<string, string, string, double, DateTime>>();
 
             try
             {
@@ -256,16 +273,17 @@ namespace BankApplicationProjectLab.Classes
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    int from = (int)reader["Transferred_from"];
+                    string senderName = reader.GetString("SenderName");
+                    
+                    string receiverName = reader.GetString("ReceiverName");
 
-                    int to = (int)reader["Transferred_to"];
+                    string accountName = reader.GetString("AccountName");
 
-                    double amount = reader.GetDouble(reader.GetOrdinal("Amount"));
+                    double amount = reader.GetDouble("Amount");
 
-                    DateTime date = reader.GetDateTime(reader.GetOrdinal("Date"));
+                    DateTime date = reader.GetDateTime("Date");
 
-                    Tuple<int, int, double, DateTime> transaction = Tuple.Create(from, to, amount, date);
-
+                    Tuple<string, string, string, double, DateTime> transaction = Tuple.Create(senderName, receiverName, accountName, amount, date);
                     transactions.Add(transaction);
                 }
                 reader.Close();
@@ -276,11 +294,9 @@ namespace BankApplicationProjectLab.Classes
                 Console.WriteLine(e.Message);
             }
 
-
-
             return transactions;
-
         }
+
 
 
 

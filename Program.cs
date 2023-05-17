@@ -149,24 +149,22 @@ namespace BankApplicationProjectLab
 
 
             ////////////////////////// test to check transaction history ///////////////////////////////////////////////////////////////////////////
-
-            /*
             
-            Classes.User user = new Classes.User("Jefke", "Peeters", "Jefke@gmail.com", 1234, 1234, 9);
+            /*
+            Classes.User user = new Classes.User(14, "Rudolf", "Dolvus", "RudolfDolvus@gmail.com", 4392);
 
-            CurrentAccount currentaccount = new CurrentAccount("Zichtrekening", "BE5285315", 500500, 1, true);
-
-            List<Tuple<int, int, double, DateTime>> transactions = currentaccount.OverViewHistory(user);
+            List<Tuple<string, string, string, double, DateTime>> transactions = Account.OverViewHistory(user.UserID);
 
             // loopen over list met tuples erin. .item om verschillende items (transactiegegevens) uit de tuple te halen
-            foreach (Tuple<int, int, double, DateTime> transaction in transactions)
+            foreach (Tuple<string, string, string, double, DateTime> transaction in transactions)
             {
-                int from = transaction.Item1;
-                int to = transaction.Item2;
-                double amount = transaction.Item3;
-                DateTime date = transaction.Item4;
+                string sender = transaction.Item1;
+                string receiver = transaction.Item2;
+                string accountName = transaction.Item3;
+                double amount = transaction.Item4;
+                DateTime date = transaction.Item5;
 
-                Console.WriteLine("From: " + from + ", To: " + to + ", Amount: " + amount + ", Date: " + date);
+                Console.WriteLine("Sender: " + sender + ", Receiver: " + receiver + ", Account Name: " + accountName + ", Amount: " + amount + ", Date: " + date);
             }
             */
 
@@ -351,7 +349,8 @@ namespace BankApplicationProjectLab
 
 
 
-            Classes.User user = new Classes.User("Admiral", "Alvorano", "adal@gmail.com", 4392, 4392);
+            //Classes.User user = new Classes.User("Admiral", "Alvorano", "adal@gmail.com", 4392, 4392);
+
 
 
 
