@@ -499,6 +499,7 @@
             button2.TabIndex = 0;
             button2.Text = "Delete account";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // tableLayoutPanel11
             // 
@@ -532,6 +533,7 @@
             button3.TabIndex = 0;
             button3.Text = "edit";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -543,6 +545,7 @@
             button4.TabIndex = 1;
             button4.Text = "edit";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -554,6 +557,7 @@
             button5.TabIndex = 2;
             button5.Text = "edit";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -565,6 +569,7 @@
             button6.TabIndex = 3;
             button6.Text = "edit";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // tableLayoutPanel9
             // 
