@@ -45,5 +45,14 @@ namespace BankApplicationProjectLab.PageForms
         {
             Application.ExitThread();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            // redirect to homepage
+            this.Hide();
+            Homepage homepage = new Homepage();
+            homepage.Show();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BankApplicationProjectLab.PopupScreens
 {
-    partial class CreateUserPopup
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
+            label2 = new Label();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            Cancel = new Button();
+            button1 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel6 = new TableLayoutPanel();
             label4 = new Label();
@@ -45,56 +48,67 @@
             tableLayoutPanel10 = new TableLayoutPanel();
             textBox6 = new TextBox();
             label6 = new Label();
-            button1 = new Button();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            tableLayoutPanel4 = new TableLayoutPanel();
-            tableLayoutPanel5 = new TableLayoutPanel();
-            label3 = new Label();
-            textBox3 = new TextBox();
-            tableLayoutPanel7 = new TableLayoutPanel();
-            label5 = new Label();
-            textBox5 = new TextBox();
-            tableLayoutPanel11 = new TableLayoutPanel();
-            Cancel = new Button();
-            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel11.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel9.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
-            tableLayoutPanel5.SuspendLayout();
-            tableLayoutPanel7.SuspendLayout();
-            tableLayoutPanel11.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // label2
             // 
-            tableLayoutPanel1.BackColor = Color.White;
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel11, 1, 3);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 56.22222F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2222223F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.44444466F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(800, 450);
-            tableLayoutPanel1.TabIndex = 0;
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(290, 17);
+            label2.Name = "label2";
+            label2.Size = new Size(220, 25);
+            label2.TabIndex = 3;
+            label2.Text = "User: username | Id: userid";
+            // 
+            // tableLayoutPanel11
+            // 
+            tableLayoutPanel11.ColumnCount = 2;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel11.Controls.Add(Cancel, 0, 0);
+            tableLayoutPanel11.Controls.Add(button1, 1, 0);
+            tableLayoutPanel11.Dock = DockStyle.Fill;
+            tableLayoutPanel11.Location = new Point(160, 357);
+            tableLayoutPanel11.Margin = new Padding(0);
+            tableLayoutPanel11.Name = "tableLayoutPanel11";
+            tableLayoutPanel11.RowCount = 1;
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel11.Size = new Size(480, 64);
+            tableLayoutPanel11.TabIndex = 2;
+            // 
+            // Cancel
+            // 
+            Cancel.Anchor = AnchorStyles.None;
+            Cancel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            Cancel.Location = new Point(38, 11);
+            Cancel.Name = "Cancel";
+            Cancel.Size = new Size(164, 42);
+            Cancel.TabIndex = 2;
+            Cancel.Text = "Cancel";
+            Cancel.UseVisualStyleBackColor = true;
+            Cancel.Click += Cancel_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.None;
+            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(278, 11);
+            button1.Name = "button1";
+            button1.Size = new Size(164, 42);
+            button1.TabIndex = 1;
+            button1.Text = "Save changes";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -140,12 +154,12 @@
             // 
             label4.Anchor = AnchorStyles.Left;
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(3, 13);
             label4.Name = "label4";
-            label4.Size = new Size(89, 25);
+            label4.Size = new Size(153, 25);
             label4.TabIndex = 0;
-            label4.Text = "PIN check";
+            label4.Text = "Admin password";
             // 
             // textBox4
             // 
@@ -296,157 +310,45 @@
             label6.TabIndex = 1;
             label6.Text = "Lastname";
             // 
-            // button1
+            // tableLayoutPanel1
             // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(278, 11);
-            button1.Name = "button1";
-            button1.Size = new Size(164, 42);
-            button1.TabIndex = 1;
-            button1.Text = "Create User";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            tableLayoutPanel1.BackColor = Color.White;
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel11, 1, 3);
+            tableLayoutPanel1.Controls.Add(label2, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 5;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.1111107F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 56.22222F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2222223F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.44444466F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(800, 450);
+            tableLayoutPanel1.TabIndex = 1;
             // 
-            // textBox2
-            // 
-            textBox2.Anchor = AnchorStyles.Left;
-            textBox2.Location = new Point(103, 36);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(94, 27);
-            textBox2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Left;
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(3, 37);
-            label2.Name = "label2";
-            label2.Size = new Size(89, 25);
-            label2.TabIndex = 0;
-            label2.Text = "Firstname";
-            // 
-            // tableLayoutPanel4
-            // 
-            tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Controls.Add(label2, 0, 0);
-            tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(0, 0);
-            tableLayoutPanel4.Margin = new Padding(0);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel4.Size = new Size(200, 100);
-            tableLayoutPanel4.TabIndex = 0;
-            // 
-            // tableLayoutPanel5
-            // 
-            tableLayoutPanel5.ColumnCount = 2;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Controls.Add(label3, 0, 0);
-            tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(0, 0);
-            tableLayoutPanel5.Margin = new Padding(0);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 1;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel5.Size = new Size(200, 100);
-            tableLayoutPanel5.TabIndex = 0;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Left;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(3, 37);
-            label3.Name = "label3";
-            label3.Size = new Size(89, 25);
-            label3.TabIndex = 0;
-            label3.Text = "Firstname";
-            // 
-            // textBox3
-            // 
-            textBox3.Anchor = AnchorStyles.Left;
-            textBox3.Location = new Point(103, 36);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(94, 27);
-            textBox3.TabIndex = 1;
-            // 
-            // tableLayoutPanel7
-            // 
-            tableLayoutPanel7.ColumnCount = 2;
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Controls.Add(label5, 0, 0);
-            tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(0, 0);
-            tableLayoutPanel7.Margin = new Padding(0);
-            tableLayoutPanel7.Name = "tableLayoutPanel7";
-            tableLayoutPanel7.RowCount = 1;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel7.Size = new Size(200, 100);
-            tableLayoutPanel7.TabIndex = 0;
-            // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.Left;
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(3, 37);
-            label5.Name = "label5";
-            label5.Size = new Size(89, 25);
-            label5.TabIndex = 0;
-            label5.Text = "Firstname";
-            // 
-            // textBox5
-            // 
-            textBox5.Anchor = AnchorStyles.Left;
-            textBox5.Location = new Point(103, 36);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(94, 27);
-            textBox5.TabIndex = 1;
-            // 
-            // tableLayoutPanel11
-            // 
-            tableLayoutPanel11.ColumnCount = 2;
-            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.Controls.Add(Cancel, 0, 0);
-            tableLayoutPanel11.Controls.Add(button1, 1, 0);
-            tableLayoutPanel11.Dock = DockStyle.Fill;
-            tableLayoutPanel11.Location = new Point(160, 357);
-            tableLayoutPanel11.Margin = new Padding(0);
-            tableLayoutPanel11.Name = "tableLayoutPanel11";
-            tableLayoutPanel11.RowCount = 1;
-            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.Size = new Size(480, 64);
-            tableLayoutPanel11.TabIndex = 2;
-            // 
-            // Cancel
-            // 
-            Cancel.Anchor = AnchorStyles.None;
-            Cancel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Cancel.Location = new Point(38, 11);
-            Cancel.Name = "Cancel";
-            Cancel.Size = new Size(164, 42);
-            Cancel.TabIndex = 2;
-            Cancel.Text = "Cancel";
-            Cancel.UseVisualStyleBackColor = true;
-            Cancel.Click += Cancel_Click;
-            // 
-            // CreateUserPopup
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
-            Name = "CreateUserPopup";
+            Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            tableLayoutPanel1.ResumeLayout(false);
+            Text = "Form1";
+            FormClosed += Form1_FormClosed;
+            Load += Form1_Load;
+            tableLayoutPanel11.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel6.PerformLayout();
@@ -458,19 +360,17 @@
             tableLayoutPanel9.PerformLayout();
             tableLayoutPanel10.ResumeLayout(false);
             tableLayoutPanel10.PerformLayout();
-            tableLayoutPanel4.ResumeLayout(false);
-            tableLayoutPanel4.PerformLayout();
-            tableLayoutPanel5.ResumeLayout(false);
-            tableLayoutPanel5.PerformLayout();
-            tableLayoutPanel7.ResumeLayout(false);
-            tableLayoutPanel7.PerformLayout();
-            tableLayoutPanel11.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
+        private Label label2;
+        private TableLayoutPanel tableLayoutPanel11;
+        private Button Cancel;
+        private Button button1;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel6;
         private Label label4;
@@ -487,17 +387,6 @@
         private TableLayoutPanel tableLayoutPanel10;
         private TextBox textBox6;
         private Label label6;
-        private TextBox textBox2;
-        private Label label2;
-        private TableLayoutPanel tableLayoutPanel4;
-        private TableLayoutPanel tableLayoutPanel5;
-        private Label label3;
-        private TextBox textBox3;
-        private TableLayoutPanel tableLayoutPanel7;
-        private Label label5;
-        private TextBox textBox5;
-        private Button button1;
-        private TableLayoutPanel tableLayoutPanel11;
-        private Button Cancel;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

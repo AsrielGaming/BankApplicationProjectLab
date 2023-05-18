@@ -51,5 +51,21 @@ namespace BankApplicationProjectLab.PageForms
             CreateUserPopup createUserPopup = new CreateUserPopup();
             createUserPopup.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //ga naar edit user popup
+            this.Hide();
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //ga naar delete user popup
+            this.Hide();
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
     }
 }

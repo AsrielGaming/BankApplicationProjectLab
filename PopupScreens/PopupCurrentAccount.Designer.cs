@@ -43,11 +43,14 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             button1 = new Button();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            button2 = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -58,7 +61,7 @@
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 2);
-            tableLayoutPanel1.Controls.Add(button1, 0, 4);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel6, 0, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -236,13 +239,41 @@
             // 
             button1.Anchor = AnchorStyles.None;
             button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(332, 374);
+            button1.Location = new Point(532, 3);
             button1.Name = "button1";
             button1.Size = new Size(135, 39);
             button1.TabIndex = 3;
             button1.Text = "Submit";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.ColumnCount = 2;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.Controls.Add(button2, 0, 0);
+            tableLayoutPanel6.Controls.Add(button1, 1, 0);
+            tableLayoutPanel6.Dock = DockStyle.Fill;
+            tableLayoutPanel6.Location = new Point(0, 371);
+            tableLayoutPanel6.Margin = new Padding(0);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.Size = new Size(800, 46);
+            tableLayoutPanel6.TabIndex = 4;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.None;
+            button2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(132, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(135, 39);
+            button2.TabIndex = 4;
+            button2.Text = "Cancel";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // PopupCurrentAccount
             // 
@@ -263,6 +294,7 @@
             tableLayoutPanel5.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            tableLayoutPanel6.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -283,5 +315,7 @@
         private TableLayoutPanel tableLayoutPanel5;
         private Label label5;
         private CheckBox checkBox1;
+        private TableLayoutPanel tableLayoutPanel6;
+        private Button button2;
     }
 }

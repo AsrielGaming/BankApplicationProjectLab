@@ -11,20 +11,21 @@ using System.Windows.Forms;
 
 namespace BankApplicationProjectLab.PopupScreens
 {
-    public partial class CreateUserPopup : Form
+    public partial class Form1 : Form
     {
-        public CreateUserPopup()
+        public Form1()
         {
             InitializeComponent();
         }
 
-        private void CreateUserPopup_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.ExitThread();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            //save changes
             // go back to admin page
             this.Hide();
             AdminControls adminControls = new AdminControls();
@@ -33,10 +34,16 @@ namespace BankApplicationProjectLab.PopupScreens
 
         private void Cancel_Click(object sender, EventArgs e)
         {
+            //cancel
             // go back to admin page
             this.Hide();
             AdminControls adminControls = new AdminControls();
             adminControls.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

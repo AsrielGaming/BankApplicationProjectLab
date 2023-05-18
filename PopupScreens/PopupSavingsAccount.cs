@@ -36,5 +36,14 @@ namespace BankApplicationProjectLab.PopupScreens
             Homepage homepage = new Homepage();
             homepage.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            //rederict to homepage
+            this.Hide();
+            Homepage homepage = new Homepage();
+            homepage.Show();
+        }
     }
 }
