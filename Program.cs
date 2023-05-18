@@ -361,7 +361,7 @@ namespace BankApplicationProjectLab
 
 
 
-            //Account.NewAutoTransaction(1, 4, 100, "daily",5);
+            //Account.NewAutoTransaction(5, 4, 1000, "monthly",3);
 
 
             Account.ExecutePossibleAutoTransaction();

@@ -179,10 +179,18 @@ namespace BankApplicationProjectLab.Classes
 
             try
             {
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-                Console.WriteLine("Auto transaction inserted successfully.");
+                if(accountFromID != accountToID)
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    Console.WriteLine("Auto transaction inserted successfully.");
+                }
+                else
+                { 
+                    throw new Exception(); 
+                }
+               
             }
             catch (Exception e)
             {
