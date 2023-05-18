@@ -212,7 +212,7 @@
             Controls.Add(tableLayoutPanel2);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "login page";
+            Text = "Login page";
             FormClosed += LoginForm_FormClosed;
             Load += LoginForm_Load;
             tableLayoutPanel1.ResumeLayout(false);

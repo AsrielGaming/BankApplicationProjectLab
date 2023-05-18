@@ -416,6 +416,7 @@
             label17.Size = new Size(51, 54);
             label17.TabIndex = 9;
             label17.Text = "+";
+            label17.Click += label17_Click;
             // 
             // pictureBox3
             // 

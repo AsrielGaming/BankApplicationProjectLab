@@ -717,6 +717,7 @@
             button1.TabIndex = 2;
             button1.Text = "Create new user";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // tableLayoutPanel12
             // 

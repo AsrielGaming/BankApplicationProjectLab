@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankApplicationProjectLab.PopupScreens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +27,7 @@ namespace BankApplicationProjectLab.PageForms
         {
 
 
-            //ga naar homepage
+            //ga naar login
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
@@ -36,10 +37,19 @@ namespace BankApplicationProjectLab.PageForms
         {
 
 
-            //ga naar homepage
+            //ga naar login
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            //ga naar create user popup
+            this.Hide();
+            CreateUserPopup createUserPopup = new CreateUserPopup();
+            createUserPopup.Show();
         }
     }
 }

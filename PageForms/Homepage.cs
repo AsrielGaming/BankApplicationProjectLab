@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankApplicationProjectLab.PopupScreens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +30,21 @@ namespace BankApplicationProjectLab.PageForms
 
         private void label16_Click(object sender, EventArgs e)
         {
+
+
+            //go to current account popup form
+            this.Hide();
+            PopupCurrentAccount popupCurrentAccount = new PopupCurrentAccount();
+            popupCurrentAccount.Show();
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+            //go to savings account popup form
+            this.Hide();
+            PopupSavingsAccount popupSavingsAccount = new PopupSavingsAccount();
+            popupSavingsAccount.Show();
 
         }
 
@@ -84,5 +100,7 @@ namespace BankApplicationProjectLab.PageForms
         {
 
         }
+
+
     }
 }
