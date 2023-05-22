@@ -1,50 +1,87 @@
-﻿using System;
+﻿using BankApplicationProjectLab.Classes;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Project_InspirationLab_2023.Classes
 {
-    internal class People
+    class People
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; }
+        protected string Email { get; set; }
         protected int Pin { get; set; }
+        //public int UserID { get; set; }
 
         public People(string firstName, string lastName, string email, int pin)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            Pin = pin;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Email = email;
+            this.Pin = pin;
+            //this.UserID = userID;
         }
 
-        public void login()
+        public static People Login(string email, int pin)
         {
+            Data data = new Data();
 
+            // Check if the credentials are for an admin
+            Admin admin = data.SelectAdmin(email, pin);
+            if (admin != null)
+            {
+                Console.WriteLine("Admin logged in");
+                return admin;
+            }
+
+            // Check if the credentials are for a regular user
+            People user = data.LoginAttempt(email, pin);
+            if (user != null)
+            {
+                Console.WriteLine("Login successful");
+                return user;
+            }
+
+            Console.WriteLine("Login failed. Provide correct credentials or sign up.");
+            return null;
         }
 
-        public void editFirstName()
-        {
 
+
+        public void EditFirstName(string updatedFirstname, BankApplicationProjectLab.Classes.User user)
+        {
+            Data data = new Data();
+
+            data.Update("FirstName", updatedFirstname, user.UserID);
         }
 
-        public void editLastName()
+        public void EditLastName(string updatedLastname, BankApplicationProjectLab.Classes.User user)
         {
+            Data data = new Data();
 
+            data.Update("Lastname", updatedLastname, user.UserID);
         }
 
-        public void editPIN()
+        public void EditPIN(string updatedPIN, BankApplicationProjectLab.Classes.User user)
         {
+            Data data = new Data();
 
+            data.Update("PIN", updatedPIN, user.UserID);
         }
 
-        public void deleteUserAccount()
-        {
+        
 
+        public void DeleteUserAccount(BankApplicationProjectLab.Classes.User user)
+        {
+            Data data = new Data();
+
+            data.MakeUserAccountInActive(user.UserID);
         }
 
     }
