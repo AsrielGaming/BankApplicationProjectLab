@@ -24,7 +24,7 @@ namespace BankApplicationProjectLab.Classes
 
         public void newTransaction()
         {
-
+            
         }
 
         public void overViewHistory()
