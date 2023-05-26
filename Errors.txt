@@ -1,0 +1,6 @@
+Alle huidige errors:
+
+Login functie geeft een error als pin een string is en email verkeerd zal zijn
+=> op te lossen door te checken in de eventhandler
+=> Arne
+

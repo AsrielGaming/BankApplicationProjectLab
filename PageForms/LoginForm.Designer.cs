@@ -97,6 +97,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(152, 27);
             textBox2.TabIndex = 13;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // emailLabel
             // 
@@ -116,6 +117,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(152, 27);
             textBox1.TabIndex = 10;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // pinLabel
             // 

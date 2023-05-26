@@ -65,7 +65,6 @@
             tableLayoutPanel11 = new TableLayoutPanel();
             button4 = new Button();
             button5 = new Button();
-            vScrollBar1 = new VScrollBar();
             tableLayoutPanel6 = new TableLayoutPanel();
             tableLayoutPanel7 = new TableLayoutPanel();
             label2 = new Label();
@@ -215,15 +214,14 @@
             // 
             // tableLayoutPanel5
             // 
+            tableLayoutPanel5.AutoScroll = true;
             tableLayoutPanel5.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnCount = 1;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 97.94319F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.056807F));
             tableLayoutPanel5.Controls.Add(tableLayoutPanel21, 0, 4);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel18, 0, 3);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel15, 0, 2);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel9, 0, 1);
-            tableLayoutPanel5.Controls.Add(vScrollBar1, 1, 0);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel6, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(80, 48);
@@ -242,8 +240,8 @@
             // 
             tableLayoutPanel21.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel21.ColumnCount = 3;
-            tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.0779228F));
-            tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.7467537F));
+            tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.8003159F));
+            tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6402531F));
             tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.33766F));
             tableLayoutPanel21.Controls.Add(tableLayoutPanel22, 0, 0);
             tableLayoutPanel21.Controls.Add(tableLayoutPanel23, 2, 0);
@@ -252,7 +250,7 @@
             tableLayoutPanel21.Name = "tableLayoutPanel21";
             tableLayoutPanel21.RowCount = 1;
             tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel21.Size = new Size(617, 50);
+            tableLayoutPanel21.Size = new Size(632, 50);
             tableLayoutPanel21.TabIndex = 5;
             // 
             // tableLayoutPanel22
@@ -300,19 +298,19 @@
             tableLayoutPanel23.Controls.Add(button12, 0, 0);
             tableLayoutPanel23.Controls.Add(button13, 1, 0);
             tableLayoutPanel23.Dock = DockStyle.Fill;
-            tableLayoutPanel23.Location = new Point(387, 1);
+            tableLayoutPanel23.Location = new Point(395, 1);
             tableLayoutPanel23.Margin = new Padding(0);
             tableLayoutPanel23.Name = "tableLayoutPanel23";
             tableLayoutPanel23.RowCount = 1;
             tableLayoutPanel23.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel23.Size = new Size(229, 48);
+            tableLayoutPanel23.Size = new Size(236, 48);
             tableLayoutPanel23.TabIndex = 1;
             // 
             // button12
             // 
             button12.Anchor = AnchorStyles.None;
             button12.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button12.Location = new Point(10, 9);
+            button12.Location = new Point(12, 9);
             button12.Name = "button12";
             button12.Size = new Size(94, 29);
             button12.TabIndex = 0;
@@ -323,7 +321,7 @@
             // 
             button13.Anchor = AnchorStyles.None;
             button13.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button13.Location = new Point(124, 9);
+            button13.Location = new Point(130, 9);
             button13.Name = "button13";
             button13.Size = new Size(94, 29);
             button13.TabIndex = 1;
@@ -334,8 +332,8 @@
             // 
             tableLayoutPanel18.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel18.ColumnCount = 3;
-            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.0779228F));
-            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.7467537F));
+            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.6418381F));
+            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.7987328F));
             tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.33766F));
             tableLayoutPanel18.Controls.Add(tableLayoutPanel19, 0, 0);
             tableLayoutPanel18.Controls.Add(tableLayoutPanel20, 2, 0);
@@ -344,7 +342,7 @@
             tableLayoutPanel18.Name = "tableLayoutPanel18";
             tableLayoutPanel18.RowCount = 1;
             tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel18.Size = new Size(617, 49);
+            tableLayoutPanel18.Size = new Size(632, 49);
             tableLayoutPanel18.TabIndex = 4;
             // 
             // tableLayoutPanel19
@@ -359,7 +357,7 @@
             tableLayoutPanel19.Name = "tableLayoutPanel19";
             tableLayoutPanel19.RowCount = 1;
             tableLayoutPanel19.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel19.Size = new Size(288, 47);
+            tableLayoutPanel19.Size = new Size(287, 47);
             tableLayoutPanel19.TabIndex = 0;
             // 
             // label10
@@ -392,19 +390,19 @@
             tableLayoutPanel20.Controls.Add(button10, 0, 0);
             tableLayoutPanel20.Controls.Add(button11, 1, 0);
             tableLayoutPanel20.Dock = DockStyle.Fill;
-            tableLayoutPanel20.Location = new Point(387, 1);
+            tableLayoutPanel20.Location = new Point(395, 1);
             tableLayoutPanel20.Margin = new Padding(0);
             tableLayoutPanel20.Name = "tableLayoutPanel20";
             tableLayoutPanel20.RowCount = 1;
             tableLayoutPanel20.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel20.Size = new Size(229, 47);
+            tableLayoutPanel20.Size = new Size(236, 47);
             tableLayoutPanel20.TabIndex = 1;
             // 
             // button10
             // 
             button10.Anchor = AnchorStyles.None;
             button10.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button10.Location = new Point(10, 9);
+            button10.Location = new Point(12, 9);
             button10.Name = "button10";
             button10.Size = new Size(94, 29);
             button10.TabIndex = 0;
@@ -415,7 +413,7 @@
             // 
             button11.Anchor = AnchorStyles.None;
             button11.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button11.Location = new Point(124, 9);
+            button11.Location = new Point(130, 9);
             button11.Name = "button11";
             button11.Size = new Size(94, 29);
             button11.TabIndex = 1;
@@ -426,8 +424,8 @@
             // 
             tableLayoutPanel15.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel15.ColumnCount = 3;
-            tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.0779228F));
-            tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.7467537F));
+            tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.8003159F));
+            tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6402531F));
             tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.33766F));
             tableLayoutPanel15.Controls.Add(tableLayoutPanel16, 0, 0);
             tableLayoutPanel15.Controls.Add(tableLayoutPanel17, 2, 0);
@@ -436,7 +434,7 @@
             tableLayoutPanel15.Name = "tableLayoutPanel15";
             tableLayoutPanel15.RowCount = 1;
             tableLayoutPanel15.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel15.Size = new Size(617, 49);
+            tableLayoutPanel15.Size = new Size(632, 49);
             tableLayoutPanel15.TabIndex = 3;
             // 
             // tableLayoutPanel16
@@ -484,19 +482,19 @@
             tableLayoutPanel17.Controls.Add(button8, 0, 0);
             tableLayoutPanel17.Controls.Add(button9, 1, 0);
             tableLayoutPanel17.Dock = DockStyle.Fill;
-            tableLayoutPanel17.Location = new Point(387, 1);
+            tableLayoutPanel17.Location = new Point(395, 1);
             tableLayoutPanel17.Margin = new Padding(0);
             tableLayoutPanel17.Name = "tableLayoutPanel17";
             tableLayoutPanel17.RowCount = 1;
             tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel17.Size = new Size(229, 47);
+            tableLayoutPanel17.Size = new Size(236, 47);
             tableLayoutPanel17.TabIndex = 1;
             // 
             // button8
             // 
             button8.Anchor = AnchorStyles.None;
             button8.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.Location = new Point(10, 9);
+            button8.Location = new Point(12, 9);
             button8.Name = "button8";
             button8.Size = new Size(94, 29);
             button8.TabIndex = 0;
@@ -507,7 +505,7 @@
             // 
             button9.Anchor = AnchorStyles.None;
             button9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button9.Location = new Point(124, 9);
+            button9.Location = new Point(130, 9);
             button9.Name = "button9";
             button9.Size = new Size(94, 29);
             button9.TabIndex = 1;
@@ -518,8 +516,8 @@
             // 
             tableLayoutPanel9.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel9.ColumnCount = 3;
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.0779228F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.7467537F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.6418381F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.7987328F));
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.33766F));
             tableLayoutPanel9.Controls.Add(tableLayoutPanel10, 0, 0);
             tableLayoutPanel9.Controls.Add(tableLayoutPanel11, 2, 0);
@@ -528,7 +526,7 @@
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 1;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(617, 49);
+            tableLayoutPanel9.Size = new Size(632, 49);
             tableLayoutPanel9.TabIndex = 2;
             // 
             // tableLayoutPanel10
@@ -543,7 +541,7 @@
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 1;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel10.Size = new Size(288, 47);
+            tableLayoutPanel10.Size = new Size(287, 47);
             tableLayoutPanel10.TabIndex = 0;
             // 
             // label4
@@ -576,19 +574,19 @@
             tableLayoutPanel11.Controls.Add(button4, 0, 0);
             tableLayoutPanel11.Controls.Add(button5, 1, 0);
             tableLayoutPanel11.Dock = DockStyle.Fill;
-            tableLayoutPanel11.Location = new Point(387, 1);
+            tableLayoutPanel11.Location = new Point(395, 1);
             tableLayoutPanel11.Margin = new Padding(0);
             tableLayoutPanel11.Name = "tableLayoutPanel11";
             tableLayoutPanel11.RowCount = 1;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.Size = new Size(229, 47);
+            tableLayoutPanel11.Size = new Size(236, 47);
             tableLayoutPanel11.TabIndex = 1;
             // 
             // button4
             // 
             button4.Anchor = AnchorStyles.None;
             button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(10, 9);
+            button4.Location = new Point(12, 9);
             button4.Name = "button4";
             button4.Size = new Size(94, 29);
             button4.TabIndex = 0;
@@ -599,29 +597,20 @@
             // 
             button5.Anchor = AnchorStyles.None;
             button5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(124, 9);
+            button5.Location = new Point(130, 9);
             button5.Name = "button5";
             button5.Size = new Size(94, 29);
             button5.TabIndex = 1;
             button5.Text = "Delete";
             button5.UseVisualStyleBackColor = true;
             // 
-            // vScrollBar1
-            // 
-            vScrollBar1.Dock = DockStyle.Fill;
-            vScrollBar1.Location = new Point(625, 1);
-            vScrollBar1.Name = "vScrollBar1";
-            tableLayoutPanel5.SetRowSpan(vScrollBar1, 5);
-            vScrollBar1.Size = new Size(14, 280);
-            vScrollBar1.TabIndex = 0;
-            // 
             // tableLayoutPanel6
             // 
             tableLayoutPanel6.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel6.ColumnCount = 3;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.4025955F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.25974F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.33766F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.7432823F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.83607F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.4206467F));
             tableLayoutPanel6.Controls.Add(tableLayoutPanel7, 0, 0);
             tableLayoutPanel6.Controls.Add(tableLayoutPanel8, 2, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
@@ -629,7 +618,7 @@
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(617, 49);
+            tableLayoutPanel6.Size = new Size(632, 49);
             tableLayoutPanel6.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -644,8 +633,9 @@
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Size = new Size(288, 47);
+            tableLayoutPanel7.Size = new Size(287, 47);
             tableLayoutPanel7.TabIndex = 0;
+            tableLayoutPanel7.Paint += tableLayoutPanel7_Paint;
             // 
             // label2
             // 
@@ -677,19 +667,19 @@
             tableLayoutPanel8.Controls.Add(button2, 0, 0);
             tableLayoutPanel8.Controls.Add(button3, 1, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(386, 1);
+            tableLayoutPanel8.Location = new Point(395, 1);
             tableLayoutPanel8.Margin = new Padding(0);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 1;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel8.Size = new Size(230, 47);
+            tableLayoutPanel8.Size = new Size(236, 47);
             tableLayoutPanel8.TabIndex = 1;
             // 
             // button2
             // 
             button2.Anchor = AnchorStyles.None;
             button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(10, 9);
+            button2.Location = new Point(12, 9);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 0;
@@ -701,7 +691,7 @@
             // 
             button3.Anchor = AnchorStyles.None;
             button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(125, 9);
+            button3.Location = new Point(130, 9);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 1;
@@ -868,7 +858,6 @@
         private Label label1;
         private Button button1;
         private TableLayoutPanel tableLayoutPanel5;
-        private VScrollBar vScrollBar1;
         private TableLayoutPanel tableLayoutPanel21;
         private TableLayoutPanel tableLayoutPanel22;
         private Label label12;

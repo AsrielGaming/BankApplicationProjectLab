@@ -271,12 +271,12 @@ namespace BankApplicationProjectLab
 
             ///////////////////////////////////////  test to login  ////////////////////////////////////
 
-            /*
-            Classes.User user = new Classes.User("Jefke", "Peeters", "jefkepeeters@gmail.com", 4566, 4566, 8);
+            
+            //Classes.User user = new Classes.User("Jefke", "Peeters", "jefkepeeters@gmail.com", 4566, 4566, 8);
 
-            user.Login(user.Email, user.Pin);
+            //user.Login(user.Email, user.Pin);
 
-            */
+            
 
             ///////////////////////////////////////  test insert user via createUseraccount ////////////////////////////////////
             /*
@@ -298,17 +298,17 @@ namespace BankApplicationProjectLab
 
             ///////////////////////////////////////  test to login and create user via second constructor (can't be added to database two times ////////////////////////////////////
 
+            
             /*
-
             Classes.User user = Classes.User.Login("joslemme@gmail.com", 6385);
 
             if (user != null )
             {
                 Console.WriteLine(user.FirstName + " " + user.LastName + " " + user.Pin + " " + user.UserID + " " + user.Email);
             }
-
-
             */
+
+            
 
 
             ///////////////////////////////////////  login and check type of returned object form people class ////////////////////////////////////

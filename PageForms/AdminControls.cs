@@ -56,7 +56,7 @@ namespace BankApplicationProjectLab.PageForms
         {
             //ga naar edit user popup
             this.Hide();
-            Form1 form1 = new Form1();
+            Temp form1 = new Temp();
             form1.Show();
         }
 
@@ -66,6 +66,11 @@ namespace BankApplicationProjectLab.PageForms
             this.Hide();
             Form2 form2 = new Form2();
             form2.Show();
+        }
+
+        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

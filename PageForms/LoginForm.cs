@@ -1,4 +1,6 @@
+using BankApplicationProjectLab.Classes;
 using BankApplicationProjectLab.PageForms;
+using Project_InspirationLab_2023.Classes;
 
 namespace BankApplicationProjectLab
 {
@@ -35,10 +37,10 @@ namespace BankApplicationProjectLab
 
         }
 
-        private void pinTextBox_TextChanged(object sender, EventArgs e)
-        {
+        //private void pinTextBox_TextChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -98,12 +100,40 @@ namespace BankApplicationProjectLab
 
         private void loginButton_Click_1(object sender, EventArgs e)
         {
+            //linking with method
+            string email = textBox2.Text;
+            string Stringpin = textBox1.Text;
 
+            //Console.WriteLine(email);
 
+            int pin = Convert.ToInt32(Stringpin);
+
+            //Console.WriteLine(pin);
+
+            People loggedInUser = People.Login(email, pin);
+
+            if (loggedInUser is Admin)
+            {
+                //ga naar adminPage
+                this.Hide();
+               AdminControls adminControls = new AdminControls();
+                adminControls.Show();
+            }
+
+            else if (loggedInUser is User)
+            {
             //ga naar homepage
             this.Hide();
             Homepage homepage = new Homepage();
             homepage.Show();
+            }
+
+            else
+            {
+             //give correct message
+                Console.WriteLine("Not a valid user");
+            }
+
         }
 
         // temporary
@@ -113,6 +143,16 @@ namespace BankApplicationProjectLab
             this.Hide();
             AdminControls adminControls = new AdminControls();
             adminControls.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
