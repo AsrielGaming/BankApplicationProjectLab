@@ -1,7 +1,33 @@
 Een paar extra functies gemaakt in forms die worden hergebruikt waar moeten deze komen?
 Plus code daarna aanpassen zodat het altijd diezelfde functies aanroept
 
+Vragen: 
+
+Hoe krijg ik een loggedinuser zijn userId (nodig voor bijna alle methoden te gebruiken)
+
+
 Alle huidige errors:
+omdat userId nog niet accesible is via logged in user
 
 
+Nog af te werken: 
+overview accounts tonen (userID)
+pop up current en savings account laten werken (userID)
+show more accounts
+transaction history + read more 
 
+Accounts linken met transaction page + new transaction (userID)
++ checken dat minstens 1 van de bovenste checkboxes is aangevinkt onderste is optioneel
+
+edit buttons accountpage (userID of user)
+edit picture (userID)
+delete account (userID of user)
+
+give useroverview + hoe laten we het uitbreiden (ook admin design aanpassen)
+
+Afgewerkt: 
+login (zowel admin als user)
+sign up
+Alle pagina's kunnen aan de logged in user info
+create user (admin page)
+meeste van de user informatie is te zien op de pagina's

@@ -150,6 +150,7 @@
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(233, 27);
             textBox4.TabIndex = 1;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // tableLayoutPanel3
             // 
@@ -186,6 +187,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(233, 27);
             textBox1.TabIndex = 1;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // tableLayoutPanel8
             // 
@@ -210,6 +212,7 @@
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(233, 27);
             textBox8.TabIndex = 2;
+            textBox8.TextChanged += textBox8_TextChanged;
             // 
             // label8
             // 
@@ -245,6 +248,7 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(233, 27);
             textBox7.TabIndex = 2;
+            textBox7.TextChanged += textBox7_TextChanged;
             // 
             // label7
             // 
@@ -280,6 +284,7 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(233, 27);
             textBox6.TabIndex = 2;
+            textBox6.TextChanged += textBox6_TextChanged;
             // 
             // label6
             // 

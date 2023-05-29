@@ -28,9 +28,9 @@ namespace BankApplicationProjectLab.PageForms
 
 
             //ga naar login
-            this.Hide();
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            //this.Hide();
+            //LoginForm loginForm = new LoginForm();
+            //loginForm.Show();
         }
 
         private void label18_Click(object sender, EventArgs e)
@@ -38,13 +38,15 @@ namespace BankApplicationProjectLab.PageForms
 
 
             //ga naar login
-            this.Hide();
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            //this.Hide();
+            //LoginForm loginForm = new LoginForm();
+            //loginForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //create new user
+
 
             //ga naar create user popup
             this.Hide();

@@ -42,9 +42,9 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
-            button1 = new Button();
             tableLayoutPanel6 = new TableLayoutPanel();
             button2 = new Button();
+            button1 = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -218,6 +218,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(249, 27);
             textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -226,6 +227,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(249, 27);
             textBox2.TabIndex = 4;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox3
             // 
@@ -234,18 +236,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(249, 27);
             textBox3.TabIndex = 5;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(532, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(135, 39);
-            button1.TabIndex = 3;
-            button1.Text = "Submit";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // tableLayoutPanel6
             // 
@@ -274,6 +265,18 @@
             button2.Text = "Cancel";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.None;
+            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(532, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(135, 39);
+            button1.TabIndex = 3;
+            button1.Text = "Submit";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // PopupCurrentAccount
             // 

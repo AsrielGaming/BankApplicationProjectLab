@@ -408,6 +408,7 @@
             label15.Size = new Size(98, 28);
             label15.TabIndex = 8;
             label15.Text = "$ 0000.00";
+            label15.Click += label15_Click;
             // 
             // label17
             // 

@@ -61,7 +61,7 @@ namespace BankApplicationProjectLab.PageForms
 
         private void label13_Click(object sender, EventArgs e)
         {
-
+            // balance current
         }
 
         private void label18_Click(object sender, EventArgs e)
@@ -108,10 +108,16 @@ namespace BankApplicationProjectLab.PageForms
             People loggedInUser = People.Login(email, pin);
             label20.Text = "Hello " + loggedInUser.FirstName;
 
+            //het account overview weergeven met
+            //SelectOverwiewCurrentAccounts(int UserID)
+            //SelectOverwiewSavingsAccounts(int UserID)
+
             //current account
-            label12.Text = loggedInUser.FirstName + "'s current account";
+
+
             //savings account
-            label14.Text = loggedInUser.FirstName + "'s savings account";
+
+
         }
 
         private void label20_Click(object sender, EventArgs e)
@@ -128,6 +134,11 @@ namespace BankApplicationProjectLab.PageForms
         private void label14_Click(object sender, EventArgs e)
         {
             //savings account name
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            // balance savings
         }
     }
 }
