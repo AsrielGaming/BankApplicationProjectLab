@@ -1,6 +1,7 @@
 using BankApplicationProjectLab.Classes;
 using BankApplicationProjectLab.PageForms;
 using Project_InspirationLab_2023.Classes;
+using System.Text.RegularExpressions;
 
 namespace BankApplicationProjectLab
 {
@@ -98,52 +99,67 @@ namespace BankApplicationProjectLab
             Application.ExitThread();
         }
 
+        private bool IsValidEmail(string email)
+        {
+            // Regular expression pattern for validating email format
+            string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+            return Regex.IsMatch(email, pattern);
+        }
+
         private void loginButton_Click_1(object sender, EventArgs e)
         {
-            //linking with method
             string email = textBox2.Text;
-            string Stringpin = textBox1.Text;
+            string stringPin = textBox1.Text;
 
-            //Console.WriteLine(email);
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(stringPin))
+            {
+                MessageBox.Show("Please fill in all the fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            int pin = Convert.ToInt32(Stringpin);
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            //Console.WriteLine(pin);
+            if (!int.TryParse(stringPin, out int pin))
+            {
+                MessageBox.Show("Invalid PIN. PIN must be a number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             People loggedInUser = People.Login(email, pin);
 
             if (loggedInUser is Admin)
             {
-                //ga naar adminPage
+                //ga naar admin page
                 this.Hide();
-               AdminControls adminControls = new AdminControls();
+                AdminControls adminControls = new AdminControls();
                 adminControls.Show();
             }
-
             else if (loggedInUser is User)
             {
-            //ga naar homepage
-            this.Hide();
-            Homepage homepage = new Homepage();
-            homepage.Show();
+                //ga naar homepage
+                this.Hide();
+                Homepage homepage = new Homepage();
+                homepage.Show();
             }
-
             else
             {
-             //give correct message
-                Console.WriteLine("Not a valid user");
+                MessageBox.Show("Not a valid user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
 
         // temporary
-        private void button1_Click(object sender, EventArgs e)
-        {
+        //private void button1_Click(object sender, EventArgs e)
+        //{
             //ga naar admin pagina
-            this.Hide();
-            AdminControls adminControls = new AdminControls();
-            adminControls.Show();
-        }
+        //    this.Hide();
+        //    AdminControls adminControls = new AdminControls();
+        //    adminControls.Show();
+        //}
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

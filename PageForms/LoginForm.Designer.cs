@@ -27,7 +27,6 @@
             pinLabel = new Label();
             loginButton = new Button();
             linkLabel1 = new LinkLabel();
-            button1 = new Button();
             emailTextBox = new TextBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
@@ -62,7 +61,6 @@
             tableLayoutPanel1.Controls.Add(pinLabel, 0, 3);
             tableLayoutPanel1.Controls.Add(loginButton, 1, 4);
             tableLayoutPanel1.Controls.Add(linkLabel1, 1, 5);
-            tableLayoutPanel1.Controls.Add(button1, 1, 6);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(408, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -155,16 +153,6 @@
             linkLabel1.Text = "Make a new account here";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked_1;
             // 
-            // button1
-            // 
-            button1.Location = new Point(101, 365);
-            button1.Name = "button1";
-            button1.Size = new Size(211, 29);
-            button1.TabIndex = 14;
-            button1.Text = "admin controls";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // emailTextBox
             // 
             emailTextBox.Anchor = AnchorStyles.Left;
@@ -235,6 +223,5 @@
         private TextBox textBox2;
         private TableLayoutPanel tableLayoutPanel2;
         private PictureBox pictureBox1;
-        private Button button1;
     }
 }
