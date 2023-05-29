@@ -1,6 +1,7 @@
+Een paar extra functies gemaakt in forms die worden hergebruikt waar moeten deze komen?
+Plus code daarna aanpassen zodat het altijd diezelfde functies aanroept
+
 Alle huidige errors:
 
-Login functie geeft een error als pin een string is en email verkeerd zal zijn
-=> op te lossen door te checken in de eventhandler
-=> Arne
+
 

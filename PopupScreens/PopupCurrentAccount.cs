@@ -12,9 +12,14 @@ namespace BankApplicationProjectLab.PageForms
 {
     public partial class PopupCurrentAccount : Form
     {
-        public PopupCurrentAccount()
+        private string email;
+        private int pin;
+
+        public PopupCurrentAccount(string email, int pin)
         {
             InitializeComponent();
+            this.email = email;
+            this.pin = pin;
         }
 
         private void PopupCurrentAccount_Load(object sender, EventArgs e)
@@ -37,7 +42,7 @@ namespace BankApplicationProjectLab.PageForms
 
             // redirect to homepage
             this.Hide();
-            Homepage homepage = new Homepage();
+            Homepage homepage = new Homepage(email, pin);
             homepage.Show();
         }
 
@@ -51,7 +56,7 @@ namespace BankApplicationProjectLab.PageForms
 
             // redirect to homepage
             this.Hide();
-            Homepage homepage = new Homepage();
+            Homepage homepage = new Homepage(email, pin);
             homepage.Show();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using BankApplicationProjectLab.PopupScreens;
+using Project_InspirationLab_2023.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BankApplicationProjectLab.PageForms
 {
     public partial class UserAccountPage : Form
     {
-        public UserAccountPage()
+        private string email;
+        private int pin;
+
+        public UserAccountPage(string email, int pin)
         {
             InitializeComponent();
+            this.email = email;
+            this.pin = pin;
         }
 
         private void UserAccountPage_FormClosed(object sender, FormClosedEventArgs e)
@@ -25,7 +32,7 @@ namespace BankApplicationProjectLab.PageForms
 
         private void label8_Click(object sender, EventArgs e)
         {
-
+            // email
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -34,7 +41,7 @@ namespace BankApplicationProjectLab.PageForms
 
             //ga naar homepage
             this.Hide();
-            Homepage homepage = new Homepage();
+            Homepage homepage = new Homepage(email, pin);
             homepage.Show();
         }
 
@@ -44,7 +51,7 @@ namespace BankApplicationProjectLab.PageForms
 
             //ga naar homepage
             this.Hide();
-            Homepage homepage = new Homepage();
+            Homepage homepage = new Homepage(email, pin);
             homepage.Show();
         }
 
@@ -52,7 +59,7 @@ namespace BankApplicationProjectLab.PageForms
         {
             //editFirstname
             this.Hide();
-            Form3 form3 = new Form3();
+            Form3 form3 = new Form3(email, pin);
             form3.Show();
         }
 
@@ -60,7 +67,7 @@ namespace BankApplicationProjectLab.PageForms
         {
             //editLastname
             this.Hide();
-            Form4 form4 = new Form4();
+            Form4 form4 = new Form4(email, pin);
             form4.Show();
         }
 
@@ -68,7 +75,7 @@ namespace BankApplicationProjectLab.PageForms
         {
             //editEmail
             this.Hide();
-            Form5 form5 = new Form5();
+            Form5 form5 = new Form5(email, pin);
             form5.Show();
         }
 
@@ -76,7 +83,7 @@ namespace BankApplicationProjectLab.PageForms
         {
             //editPin
             this.Hide();
-            Form6 form6 = new Form6();
+            Form6 form6 = new Form6(email, pin);
             form6.Show();
         }
 
@@ -84,8 +91,34 @@ namespace BankApplicationProjectLab.PageForms
         {
             //delete account
             this.Hide();
-            Form7 form7 = new Form7();
+            Form7 form7 = new Form7(email, pin);
             form7.Show();
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+            // hello name label
+        }
+
+        private void UserAccountPage_Load(object sender, EventArgs e)
+        {
+            // veranderen van username in hello username
+            People loggedInUser = People.Login(email, pin);
+            label20.Text = "Hello " + loggedInUser.FirstName;
+            label6.Text = loggedInUser.FirstName;
+            label7.Text = loggedInUser.LastName;
+            label8.Text = email;
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            // firstname
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            // lastname
         }
     }
 }

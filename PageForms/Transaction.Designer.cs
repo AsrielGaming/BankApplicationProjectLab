@@ -180,6 +180,7 @@
             label20.Size = new Size(150, 28);
             label20.TabIndex = 3;
             label20.Text = "Hello Username";
+            label20.Click += label20_Click;
             // 
             // pictureBox4
             // 
@@ -525,6 +526,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Transaction page";
             FormClosed += Transaction_FormClosed;
+            Load += Transaction_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);

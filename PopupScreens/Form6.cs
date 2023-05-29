@@ -13,9 +13,14 @@ namespace BankApplicationProjectLab.PopupScreens
 {
     public partial class Form6 : Form
     {
-        public Form6()
+        private string email;
+        private int pin;
+
+        public Form6(string email, int pin)
         {
             InitializeComponent();
+            this.email = email;
+            this.pin = pin;
         }
 
         private void Form6_FormClosed(object sender, FormClosedEventArgs e)
@@ -29,7 +34,7 @@ namespace BankApplicationProjectLab.PopupScreens
             //save changes
             // go back to user account page
             this.Hide();
-            UserAccountPage userAccountPage = new UserAccountPage();
+            UserAccountPage userAccountPage = new UserAccountPage(email, pin);
             userAccountPage.Show();
         }
 
@@ -38,7 +43,7 @@ namespace BankApplicationProjectLab.PopupScreens
             //cancel
             // go back to user account page
             this.Hide();
-            UserAccountPage userAccountPage = new UserAccountPage();
+            UserAccountPage userAccountPage = new UserAccountPage(email, pin);
             userAccountPage.Show();
         }
     }

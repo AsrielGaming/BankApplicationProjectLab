@@ -13,9 +13,15 @@ namespace BankApplicationProjectLab.PopupScreens
 {
     public partial class PopupSavingsAccount : Form
     {
-        public PopupSavingsAccount()
+
+        private string email;
+        private int pin;
+
+        public PopupSavingsAccount(string email, int pin)
         {
             InitializeComponent();
+            this.email = email;
+            this.pin = pin;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -33,7 +39,7 @@ namespace BankApplicationProjectLab.PopupScreens
 
             //rederict to homepage
             this.Hide();
-            Homepage homepage = new Homepage();
+            Homepage homepage = new Homepage(email, pin);
             homepage.Show();
         }
 
@@ -42,7 +48,7 @@ namespace BankApplicationProjectLab.PopupScreens
 
             //rederict to homepage
             this.Hide();
-            Homepage homepage = new Homepage();
+            Homepage homepage = new Homepage(email, pin);
             homepage.Show();
         }
     }

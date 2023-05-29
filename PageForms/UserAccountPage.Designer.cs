@@ -190,6 +190,7 @@
             label20.Size = new Size(150, 28);
             label20.TabIndex = 3;
             label20.Text = "Hello Username";
+            label20.Click += label20_Click;
             // 
             // pictureBox4
             // 
@@ -384,6 +385,7 @@
             label6.TabIndex = 1;
             label6.Text = "John";
             label6.TextAlign = ContentAlignment.TopCenter;
+            label6.Click += label6_Click;
             // 
             // tableLayoutPanel13
             // 
@@ -422,6 +424,7 @@
             label7.Size = new Size(54, 23);
             label7.TabIndex = 1;
             label7.Text = "Smith";
+            label7.Click += label7_Click;
             // 
             // tableLayoutPanel14
             // 
@@ -618,6 +621,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Account page";
             FormClosed += UserAccountPage_FormClosed;
+            Load += UserAccountPage_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);

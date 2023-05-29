@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BankApplicationProjectLab
 {
@@ -152,8 +153,14 @@ namespace BankApplicationProjectLab
             Data data = new Data();
             int userId = data.InsertUser(firstname, lastname, pinValue, email);
 
+            string name = firstname + " " + lastname;
+
             if (userId != -1)
             {
+                // Aanmaken default accounts
+                data.InsertCurrentAccount(userId, name, 1000, true);
+                data.InsertSavingsAccount(userId, name, 1000, true);
+
                 MessageBox.Show("User inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Go to the login page
                 this.Hide();

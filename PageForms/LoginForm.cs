@@ -7,6 +7,7 @@ namespace BankApplicationProjectLab
 {
     public partial class LoginForm : Form
     {
+
         public LoginForm()
         {
             InitializeComponent();
@@ -142,7 +143,7 @@ namespace BankApplicationProjectLab
             {
                 //ga naar homepage
                 this.Hide();
-                Homepage homepage = new Homepage();
+                Homepage homepage = new Homepage(email, pin);
                 homepage.Show();
             }
             else

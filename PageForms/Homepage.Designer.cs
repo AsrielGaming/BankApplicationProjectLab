@@ -178,6 +178,7 @@
             label20.Size = new Size(150, 28);
             label20.TabIndex = 3;
             label20.Text = "Hello Username";
+            label20.Click += label20_Click;
             // 
             // pictureBox4
             // 
@@ -325,6 +326,7 @@
             label12.Size = new Size(136, 28);
             label12.TabIndex = 6;
             label12.Text = "AccountName";
+            label12.Click += label12_Click;
             // 
             // label13
             // 
@@ -394,6 +396,7 @@
             label14.Size = new Size(136, 28);
             label14.TabIndex = 7;
             label14.Text = "AccountName";
+            label14.Click += label14_Click;
             // 
             // label15
             // 

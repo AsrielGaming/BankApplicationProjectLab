@@ -1,4 +1,5 @@
 ﻿using BankApplicationProjectLab.PopupScreens;
+using Project_InspirationLab_2023.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,14 @@ namespace BankApplicationProjectLab.PageForms
 {
     public partial class Homepage : Form
     {
-        public Homepage()
+        private string email;
+        private int pin;
+
+        public Homepage(string email, int pin)
         {
             InitializeComponent();
+            this.email = email;
+            this.pin = pin;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -34,7 +40,7 @@ namespace BankApplicationProjectLab.PageForms
 
             //go to current account popup form
             this.Hide();
-            PopupCurrentAccount popupCurrentAccount = new PopupCurrentAccount();
+            PopupCurrentAccount popupCurrentAccount = new PopupCurrentAccount(email, pin);
             popupCurrentAccount.Show();
         }
 
@@ -43,7 +49,7 @@ namespace BankApplicationProjectLab.PageForms
 
             //go to savings account popup form
             this.Hide();
-            PopupSavingsAccount popupSavingsAccount = new PopupSavingsAccount();
+            PopupSavingsAccount popupSavingsAccount = new PopupSavingsAccount(email, pin);
             popupSavingsAccount.Show();
 
         }
@@ -82,7 +88,7 @@ namespace BankApplicationProjectLab.PageForms
 
             //ga naar transaction pagina
             this.Hide();
-            Transaction transaction = new Transaction();
+            Transaction transaction = new Transaction(email, pin);
             transaction.Show();
         }
 
@@ -92,15 +98,36 @@ namespace BankApplicationProjectLab.PageForms
 
             //ga naar user account pagina
             this.Hide();
-            UserAccountPage userAccount = new UserAccountPage();
+            UserAccountPage userAccount = new UserAccountPage(email, pin);
             userAccount.Show();
         }
 
         private void Homepage_Load(object sender, EventArgs e)
         {
+            // veranderen van username in hello username
+            People loggedInUser = People.Login(email, pin);
+            label20.Text = "Hello " + loggedInUser.FirstName;
+
+            //current account
+            label12.Text = loggedInUser.FirstName + "'s current account";
+            //savings account
+            label14.Text = loggedInUser.FirstName + "'s savings account";
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+            // nameplate top right
 
         }
 
+        private void label12_Click(object sender, EventArgs e)
+        {
+            //current account name
+        }
 
+        private void label14_Click(object sender, EventArgs e)
+        {
+            //savings account name
+        }
     }
 }
