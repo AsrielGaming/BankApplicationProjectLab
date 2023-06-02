@@ -193,6 +193,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 4;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // tableLayoutPanel4
             // 
@@ -260,6 +261,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(209, 28);
             comboBox1.TabIndex = 1;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // tableLayoutPanel6
             // 
@@ -350,6 +352,7 @@
             checkBox1.TabIndex = 0;
             checkBox1.Text = "OwnAccount";
             checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // comboBox2
             // 
@@ -358,6 +361,7 @@
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(151, 28);
             comboBox2.TabIndex = 1;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // tableLayoutPanel12
             // 
@@ -384,6 +388,7 @@
             checkBox2.TabIndex = 0;
             checkBox2.Text = "Other person's account";
             checkBox2.UseVisualStyleBackColor = true;
+            checkBox2.CheckedChanged += checkBox2_CheckedChanged;
             // 
             // tableLayoutPanel13
             // 
@@ -431,6 +436,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(203, 27);
             textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -439,6 +445,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(203, 27);
             textBox2.TabIndex = 4;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // tableLayoutPanel9
             // 
@@ -467,6 +474,7 @@
             checkBox3.TabIndex = 0;
             checkBox3.Text = "Automatic payment";
             checkBox3.UseVisualStyleBackColor = true;
+            checkBox3.CheckedChanged += checkBox3_CheckedChanged;
             // 
             // dateTimePicker1
             // 
@@ -475,6 +483,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(269, 27);
             dateTimePicker1.TabIndex = 1;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // tableLayoutPanel10
             // 

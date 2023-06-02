@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,19 +32,39 @@ namespace BankApplicationProjectLab.PopupScreens
             Application.ExitThread();
         }
 
+        private bool IsAllLetters(string value)
+        {
+            return Regex.IsMatch(value, @"^[a-zA-Z]+$");
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            //save changes
+            // Save changes
             People loggedInUser = People.Login(email, pin);
             string updatedFirstname = textBox1.Text;
+            User correctUser = (User)loggedInUser;
+            int loggedInUserUserId = correctUser.UserID;
 
-            //Probleem
-            //People.EditFirstName(updatedFirstname, User loggedInUser);
+            // Store the original first name for comparison
+            string originalFirstname = correctUser.FirstName;
 
-            // go back to user account page
-            this.Hide();
-            UserAccountPage userAccountPage = new UserAccountPage(email, pin);
-            userAccountPage.Show();
+            // Check if the updated first name is a non-empty string and contains only letters
+            if (!string.IsNullOrEmpty(updatedFirstname) && IsAllLetters(updatedFirstname))
+            {
+                // Update the first name
+                loggedInUser.EditFirstName(updatedFirstname, correctUser);
+
+                // Go to the user account page
+                this.Hide();
+                UserAccountPage userAccountPage = new UserAccountPage(email, pin);
+                userAccountPage.Show();
+            }
+            else
+            {
+                // Stay on the current page or display an error message
+                MessageBox.Show("Invalid first name. Please enter a valid name without numbers or special characters.");
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)

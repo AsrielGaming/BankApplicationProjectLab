@@ -61,7 +61,6 @@
             tableLayoutPanel11 = new TableLayoutPanel();
             button3 = new Button();
             button4 = new Button();
-            button5 = new Button();
             button6 = new Button();
             tableLayoutPanel9 = new TableLayoutPanel();
             pictureBox2 = new PictureBox();
@@ -203,6 +202,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 4;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // tableLayoutPanel4
             // 
@@ -312,6 +312,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // button7
             // 
@@ -322,6 +323,7 @@
             button7.TabIndex = 1;
             button7.Text = "Change profile picture";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // tableLayoutPanel10
             // 
@@ -510,7 +512,6 @@
             tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel11.Controls.Add(button3, 0, 1);
             tableLayoutPanel11.Controls.Add(button4, 0, 2);
-            tableLayoutPanel11.Controls.Add(button5, 0, 3);
             tableLayoutPanel11.Controls.Add(button6, 0, 4);
             tableLayoutPanel11.Dock = DockStyle.Fill;
             tableLayoutPanel11.Location = new Point(519, 0);
@@ -549,18 +550,6 @@
             button4.Text = "edit";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
-            // 
-            // button5
-            // 
-            button5.Anchor = AnchorStyles.None;
-            button5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(12, 128);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 2;
-            button5.Text = "edit";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -686,7 +675,6 @@
         private Label label5;
         private Button button3;
         private Button button4;
-        private Button button5;
         private Button button6;
         private TableLayoutPanel tableLayoutPanel9;
         private PictureBox pictureBox2;

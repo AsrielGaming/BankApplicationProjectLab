@@ -1,4 +1,5 @@
-﻿using BankApplicationProjectLab.PopupScreens;
+﻿using BankApplicationProjectLab.Classes;
+using BankApplicationProjectLab.PopupScreens;
 using Project_InspirationLab_2023.Classes;
 using System;
 using System.Collections.Generic;
@@ -95,7 +96,6 @@ namespace BankApplicationProjectLab.PageForms
         private void pictureBox4_Click(object sender, EventArgs e)
         {
 
-
             //ga naar user account pagina
             this.Hide();
             UserAccountPage userAccount = new UserAccountPage(email, pin);
@@ -108,15 +108,29 @@ namespace BankApplicationProjectLab.PageForms
             People loggedInUser = People.Login(email, pin);
             label20.Text = "Hello " + loggedInUser.FirstName;
 
-            //het account overview weergeven met
-            //SelectOverwiewCurrentAccounts(int UserID)
-            //SelectOverwiewSavingsAccounts(int UserID)
+            User correctUser = (User)loggedInUser;
+            int loggedInUserUserId = correctUser.UserID;
+
+            Data data = new Data();
+
+            double balance = data.GetAccountBalance(loggedInUserUserId);
+
+            Dictionary<string, double> AccountDic = new Dictionary<string, double>();
+
+            AccountDic = data.SelectOverwiewCurrentAccounts(loggedInUserUserId);
+
+            //SelectOverwiewSavingsAccounts(loggedInUserUserId)
 
             //current account
 
 
             //savings account
 
+            //show the picture
+            Image profilePic = correctUser.ShowProfilePic(correctUser);
+            pictureBox4.Image = profilePic;
+
+            // make any automatic payments that need to happen?
 
         }
 

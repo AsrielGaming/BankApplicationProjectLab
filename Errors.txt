@@ -5,12 +5,19 @@ Vragen:
 
 Hoe krijg ik een loggedinuser zijn userId (nodig voor bijna alle methoden te gebruiken)
 
+Oplossing:
+
+            User correctUser = (User)loggedInUser;
+            int loggedInUserUserId = correctUser.UserID;
+
 
 Alle huidige errors:
-omdat userId nog niet accesible is via logged in user
 
 
 Nog af te werken: 
+
+form 6 en 7 de pincheck code
+
 overview accounts tonen (userID)
 pop up current en savings account laten werken (userID)
 show more accounts
@@ -18,10 +25,6 @@ transaction history + read more
 
 Accounts linken met transaction page + new transaction (userID)
 + checken dat minstens 1 van de bovenste checkboxes is aangevinkt onderste is optioneel
-
-edit buttons accountpage (userID of user)
-edit picture (userID)
-delete account (userID of user)
 
 give useroverview + hoe laten we het uitbreiden (ook admin design aanpassen)
 
@@ -31,3 +34,6 @@ sign up
 Alle pagina's kunnen aan de logged in user info
 create user (admin page)
 meeste van de user informatie is te zien op de pagina's
+edit buttons accountpage (userID of user)
+delete account (userID of user)
+edit profilePicture

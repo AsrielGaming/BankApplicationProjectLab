@@ -66,6 +66,12 @@ namespace BankApplicationProjectLab.Classes
 
         }
 
+        public bool IsPinEqual(int otherPin)
+        {
+            return PinCheck == otherPin;
+        }
+        
+
 
     }
 }

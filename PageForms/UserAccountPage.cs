@@ -1,6 +1,8 @@
 ﻿using BankApplicationProjectLab.PopupScreens;
 using Project_InspirationLab_2023.Classes;
+using BankApplicationProjectLab.Classes;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+//using Microsoft.VisualBasic.ApplicationServices;
 
 namespace BankApplicationProjectLab.PageForms
 {
@@ -104,10 +108,17 @@ namespace BankApplicationProjectLab.PageForms
         {
             // veranderen van username in hello username
             People loggedInUser = People.Login(email, pin);
+            User correctUser = (User)loggedInUser;
+
             label20.Text = "Hello " + loggedInUser.FirstName;
             label6.Text = loggedInUser.FirstName;
             label7.Text = loggedInUser.LastName;
             label8.Text = email;
+
+            // show profile picture
+            Image profilePic = correctUser.ShowProfilePic(correctUser);
+            pictureBox3.Image = profilePic;
+            pictureBox4.Image = profilePic;
 
         }
 
@@ -119,6 +130,29 @@ namespace BankApplicationProjectLab.PageForms
         private void label7_Click(object sender, EventArgs e)
         {
             // lastname
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            People loggedInUser = People.Login(email, pin);
+            User correctUser = (User)loggedInUser;
+
+            correctUser.EditProfilePic(correctUser);
+
+            //show the picture
+            Image profilePic = correctUser.ShowProfilePic(correctUser);
+            pictureBox3.Image = profilePic;
+            pictureBox4.Image = profilePic;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            // image
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
