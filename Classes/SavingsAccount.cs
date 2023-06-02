@@ -17,7 +17,7 @@ namespace Project_InspirationLab_2023.Classes
         }
 
 
-        public Dictionary<string, double> OverviewSavingsAccount(int UserID)
+        public static Dictionary<string, double> OverviewSavingsAccount(int UserID)
         {
             Data data = new Data();
 

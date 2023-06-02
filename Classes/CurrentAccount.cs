@@ -15,7 +15,7 @@ namespace BankApplicationProjectLab.Classes
             data.InsertCurrentAccount(UserID, Name, Balance, isFree);
         }
 
-        public Dictionary<string, double> OverviewCurrentAccount(int UserID)
+        public static Dictionary<string, double> OverviewCurrentAccount(int UserID)
         {
             Data data = new Data();
 
