@@ -368,7 +368,7 @@ namespace BankApplicationProjectLab
 
 
 
-
+            Console.WriteLine("exists: " + Account.CheckIfAccountExists("Rudolf", "Dolvus", 17));
 
 
         }

@@ -145,5 +145,14 @@ namespace BankApplicationProjectLab.Classes
             return transactions;
         } 
 
+        public static bool CheckIfAccountExists(string userFirstname, string userLastname, int accountID)
+        {
+            Data data = new Data();
+
+            bool existsInDatabase = data.CheckIfAccountExistsInDatabase(userFirstname, userLastname, accountID);
+
+            return existsInDatabase;
+        }
+
     }
 }

@@ -600,6 +600,31 @@ namespace BankApplicationProjectLab.Classes
             return autoTransactions;
         }
 
+        public bool CheckIfAccountExistsInDatabase(string userFirstname, string userLastname, int accountID)
+        {
+            string query = $"SELECT Account.ID, User.Firstname, User.Lastname FROM Account INNER JOIN User ON User.ID = Account.UserID WHERE User.FirstName = '{userFirstname}' AND User.LastName = '{userLastname}' AND account.ID = {accountID};";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                connection.Close();
+
+                return count > 0; // Return true if count is greater than 0, indicating a record is found
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false; // Return false if an exception occurs
+            }
+
+        }
+
+
 
 
         //////////////////////////////////////////////     updating     //////////////////////////////////////////////////////
