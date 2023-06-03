@@ -77,7 +77,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.8888893F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 87.1111145F));
-            tableLayoutPanel1.Size = new Size(1125, 660);
+            tableLayoutPanel1.Size = new Size(803, 453);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -97,7 +97,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1125, 85);
+            tableLayoutPanel2.Size = new Size(803, 58);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // label19
@@ -106,7 +106,7 @@
             label19.AutoSize = true;
             label19.BackColor = Color.FromArgb(128, 255, 255);
             label19.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point);
-            label19.Location = new Point(439, 27);
+            label19.Location = new Point(286, 13);
             label19.Name = "label19";
             label19.Size = new Size(189, 31);
             label19.TabIndex = 2;
@@ -122,7 +122,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             tableLayoutPanel3.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel3.Controls.Add(label18, 1, 0);
-            tableLayoutPanel3.Location = new Point(50, 14);
+            tableLayoutPanel3.Location = new Point(1, 1);
             tableLayoutPanel3.Margin = new Padding(0);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
@@ -162,12 +162,12 @@
             tableLayoutPanel8.Controls.Add(label20, 0, 0);
             tableLayoutPanel8.Controls.Add(pictureBox4, 1, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(731, 1);
+            tableLayoutPanel8.Location = new Point(521, 1);
             tableLayoutPanel8.Margin = new Padding(0);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 1;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Size = new Size(393, 83);
+            tableLayoutPanel8.Size = new Size(281, 56);
             tableLayoutPanel8.TabIndex = 3;
             tableLayoutPanel8.Paint += tableLayoutPanel8_Paint;
             // 
@@ -176,7 +176,7 @@
             label20.Anchor = AnchorStyles.Left;
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label20.Location = new Point(3, 27);
+            label20.Location = new Point(3, 14);
             label20.Name = "label20";
             label20.Size = new Size(150, 28);
             label20.TabIndex = 3;
@@ -187,7 +187,7 @@
             // 
             pictureBox4.Anchor = AnchorStyles.None;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(313, 13);
+            pictureBox4.Location = new Point(215, 0);
             pictureBox4.Margin = new Padding(0);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(60, 56);
@@ -212,10 +212,10 @@
             tableLayoutPanel4.Controls.Add(tableLayoutPanel6, 1, 4);
             tableLayoutPanel4.Controls.Add(tableLayoutPanel7, 1, 7);
             tableLayoutPanel4.Controls.Add(emailLabel, 1, 0);
-            tableLayoutPanel4.Controls.Add(Account, 2, 0);
-            tableLayoutPanel4.Controls.Add(NSA, 2, 3);
+            tableLayoutPanel4.Controls.Add(Account, 2, 1);
+            tableLayoutPanel4.Controls.Add(NSA, 2, 4);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(0, 85);
+            tableLayoutPanel4.Location = new Point(0, 58);
             tableLayoutPanel4.Margin = new Padding(0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 9;
@@ -228,7 +228,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 6.989516F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 22.4663F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 9.985023F));
-            tableLayoutPanel4.Size = new Size(1125, 575);
+            tableLayoutPanel4.Size = new Size(803, 395);
             tableLayoutPanel4.TabIndex = 1;
             tableLayoutPanel4.Paint += tableLayoutPanel4_Paint;
             // 
@@ -237,7 +237,7 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(464, 147);
+            label1.Location = new Point(303, 97);
             label1.Name = "label1";
             label1.Size = new Size(195, 20);
             label1.TabIndex = 9;
@@ -249,7 +249,7 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(481, 187);
+            label2.Location = new Point(320, 124);
             label2.Name = "label2";
             label2.Size = new Size(161, 25);
             label2.TabIndex = 10;
@@ -261,7 +261,7 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(464, 316);
+            label3.Location = new Point(303, 212);
             label3.Name = "label3";
             label3.Size = new Size(196, 20);
             label3.TabIndex = 11;
@@ -273,7 +273,7 @@
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(524, 352);
+            label4.Location = new Point(363, 236);
             label4.Name = "label4";
             label4.Size = new Size(75, 25);
             label4.TabIndex = 12;
@@ -284,7 +284,7 @@
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semilight", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(521, 534);
+            label5.Location = new Point(360, 362);
             label5.Name = "label5";
             label5.Size = new Size(82, 20);
             label5.TabIndex = 13;
@@ -304,12 +304,12 @@
             tableLayoutPanel5.Controls.Add(pictureBox2, 0, 0);
             tableLayoutPanel5.Controls.Add(label16, 3, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(101, 54);
+            tableLayoutPanel5.Location = new Point(72, 37);
             tableLayoutPanel5.Margin = new Padding(0);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(922, 84);
+            tableLayoutPanel5.Size = new Size(658, 57);
             tableLayoutPanel5.TabIndex = 14;
             tableLayoutPanel5.Paint += tableLayoutPanel5_Paint;
             // 
@@ -318,11 +318,12 @@
             label12.Anchor = AnchorStyles.None;
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(233, 28);
+            label12.Location = new Point(147, 14);
             label12.Name = "label12";
             label12.Size = new Size(136, 28);
             label12.TabIndex = 6;
             label12.Text = "AccountName";
+            label12.TextAlign = ContentAlignment.MiddleCenter;
             label12.Click += label12_Click;
             // 
             // label13
@@ -330,11 +331,12 @@
             label13.Anchor = AnchorStyles.None;
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(619, 28);
+            label13.Location = new Point(427, 14);
             label13.Name = "label13";
             label13.Size = new Size(98, 28);
             label13.TabIndex = 7;
             label13.Text = "$ 0000.00";
+            label13.TextAlign = ContentAlignment.MiddleCenter;
             label13.Click += label13_Click;
             // 
             // pictureBox2
@@ -344,7 +346,7 @@
             pictureBox2.Location = new Point(1, 1);
             pictureBox2.Margin = new Padding(0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(91, 82);
+            pictureBox2.Size = new Size(65, 55);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
@@ -355,7 +357,7 @@
             label16.Anchor = AnchorStyles.None;
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.Location = new Point(848, 15);
+            label16.Location = new Point(598, 1);
             label16.Name = "label16";
             label16.Size = new Size(51, 54);
             label16.TabIndex = 8;
@@ -376,12 +378,12 @@
             tableLayoutPanel6.Controls.Add(label17, 3, 0);
             tableLayoutPanel6.Controls.Add(pictureBox3, 0, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(101, 224);
+            tableLayoutPanel6.Location = new Point(72, 153);
             tableLayoutPanel6.Margin = new Padding(0);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(922, 84);
+            tableLayoutPanel6.Size = new Size(658, 57);
             tableLayoutPanel6.TabIndex = 15;
             tableLayoutPanel6.Paint += tableLayoutPanel6_Paint_1;
             // 
@@ -390,11 +392,12 @@
             label14.Anchor = AnchorStyles.None;
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(231, 28);
+            label14.Location = new Point(145, 14);
             label14.Name = "label14";
             label14.Size = new Size(136, 28);
             label14.TabIndex = 7;
             label14.Text = "AccountName";
+            label14.TextAlign = ContentAlignment.MiddleCenter;
             label14.Click += label14_Click;
             // 
             // label15
@@ -402,11 +405,12 @@
             label15.Anchor = AnchorStyles.None;
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(617, 28);
+            label15.Location = new Point(426, 14);
             label15.Name = "label15";
             label15.Size = new Size(98, 28);
             label15.TabIndex = 8;
             label15.Text = "$ 0000.00";
+            label15.TextAlign = ContentAlignment.MiddleCenter;
             label15.Click += label15_Click;
             // 
             // label17
@@ -414,7 +418,7 @@
             label17.Anchor = AnchorStyles.None;
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.Location = new Point(848, 15);
+            label17.Location = new Point(598, 1);
             label17.Name = "label17";
             label17.Size = new Size(51, 54);
             label17.TabIndex = 9;
@@ -428,7 +432,7 @@
             pictureBox3.Location = new Point(1, 1);
             pictureBox3.Margin = new Padding(0);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(91, 82);
+            pictureBox3.Size = new Size(65, 55);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
@@ -447,13 +451,13 @@
             tableLayoutPanel7.Controls.Add(label6, 0, 0);
             tableLayoutPanel7.Controls.Add(label7, 0, 1);
             tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(101, 385);
+            tableLayoutPanel7.Location = new Point(72, 262);
             tableLayoutPanel7.Margin = new Padding(0);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Size = new Size(922, 129);
+            tableLayoutPanel7.Size = new Size(658, 88);
             tableLayoutPanel7.TabIndex = 16;
             tableLayoutPanel7.Paint += tableLayoutPanel7_Paint;
             // 
@@ -462,7 +466,7 @@
             label11.Anchor = AnchorStyles.None;
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(767, 85);
+            label11.Location = new Point(536, 54);
             label11.Name = "label11";
             label11.Size = new Size(77, 23);
             label11.TabIndex = 5;
@@ -473,7 +477,7 @@
             label10.Anchor = AnchorStyles.None;
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(413, 85);
+            label10.Location = new Point(281, 54);
             label10.Name = "label10";
             label10.Size = new Size(94, 23);
             label10.TabIndex = 4;
@@ -484,7 +488,7 @@
             label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(767, 21);
+            label9.Location = new Point(536, 10);
             label9.Name = "label9";
             label9.Size = new Size(77, 23);
             label9.TabIndex = 3;
@@ -495,7 +499,7 @@
             label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(413, 21);
+            label8.Location = new Point(281, 10);
             label8.Name = "label8";
             label8.Size = new Size(94, 23);
             label8.TabIndex = 2;
@@ -506,7 +510,7 @@
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(62, 21);
+            label6.Location = new Point(29, 10);
             label6.Name = "label6";
             label6.Size = new Size(106, 23);
             label6.TabIndex = 0;
@@ -517,7 +521,7 @@
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(62, 85);
+            label7.Location = new Point(29, 54);
             label7.Name = "label7";
             label7.Size = new Size(106, 23);
             label7.TabIndex = 1;
@@ -528,7 +532,7 @@
             emailLabel.Anchor = AnchorStyles.None;
             emailLabel.AutoSize = true;
             emailLabel.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            emailLabel.Location = new Point(482, 14);
+            emailLabel.Location = new Point(321, 6);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(160, 25);
             emailLabel.TabIndex = 8;
@@ -536,9 +540,10 @@
             // 
             // Account
             // 
-            Account.Location = new Point(1026, 3);
+            Account.Anchor = AnchorStyles.None;
+            Account.Location = new Point(733, 40);
             Account.Name = "Account";
-            Account.Size = new Size(94, 48);
+            Account.Size = new Size(67, 51);
             Account.TabIndex = 1;
             Account.Text = "New C.A.";
             Account.UseVisualStyleBackColor = true;
@@ -546,9 +551,10 @@
             // 
             // NSA
             // 
-            NSA.Location = new Point(1026, 179);
+            NSA.Anchor = AnchorStyles.None;
+            NSA.Location = new Point(733, 156);
             NSA.Name = "NSA";
-            NSA.Size = new Size(94, 42);
+            NSA.Size = new Size(67, 51);
             NSA.TabIndex = 17;
             NSA.Text = "New S.A.";
             NSA.UseVisualStyleBackColor = true;
@@ -558,7 +564,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1125, 660);
+            ClientSize = new Size(803, 453);
             Controls.Add(tableLayoutPanel1);
             Name = "Homepage";
             StartPosition = FormStartPosition.CenterScreen;

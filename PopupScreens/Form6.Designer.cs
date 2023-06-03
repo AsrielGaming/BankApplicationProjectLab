@@ -33,10 +33,8 @@
             button5 = new Button();
             button6 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
-            label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -112,41 +110,26 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(label1, 0, 0);
-            tableLayoutPanel2.Controls.Add(label2, 0, 1);
-            tableLayoutPanel2.Controls.Add(label3, 0, 2);
-            tableLayoutPanel2.Controls.Add(textBox1, 1, 0);
-            tableLayoutPanel2.Controls.Add(textBox2, 1, 1);
-            tableLayoutPanel2.Controls.Add(textBox3, 1, 2);
+            tableLayoutPanel2.Controls.Add(label2, 0, 0);
+            tableLayoutPanel2.Controls.Add(textBox2, 1, 0);
+            tableLayoutPanel2.Controls.Add(label3, 0, 1);
+            tableLayoutPanel2.Controls.Add(textBox3, 1, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 55);
             tableLayoutPanel2.Margin = new Padding(0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.Size = new Size(509, 152);
             tableLayoutPanel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(130, 12);
-            label1.Margin = new Padding(0, 0, 50, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(74, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Old PIN";
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(124, 62);
+            label2.Location = new Point(124, 25);
             label2.Margin = new Padding(3, 0, 50, 0);
             label2.Name = "label2";
             label2.Size = new Size(80, 25);
@@ -158,26 +141,17 @@
             label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(75, 113);
+            label3.Location = new Point(75, 101);
             label3.Margin = new Padding(3, 0, 50, 0);
             label3.Name = "label3";
             label3.Size = new Size(129, 25);
             label3.TabIndex = 2;
             label3.Text = "New PIN check";
             // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.Left;
-            textBox1.Location = new Point(257, 11);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(217, 27);
-            textBox1.TabIndex = 3;
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.Left;
-            textBox2.Location = new Point(257, 61);
+            textBox2.Location = new Point(257, 24);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(217, 27);
             textBox2.TabIndex = 4;
@@ -186,7 +160,7 @@
             // textBox3
             // 
             textBox3.Anchor = AnchorStyles.Left;
-            textBox3.Location = new Point(257, 112);
+            textBox3.Location = new Point(257, 100);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(217, 27);
             textBox3.TabIndex = 5;
@@ -251,10 +225,8 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
         private TableLayoutPanel tableLayoutPanel5;

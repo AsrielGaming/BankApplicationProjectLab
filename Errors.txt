@@ -16,9 +16,6 @@ Alle huidige errors:
 
 Nog af te werken: 
 
-form 6 en 7 de pincheck code weg doen en vervangen door checkbox bij delete
-Alle data functies niet oproepen uit data behalve als het niet anders kan
-
 overview accounts tonen (userID)
 pop up current en savings account laten werken (userID)
 show more accounts

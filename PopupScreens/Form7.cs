@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace BankApplicationProjectLab.PopupScreens
 {
@@ -32,39 +33,18 @@ namespace BankApplicationProjectLab.PopupScreens
 
         }
 
-        private bool IsAllDigits(string value)
-        {
-            return Regex.IsMatch(value, @"^\d+$");
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             //delete
             // go back to user account page
             People loggedInUser = People.Login(email, pin);
-            string updatedFirstname = textBox1.Text;
             User correctUser = (User)loggedInUser;
             int loggedInUserUserId = correctUser.UserID;
 
-            string oldPin = textBox1.Text;
-            int.TryParse(oldPin, out int oldPinInt);
+            //get checkbox variable
+            bool checkboxChecked = checkBox1.Checked;
 
-            // Check if the updated PIN is a non-empty string and contains only numbers
-            if (string.IsNullOrEmpty(oldPin) || !IsAllDigits(oldPin))
-            {
-                MessageBox.Show("Invalid PIN. Please enter a valid numeric PIN.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // check if old pin is correct
-            bool answer = correctUser.IsPinEqual(oldPinInt);
-            //if (answer == false)
-            //{
-            //    MessageBox.Show("Old PIN is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            if (!string.IsNullOrEmpty(oldPin) && IsAllDigits(oldPin))
+            if (checkboxChecked == true)
             {
                 correctUser.DeleteUserAccount(correctUser);
 
@@ -74,6 +54,11 @@ namespace BankApplicationProjectLab.PopupScreens
                 this.Hide();
                 LoginForm loginform = new LoginForm();
                 loginform.Show();
+            }
+
+            else
+            {
+                MessageBox.Show("You must give consent to delete your account", "Consent Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -87,9 +72,9 @@ namespace BankApplicationProjectLab.PopupScreens
             userAccountPage.Show();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            // pin box
+            //consent checkbox
         }
     }
 }

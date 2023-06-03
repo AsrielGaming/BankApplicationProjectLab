@@ -33,12 +33,9 @@
             button5 = new Button();
             button6 = new Button();
             label1 = new Label();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            textBox1 = new TextBox();
-            label2 = new Label();
+            checkBox1 = new CheckBox();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -48,14 +45,14 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(tableLayoutPanel5, 0, 2);
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(checkBox1, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 23.75F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 36.25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 31.25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 28.75F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 28.75F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.416667F));
             tableLayoutPanel1.Size = new Size(502, 240);
@@ -106,48 +103,24 @@
             label1.Anchor = AnchorStyles.Bottom;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(42, 32);
+            label1.Location = new Point(22, 25);
             label1.Name = "label1";
-            label1.Size = new Size(417, 25);
+            label1.Size = new Size(458, 50);
             label1.TabIndex = 4;
-            label1.Text = "Are you sure that you want to delete your account?";
+            label1.Text = "Are you sure that you want to delete your account? This action will bring you back to the login page.";
             // 
-            // tableLayoutPanel2
+            // checkBox1
             // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(textBox1, 1, 0);
-            tableLayoutPanel2.Controls.Add(label2, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 57);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(502, 87);
-            tableLayoutPanel2.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.Left;
-            textBox1.Location = new Point(254, 30);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(217, 27);
-            textBox1.TabIndex = 4;
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(81, 31);
-            label2.Margin = new Padding(0, 0, 50, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(120, 25);
-            label2.TabIndex = 1;
-            label2.Text = "Give your PIN";
+            checkBox1.Anchor = AnchorStyles.None;
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            checkBox1.Location = new Point(3, 95);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(496, 29);
+            checkBox1.TabIndex = 5;
+            checkBox1.Text = "I hereby give consent to have my account permanently deleted.";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // Form7
             // 
@@ -162,8 +135,6 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -174,8 +145,6 @@
         private Button button5;
         private Button button6;
         private Label label1;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Label label2;
-        private TextBox textBox1;
+        private CheckBox checkBox1;
     }
 }

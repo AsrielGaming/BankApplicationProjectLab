@@ -1,14 +1,18 @@
-﻿using Project_InspirationLab_2023.Classes;
-using BankApplicationProjectLab.Classes;
+﻿using BankApplicationProjectLab.Classes;
+using BankApplicationProjectLab.PopupScreens;
+//using Microsoft.VisualBasic.ApplicationServices;
+using Project_InspirationLab_2023.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using Microsoft.VisualBasic.ApplicationServices;
 
 namespace BankApplicationProjectLab.PageForms
 {
@@ -57,43 +61,73 @@ namespace BankApplicationProjectLab.PageForms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //make transaction
+            // Make transaction
             People loggedInUser = People.Login(email, pin);
             User correctUser = (User)loggedInUser;
             int loggedInUserUserId = correctUser.UserID;
 
-            //get variables
-            // Checkboxs
+            // Get variables
+            // Checkboxes
             bool checkboxOwnAccount = checkBox1.Checked;
             bool checkboxOtherAccount = checkBox2.Checked;
             bool checkboxAutoPayment = checkBox3.Checked;
 
-            // Dropdown Lists
-            //string dropdownFromAccount = comboBox1.SelectedItem.ToString();
-            //string dropdownToAccount= comboBox2.SelectedItem.ToString(); //cannot be from account
+            Account dropdownFromAccount = (Account)comboBox1.SelectedItem;
+            Account dropdownToAccount = (Account)comboBox2.SelectedItem;
 
             // Textboxes
-            string accountHolder = textBox1.Text;
-            string accountNumber = textBox2.Text;
+            string accountHolderFirstname = textBox1.Text;
+            string accountHolderLastname = textBox2.Text;
+            string accountID = textBox3.Text;
 
             // Date Picker
             DateTime dateAutoPayment = dateTimePicker1.Value;
 
-            // balance
+            // Balance
             decimal numericUpDownBalance = numericUpDown1.Value;
 
-            // check correctness of all inputs
+            // Check correctness of all inputs
+            bool isAutoTransaction = false;
 
+            if (checkboxOwnAccount && dropdownToAccount == null)
+            {
+                MessageBox.Show("Please choose an account to send money to.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (checkboxOtherAccount && (string.IsNullOrEmpty(accountHolderFirstname) || string.IsNullOrEmpty(accountHolderLastname) || string.IsNullOrEmpty(accountID)))
+            {
+                MessageBox.Show("Please provide both the account holder's name and account ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (checkboxAutoPayment)
+            {
+                // Checkbox 3 is checked, set isAutoTransaction to true
+                isAutoTransaction = true;
+            }
+            else if (dropdownFromAccount == dropdownToAccount)
+            {
+                MessageBox.Show("You cannot send money to and from the same account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Transaction cannot be performed with the given inputs.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+            // Make the transaction happen + add to transactions 
+            if (isAutoTransaction)
+            {
+                // Call auto-transaction function
 
-            // make the transaction happen + add to transactions 
+            }
+            else
+            {
+                // Call transaction function
 
+            }
 
-
-            //ga naar homepage
+            // Go to homepage
             this.Hide();
             Homepage homepage = new Homepage(email, pin);
             homepage.Show();
+
         }
 
         private void label20_Click(object sender, EventArgs e)
@@ -106,12 +140,34 @@ namespace BankApplicationProjectLab.PageForms
             // veranderen van username in hello username
             People loggedInUser = People.Login(email, pin);
             User correctUser = (User)loggedInUser;
+            int loggedInUserUserId = correctUser.UserID;
+            //Console.WriteLine(loggedInUserUserId);
 
             label20.Text = "Hello " + loggedInUser.FirstName;
 
-            //show the picture
+            // Show the picture
             Image profilePic = correctUser.ShowProfilePic(correctUser);
             pictureBox4.Image = profilePic;
+
+            // Give list of accounts
+            Dictionary<string, double> accountDictionary = GetAllAccountsOfUser(loggedInUserUserId);
+
+            if (accountDictionary != null && accountDictionary.Count > 0)
+            {
+                // Bind the account dictionary to comboBox1 and comboBox2
+                comboBox1.DataSource = new BindingSource(accountDictionary, null);
+                comboBox1.DisplayMember = "Key";
+                comboBox1.ValueMember = "Value";
+
+                comboBox2.DataSource = new BindingSource(accountDictionary, null);
+                comboBox2.DisplayMember = "Key";
+                comboBox2.ValueMember = "Value";
+            }
+            else
+            {
+                // Handle the case when the account dictionary is empty or null
+                MessageBox.Show("The account dictionary is empty or null.", "Empty or Null Dictionary");
+            }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -122,6 +178,7 @@ namespace BankApplicationProjectLab.PageForms
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // account list
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -142,21 +199,57 @@ namespace BankApplicationProjectLab.PageForms
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             // dropdown own accounts (without from account)
+            // give list of accounts 
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            // name account holder
+            // firstname account holder
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            // account number
+            // lastname account holder
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             // date chooser
+        }
+
+        public Dictionary<string, string> GetAllAccountsOfUser(int userID)
+        {
+            Dictionary<string, string> accountDictionary = new Dictionary<string, string>();
+            People loggedInUser = People.Login(email, pin);
+            
+            Dictionary<string, double> savingsAccounts = SavingsAccount.OverviewSavingsAccount(userID);
+            Dictionary<string, double> currentAccounts = CurrentAccount.OverviewCurrentAccount(userID);
+
+            // Add savings accounts to accountDictionary
+            foreach (var account in savingsAccounts)
+            {
+                //string accountName = account.Key;
+                string betterAccountName = "Savings Account " + loggedInUser.FirstName;
+                string accountId = GetAccountIdFromName(accountName); //get account ID 
+                accountDictionary[betterAccountName] = accountId;
+            }
+
+            // Add current accounts to accountDictionary
+            foreach (var account in currentAccounts)
+            {
+                //string accountName = account.Key;
+                string betterAccountName = "Current Account " + loggedInUser.FirstName;
+                string accountId = GetAccountIdFromName(accountName); //get account ID 
+                accountDictionary[betterAccountName] = accountId;
+            }
+
+            return accountDictionary;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            // account id
         }
     }
 }

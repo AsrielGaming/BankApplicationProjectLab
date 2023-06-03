@@ -41,11 +41,9 @@ namespace BankApplicationProjectLab.PopupScreens
         {
             // Save changes
             People loggedInUser = People.Login(email, pin);
-            string updatedFirstname = textBox1.Text;
             User correctUser = (User)loggedInUser;
             //int loggedInUserUserId = correctUser.UserID;
 
-            string oldPin = textBox1.Text;
             string updatedPin = textBox2.Text;
             string updatedPinCheck = textBox3.Text;
 
@@ -53,14 +51,6 @@ namespace BankApplicationProjectLab.PopupScreens
             if (string.IsNullOrEmpty(updatedPin) || string.IsNullOrEmpty(updatedPinCheck) || !int.TryParse(updatedPin, out int updatedPinInt))
             {
                 MessageBox.Show("Invalid PIN. Please enter a numeric PIN.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // check if old pin is correct
-            bool answer = correctUser.IsPinEqual(updatedPinInt);
-            if (answer == false)
-            {
-                MessageBox.Show("Old PIN is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
