@@ -154,5 +154,16 @@ namespace BankApplicationProjectLab.Classes
             return existsInDatabase;
         }
 
+        // method to select all accounts from the user and return the accountID and name
+        // fucniton made in order to make transactions to own accounts possible
+        public static Dictionary<int, string> OverViewAllAccountsFromUser(int UserID)
+        {
+            Data data = new Data();
+
+            Dictionary<int, string> allAccountsFromUser = data.SelectAllAccountsFromUser(UserID);
+
+            return allAccountsFromUser;
+        }
+
     }
 }

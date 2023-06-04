@@ -625,6 +625,45 @@ namespace BankApplicationProjectLab.Classes
         }
 
 
+        // select all accounts from the user out of the database
+        public Dictionary<int, string> SelectAllAccountsFromUser(int UserID)
+        {
+            string query = $"SELECT * FROM `account` WHERE UserID = {UserID}";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            Dictionary<int, string> allAccountsFromUser = new Dictionary<int, string>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int ID = Convert.ToInt32(reader["ID"]);
+
+                    string accountName = (string)reader["Name"];
+
+                    
+
+                    allAccountsFromUser[ID] = accountName;
+                }
+                reader.Close();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
+            return allAccountsFromUser;
+
+        }
+
+
 
 
         //////////////////////////////////////////////     updating     //////////////////////////////////////////////////////

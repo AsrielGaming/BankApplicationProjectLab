@@ -370,6 +370,15 @@ namespace BankApplicationProjectLab
 
             //Console.WriteLine("exists: " + Account.CheckIfAccountExists("Rudolf", "Dolvus", 17));
 
+            /*Dictionary<int,string> allAccountsFromUser = Account.OverViewAllAccountsFromUser(14);
+
+            foreach(int key in allAccountsFromUser.Keys)
+            {
+                Console.WriteLine("key: " + key + " " + "name: " + allAccountsFromUser[key]);
+            }*/
+            
+            
+
 
         }
     }
