@@ -136,18 +136,27 @@ namespace BankApplicationProjectLab.PageForms
             DisplayTransactionHistory(OverviewTransactionsList.Take(2).ToList());
 
             //show the picture in the right top corner if there is a pp
-
-
             Image profilePic = correctUser.ShowProfilePic(correctUser);
             if (profilePic != null)
             {
                 pictureBox4.Image = profilePic;
             }
+            else
+            {
+                string defaultImagePath = Path.Combine("Images", "profileIcon.png");
+                if (File.Exists(defaultImagePath))
+                {
+                    Image defaultProfileIcon = Image.FromFile(defaultImagePath);
+                    pictureBox4.Image = defaultProfileIcon;
+                }
+                else
+                {
+                    MessageBox.Show("Profile icon image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+                // make any automatic payments that need to happen?
 
-
-            // make any automatic payments that need to happen?
-
-        }
+            }
 
         // method to display all the current accounts
         private void DisplayCurrentAccounts(Dictionary<string, double> CurrentAccounts)

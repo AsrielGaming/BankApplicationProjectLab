@@ -43,7 +43,7 @@ namespace BankApplicationProjectLab.PageForms
 
         private bool IsAllLetters(string value)
         {
-            return Regex.IsMatch(value, @"^[a-zA-Z]+$");
+            return Regex.IsMatch(value, @"^[a-zA-Z\s]+$");
         }
 
         private bool IsDouble(string value)
@@ -54,22 +54,20 @@ namespace BankApplicationProjectLab.PageForms
         private void button1_Click(object sender, EventArgs e)
         {
             // submit 
-
-            string accountHolder = textBox1.Text;
-            string accountName = textBox3.Text;
-            string startingBalance = textBox2.Text;
+            string accountName = textBox1.Text;
+            string startingBalance = textBox3.Text;
 
             //check dat niets leeg is
-            if (string.IsNullOrEmpty(accountHolder) || string.IsNullOrEmpty(accountName) || string.IsNullOrEmpty(startingBalance))
+            if (string.IsNullOrEmpty(accountName) || string.IsNullOrEmpty(startingBalance))
             {
                 MessageBox.Show("Please fill in all the fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             //check of names string zijn
-            if (!IsAllLetters(accountHolder) || !IsAllLetters(accountName))
+            if (!IsAllLetters(accountName))
             {
-                MessageBox.Show("First name and last name must contain only letters.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Account Name must be a string.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -84,25 +82,25 @@ namespace BankApplicationProjectLab.PageForms
             //aanmaken nieuw account
             Data data = new Data();
             People loggedInUser = People.Login(email, pin);
+            User correctUser = (User)loggedInUser;
+            int loggedInUserUserId = correctUser.UserID;;
 
-            string name = loggedInUser.FirstName + " " + loggedInUser.LastName;
-
-            //if (userId != -1)
-            //{
+            if (loggedInUserUserId != -1)
+            {
                 // Aanmaken default accounts
-                //data.InsertCurrentAccount(userId, name, 1000, true);
+                data.InsertCurrentAccount(loggedInUserUserId, accountName, 1000, true);
 
-                MessageBox.Show("User inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Account inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // redirect to homepage
                 this.Hide();
                 Homepage homepage = new Homepage(email, pin);
                 homepage.Show();
 
-            //}
-            //else
-            //{
-                //MessageBox.Show("Error occurred while inserting the user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Error occurred while inserting the account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void PopupCurrentAccount_FormClosed(object sender, FormClosedEventArgs e)
@@ -121,17 +119,12 @@ namespace BankApplicationProjectLab.PageForms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            // name account holder
+            // account name
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            // name account
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            // starting balance
+            // balance
         }
     }
 }

@@ -34,7 +34,7 @@ namespace BankApplicationProjectLab.PopupScreens
 
         private bool IsAllLetters(string value)
         {
-            return Regex.IsMatch(value, @"^[a-zA-Z]+$");
+            return Regex.IsMatch(value, @"^[a-zA-Z\s]+$");
         }
 
         private bool IsAllDigits(string value)

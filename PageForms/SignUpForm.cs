@@ -98,7 +98,7 @@ namespace BankApplicationProjectLab
 
         private bool IsAllLetters(string value)
         {
-            return Regex.IsMatch(value, @"^[a-zA-Z]+$");
+            return Regex.IsMatch(value, @"^[a-zA-Z\s]+$");
         }
 
         private bool IsAllDigits(string value)
@@ -153,13 +153,14 @@ namespace BankApplicationProjectLab
             Data data = new Data();
             int userId = data.InsertUser(firstname, lastname, pinValue, email);
 
-            string name = firstname + " " + lastname;
+            string nameCA = firstname + " CA";
+            string nameSA = firstname + " SA";
 
             if (userId != -1)
             {
                 // Aanmaken default accounts
-                data.InsertCurrentAccount(userId, name, 1000, true);
-                data.InsertSavingsAccount(userId, name, 1000, true);
+                data.InsertCurrentAccount(userId, nameCA, 1000, true);
+                data.InsertSavingsAccount(userId, nameSA, 1000, true);
 
                 MessageBox.Show("User inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Go to the login page

@@ -16,13 +16,12 @@ Alle huidige errors:
 
 Nog af te werken: 
 
-overview accounts tonen (userID)
+overview accounts tonen (userID) => pieter
 pop up current en savings account laten werken (userID)
-show more accounts
-transaction history + read more 
+show more accounts => pieter
+transaction history + read more  => pieter
 
 Accounts linken met transaction page + new transaction (userID)
-+ checken dat minstens 1 van de bovenste checkboxes is aangevinkt onderste is optioneel
 
 give useroverview + hoe laten we het uitbreiden (ook admin design aanpassen)
 

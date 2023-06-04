@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using Microsoft.VisualBasic.ApplicationServices;
@@ -59,6 +60,16 @@ namespace BankApplicationProjectLab.PageForms
             homepage.Show();
         }
 
+        private bool IsAllLetters(string value)
+        {
+            return Regex.IsMatch(value, @"^[a-zA-Z\s]+$");
+        }
+
+        private bool IsAllDigits(string value)
+        {
+            return Regex.IsMatch(value, @"^\d+$");
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             // Make transaction
@@ -79,15 +90,24 @@ namespace BankApplicationProjectLab.PageForms
             string accountHolderFirstname = textBox1.Text;
             string accountHolderLastname = textBox2.Text;
             string accountID = textBox3.Text;
+            int intAccountID = int.Parse(accountID);
 
             // Date Picker
             DateTime dateAutoPayment = dateTimePicker1.Value;
 
             // Balance
-            decimal numericUpDownBalance = numericUpDown1.Value;
+            decimal numericUpDownBalance;
 
             // Check correctness of all inputs
             bool isAutoTransaction = false;
+
+            bool exists = Account.CheckIfAccountExists(accountHolderFirstname, accountHolderLastname, intAccountID);
+
+            if (checkboxAutoPayment)
+            {
+                // Checkbox 3 is checked, set isAutoTransaction to true
+                isAutoTransaction = true;
+            }
 
             if (checkboxOwnAccount && dropdownToAccount == null)
             {
@@ -97,30 +117,40 @@ namespace BankApplicationProjectLab.PageForms
             {
                 MessageBox.Show("Please provide both the account holder's name and account ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (checkboxAutoPayment)
-            {
-                // Checkbox 3 is checked, set isAutoTransaction to true
-                isAutoTransaction = true;
-            }
             else if (dropdownFromAccount == dropdownToAccount)
             {
                 MessageBox.Show("You cannot send money to and from the same account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (!decimal.TryParse(numericUpDown1.Value.ToString(), out numericUpDownBalance))
+            {
+                //not a valid number
+                MessageBox.Show("The balance is not a valid number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsAllLetters(accountHolderFirstname) || !IsAllLetters(accountHolderLastname))
+            {
+                MessageBox.Show("First name and last name must contain only letters.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsAllDigits(accountID))
+            {
+                MessageBox.Show("Account ID must be an integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (exists == false)
+            {
+                MessageBox.Show("The Account you are trying to send money to doesn't exist in our database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                MessageBox.Show("Transaction cannot be performed with the given inputs.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                // Make the transaction happen + add to transactions 
+                if (isAutoTransaction)
+                {
+                    // Call auto-transaction function
 
-            // Make the transaction happen + add to transactions 
-            if (isAutoTransaction)
-            {
-                // Call auto-transaction function
-
-            }
-            else
-            {
-                // Call transaction function
-
+                }
+                else
+                {
+                    // Call transaction function
+                    //Account.NewTransaction(accountFromID, accountToID, amount);
+                }
             }
 
             // Go to homepage
@@ -150,24 +180,24 @@ namespace BankApplicationProjectLab.PageForms
             pictureBox4.Image = profilePic;
 
             // Give list of accounts
-            Dictionary<string, double> accountDictionary = GetAllAccountsOfUser(loggedInUserUserId);
+            //Dictionary<double, string> accountDictionary = GetAllAccountsOfUser(loggedInUserUserId);
 
-            if (accountDictionary != null && accountDictionary.Count > 0)
-            {
-                // Bind the account dictionary to comboBox1 and comboBox2
-                comboBox1.DataSource = new BindingSource(accountDictionary, null);
-                comboBox1.DisplayMember = "Key";
-                comboBox1.ValueMember = "Value";
+            //if (accountDictionary != null && accountDictionary.Count > 0)
+            //{
+            // Bind the account dictionary to comboBox1 and comboBox2
+            //    comboBox1.DataSource = new BindingSource(accountDictionary, null);
+            //    comboBox1.DisplayMember = "Key";
+            //    comboBox1.ValueMember = "Value";
 
-                comboBox2.DataSource = new BindingSource(accountDictionary, null);
-                comboBox2.DisplayMember = "Key";
-                comboBox2.ValueMember = "Value";
-            }
-            else
-            {
-                // Handle the case when the account dictionary is empty or null
-                MessageBox.Show("The account dictionary is empty or null.", "Empty or Null Dictionary");
-            }
+            //    comboBox2.DataSource = new BindingSource(accountDictionary, null);
+            //    comboBox2.DisplayMember = "Key";
+            //    comboBox2.ValueMember = "Value";
+            //}
+            //else
+            //{
+            // Handle the case when the account dictionary is empty or null
+            //    MessageBox.Show("The account dictionary is empty or null.", "Empty or Null Dictionary");
+            //}
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -218,34 +248,33 @@ namespace BankApplicationProjectLab.PageForms
             // date chooser
         }
 
-        public Dictionary<string, string> GetAllAccountsOfUser(int userID)
-        {
-            Dictionary<string, string> accountDictionary = new Dictionary<string, string>();
-            People loggedInUser = People.Login(email, pin);
-            
-            Dictionary<string, double> savingsAccounts = SavingsAccount.OverviewSavingsAccount(userID);
-            Dictionary<string, double> currentAccounts = CurrentAccount.OverviewCurrentAccount(userID);
+        //public Dictionary<double, string> GetAllAccountsOfUser(int userID)
+        //{
+        //    Dictionary<string, string> accountDictionary = new Dictionary<string, string>();
+        //    People loggedInUser = People.Login(email, pin);
 
-            // Add savings accounts to accountDictionary
-            foreach (var account in savingsAccounts)
-            {
-                //string accountName = account.Key;
-                string betterAccountName = "Savings Account " + loggedInUser.FirstName;
-                string accountId = GetAccountIdFromName(accountName); //get account ID 
-                accountDictionary[betterAccountName] = accountId;
-            }
+        //    Dictionary<string, double> savingsAccounts = SavingsAccount.OverviewSavingsAccount(userID);
+        //    Dictionary<string, double> currentAccounts = CurrentAccount.OverviewCurrentAccount(userID);
 
-            // Add current accounts to accountDictionary
-            foreach (var account in currentAccounts)
-            {
-                //string accountName = account.Key;
-                string betterAccountName = "Current Account " + loggedInUser.FirstName;
-                string accountId = GetAccountIdFromName(accountName); //get account ID 
-                accountDictionary[betterAccountName] = accountId;
-            }
+        // Add savings accounts to accountDictionary
+        //    foreach (var account in savingsAccounts)
+        //    {
+        //string accountName = account.Key;
+        //        string betterAccountName = "Savings Account " + loggedInUser.FirstName;
+        //        double accountId = GetAccountIdFromName(accountName); //get account ID 
+        //        accountDictionary[accountId] = betterAccountName;
+        //    }
 
-            return accountDictionary;
-        }
+        // Add current accounts to accountDictionary
+        //    foreach (var account in currentAccounts)
+        //    {
+        //string accountName = account.Key;
+        //        string betterAccountName = "Current Account " + loggedInUser.FirstName;
+        //        double accountId = GetAccountIdFromName(accountName); //get account ID 
+        //        accountDictionary[accountId] = betterAccountName;
+        //    }
+        //    return accountDictionary;
+        //}
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {

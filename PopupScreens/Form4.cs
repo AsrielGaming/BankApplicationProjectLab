@@ -33,7 +33,7 @@ namespace BankApplicationProjectLab.PopupScreens
 
         private bool IsAllLetters(string value)
         {
-            return Regex.IsMatch(value, @"^[a-zA-Z]+$");
+            return Regex.IsMatch(value, @"^[a-zA-Z\s]+$");
         }
 
         private void button2_Click(object sender, EventArgs e)
