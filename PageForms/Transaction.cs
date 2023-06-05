@@ -127,7 +127,7 @@ namespace BankApplicationProjectLab.PageForms
                 double numericUpDownBalance = 0.0;
                 int amountOfTimesInt = 0;
 
-                // Assign dummy data
+                //checks that always need to happen
                 if (comboBox1.SelectedValue == null || numericUpDown1.Value == 0)
                 {
                     MessageBox.Show("Please select an account and amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -139,28 +139,57 @@ namespace BankApplicationProjectLab.PageForms
                     return;
                 }
 
-                // Assign dummy data for checkbox 1
+                //checks for checkbox 1
                 if (checkBox1.Checked)
                 {
-                    selectedAccountIdFrom = 1; // Assign a dummy account ID
-                    selectedAccountIdTo = 2; // Assign a dummy account ID
+                    //gives error
+                    if (selectedAccountIdFrom == null || selectedAccountIdTo == null)
+                    {
+                        MessageBox.Show("Please select all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (selectedAccountIdFrom == selectedAccountIdTo)
+                    {
+                        MessageBox.Show("Please select a different account.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
-                // Assign dummy data for checkbox 2
+                //checks for checkbox 2
                 else if (checkBox2.Checked)
                 {
-                    accountHolderFirstname = "Test"; // Assign a dummy value
-                    accountHolderLastname = "User"; // Assign a dummy value
-                    accountID = "12345"; // Assign a dummy value
-                    int.TryParse(accountID, out intAccountID);
+                    if (checkboxOtherAccount && (string.IsNullOrEmpty(accountHolderFirstname) || string.IsNullOrEmpty(accountHolderLastname) || string.IsNullOrEmpty(accountID)))
+                    {
+                        MessageBox.Show("Please provide values for all three textboxes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (!IsAllLetters(accountHolderFirstname) || !IsAllLetters(accountHolderLastname))
+                    {
+                        MessageBox.Show("First and lastname must be strings.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (checkboxOtherAccount && !int.TryParse(accountID, out intAccountID))
+                    {
+                        MessageBox.Show("Account ID must be a number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
-                // Assign dummy data for checkbox 3
+                //checks for checkbox 3
                 if (checkBox3.Checked)
                 {
-                    amountOfTimesInt = 5; // Assign a dummy value
+                    if (checkboxAutoPayment && comboBox3.SelectedValue == null)
+                    {
+                        MessageBox.Show("Please select how much you'd like to repeat this transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (checkboxAutoPayment && !int.TryParse(comboBox3.SelectedValue.ToString(), out amountOfTimesInt))
+                    {
+                        MessageBox.Show("Please enter a valid numeric value for the amount of times.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
-                // Make the transaction happen + add to transactions
+                // Make the transaction happen + add to transactions 
                 if (isAutoTransaction)
                 {
                     // Call auto-transaction function
