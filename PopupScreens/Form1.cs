@@ -13,9 +13,14 @@ namespace BankApplicationProjectLab.PopupScreens
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private string email;
+        private int pin;
+        public Form1(string email, int pin)
         {
             InitializeComponent();
+
+            this.email = email;
+            this.pin = pin;
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

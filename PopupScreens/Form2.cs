@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -11,11 +12,17 @@ using System.Windows.Forms;
 
 namespace BankApplicationProjectLab.PopupScreens
 {
+    
     public partial class Form2 : Form
     {
-        public Form2()
+        private string email;
+        private int pin;
+        public Form2(string email, int pin)
         {
             InitializeComponent();
+
+            this.email = email;
+            this.pin = pin;
         }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
@@ -40,6 +47,11 @@ namespace BankApplicationProjectLab.PopupScreens
             this.Hide();
             AdminControls adminControls = new AdminControls();
             adminControls.Show();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

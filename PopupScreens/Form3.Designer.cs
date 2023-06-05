@@ -145,6 +145,7 @@
             Name = "Form3";
             StartPosition = FormStartPosition.CenterScreen;
             FormClosed += Form3_FormClosed;
+            Load += Form3_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();

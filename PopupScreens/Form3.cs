@@ -80,5 +80,10 @@ namespace BankApplicationProjectLab.PopupScreens
         {
             //firstname
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -189,6 +189,7 @@
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             FormClosed += Form2_FormClosed;
+            Load += Form2_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel11.ResumeLayout(false);

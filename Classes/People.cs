@@ -84,5 +84,15 @@ namespace Project_InspirationLab_2023.Classes
             data.MakeUserAccountInActive(user.UserID);
         }
 
+        // function to return all info about users in the database, in order to show an overview in admin controls
+        public static List<Tuple<int, string, string, int, string, bool>> GetAllUsers()
+        {
+            Data data = new Data();
+
+            List<Tuple<int, string, string, int, string, bool>> allUsersFromDatabase = data.SelectUserOverview();
+
+            return allUsersFromDatabase;
+        }
+
     }
 }
