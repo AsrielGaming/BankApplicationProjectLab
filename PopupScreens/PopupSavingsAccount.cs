@@ -84,7 +84,7 @@ namespace BankApplicationProjectLab.PopupScreens
             if (loggedInUserUserId != -1)
             {
                 // Aanmaken default accounts
-                data.InsertSavingsAccount(loggedInUserUserId, accountName, 1000, true);
+                data.InsertSavingsAccount(loggedInUserUserId, accountName, balanceValue, true);
 
                 MessageBox.Show("Account inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // redirect to homepage
