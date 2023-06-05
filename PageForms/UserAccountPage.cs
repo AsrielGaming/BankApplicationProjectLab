@@ -115,10 +115,26 @@ namespace BankApplicationProjectLab.PageForms
             label7.Text = loggedInUser.LastName;
             label8.Text = email;
 
-            // show profile picture
+            //show the picture in the right top corner if there is a pp
             Image profilePic = correctUser.ShowProfilePic(correctUser);
-            pictureBox3.Image = profilePic;
-            pictureBox4.Image = profilePic;
+            if (profilePic != null)
+            {
+                pictureBox3.Image = profilePic;
+                pictureBox4.Image = profilePic;
+            }
+            else
+            {
+                string defaultImagePath = Path.Combine("Images", "profileIcon.png");
+                if (File.Exists(defaultImagePath))
+                {
+                    Image defaultProfileIcon = Image.FromFile(defaultImagePath);
+                    pictureBox4.Image = defaultProfileIcon;
+                }
+                else
+                {
+                    MessageBox.Show("Profile icon image not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
         }
 

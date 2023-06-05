@@ -13,16 +13,11 @@ Oplossing:
 
 Alle huidige errors:
 
+Transcation page geeft errors!!!!!!!!!
 
 Nog af te werken: 
 
-overview accounts tonen (userID) => pieter
-pop up current en savings account laten werken (userID)
-show more accounts => pieter
-transaction history + read more  => pieter
-
-Accounts linken met transaction page + new transaction (userID)
-
+Admin page
 give useroverview + hoe laten we het uitbreiden (ook admin design aanpassen)
 
 Afgewerkt: 
